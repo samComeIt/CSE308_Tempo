@@ -15,22 +15,22 @@ Kyu Hee is a designer and a product owner.
 
 Website Link
 -------------
-https://tempo-igc.herokuapp.com/
+- https://tempo-igc.herokuapp.com/
 
 Operating System
 ------------------
-Windows
+- Windows
 
 Programs to install/make accounts
 ----------------------------------
-Make a Heroku account (We will invite you to our team, ‘tempo’)
-Download and install Heroku CLI (https://devcenter.heroku.com/articles/getting-started-with-php#set-up)
-Download and install PHP 7.3 (https://windows.php.net/download#php-7.3)
-Download and install Git 2.23.0 (https://git-scm.com/downloads)
-Download and install Composer 1.9.0 (https://getcomposer.org/download/)
-Download and install any IDE that you prefer (e.x Brackets, Visual Studio)
-Make a GitHub account (We will invite you to our repository)
-Download and install MySQL Workbench 8.0.18 (https://dev.mysql.com/downloads/workbench/)
+- Make a Heroku account (We will invite you to our team, ‘tempo’)
+- Download and install Heroku CLI (https://devcenter.heroku.com/articles/getting-started-with-php#set-up)
+- Download and install PHP 7.3 (https://windows.php.net/download#php-7.3)
+- Download and install Git 2.23.0 (https://git-scm.com/downloads)
+- Download and install Composer 1.9.0 (https://getcomposer.org/download/)
+- Download and install any IDE that you prefer (e.x Brackets, Visual Studio)
+- Make a GitHub account (We will invite you to our repository)
+- Download and install MySQL Workbench 8.0.18 (https://dev.mysql.com/downloads/workbench/)
 
 The Latest Product Version Source Code
 ---------------------------------------
@@ -38,37 +38,36 @@ The source code for the latest version of the application is in the ‘master’
 
 How to Connect to our Database Server
 -------------------------------------
-Make a new MySQL Connection from MySQL Workbench with the following configuration
-Connection name: tempo
-Hostname: us-cdbr-iron-east-05.cleardb.net
-Username: b7784c7eb8ce5c
-Password: 2db26ace (Store in Vault)
-Click the ‘Test Connection’ button
-If the connection is successful, the developer will be able to see our database
+- Make a new MySQL Connection from MySQL Workbench with the following configuration
+  - Connection name: tempo
+  - Hostname: us-cdbr-iron-east-05.cleardb.net
+  - Username: b7784c7eb8ce5c
+  - Password: 2db26ace (Store in Vault)
+- Click the ‘Test Connection’ button
+- If the connection is successful, the developer will be able to see our database
 
 How to Test in your Local Machine
 ----------------------------------
-Download the file from github or go to your GitHub file directory
-Inside the project directory, write ‘php artisan serve’ on command prompt (cmd)
-If it does not work, it is because the vendor file and the .env file are missing
-Write ‘composer update’ on the command prompt
-Write ‘composer install’ on the command prompt
-Make a .env file in your project file, ‘echo. 2>.env’. 
-Copy the codes from the .env.example file and paste it to the .env file
-Write ‘php artisan key:generate’ on the command prompt
-Write ‘php artisan serve’ on the command prompt
-Go to Chrome and write the line from the command prompt after “Laravel development server started:” http://127.0.0.1:8000
-
+- Download the file from github or go to your GitHub file directory
+- Inside the project directory, write ‘php artisan serve’ on command prompt (cmd)
+- If it does not work, it is because the vendor file and the .env file are missing
+  - Write ‘composer update’ on the command prompt
+  - Write ‘composer install’ on the command prompt
+  - Make a .env file in your project file, ‘echo. 2>.env’. 
+  - Copy the codes from the .env.example file and paste it to the .env file
+  - Write ‘php artisan key:generate’ on the command prompt
+  - Write ‘php artisan serve’ on the command prompt
+- Go to Chrome and write the line from the command prompt after “Laravel development server started:” http://127.0.0.1:8000
 
 How to Deploy a New Version of Product
 --------------------------------------
-Commit ready-to-deploy files to the GitHub ‘master’ branch
-Click ‘tempo-igc’ on Heroku
-Go to Deploy tab
-Check Deployment method: connected to GitHub
-On ‘Manual Deploy’, click ‘Deploy Branch’
-Heroku builds the selected branch automatically
-By clicking ‘View’, the developer can check the deployed application
+- Commit ready-to-deploy files to the GitHub ‘master’ branch
+- Click ‘tempo-igc’ on Heroku
+- Go to Deploy tab
+- Check Deployment method: connected to GitHub
+- On ‘Manual Deploy’, click ‘Deploy Branch’
+- Heroku builds the selected branch automatically
+- By clicking ‘View’, the developer can check the deployed application
 
 Bug Tracking System
 ---------------------
