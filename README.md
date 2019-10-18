@@ -58,6 +58,10 @@ How to Test in your Local Machine
   - Write ‘php artisan key:generate’ on the command prompt
   - Write ‘php artisan serve’ on the command prompt
 - Go to Chrome and write the line from the command prompt after “Laravel development server started:” http://127.0.0.1:8000
+<div>
+   <img width= 400 src="https://github.com/samComeIt/CSE308/blob/master/phpartisanserve.PNG">
+   <img width= 400 src="https://github.com/samComeIt/CSE308/blob/master/Laravel.PNG">
+</div>
 
 How to Deploy a New Version of Product
 --------------------------------------
