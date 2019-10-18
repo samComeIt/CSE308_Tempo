@@ -13,13 +13,16 @@ Kyu Hee is a designer and a product owner.
 
 # Tempo Milestone 1
 
-[Website Link]
+Website Link
+-------------
 https://tempo-igc.herokuapp.com/
 
-[Operating System]
+Operating System
+------------------
 Windows
 
 Programs to install/make accounts
+----------------------------------
 Make a Heroku account (We will invite you to our team, ‘tempo’)
 Download and install Heroku CLI (https://devcenter.heroku.com/articles/getting-started-with-php#set-up)
 Download and install PHP 7.3 (https://windows.php.net/download#php-7.3)
@@ -30,9 +33,11 @@ Make a GitHub account (We will invite you to our repository)
 Download and install MySQL Workbench 8.0.18 (https://dev.mysql.com/downloads/workbench/)
 
 The Latest Product Version Source Code
+---------------------------------------
 The source code for the latest version of the application is in the ‘master’ branch of our GitHub repository: “samComeIt/CSE308”
 
 How to Connect to our Database Server
+-------------------------------------
 Make a new MySQL Connection from MySQL Workbench with the following configuration
 Connection name: tempo
 Hostname: us-cdbr-iron-east-05.cleardb.net
@@ -42,6 +47,7 @@ Click the ‘Test Connection’ button
 If the connection is successful, the developer will be able to see our database
 
 How to Test in your Local Machine
+----------------------------------
 Download the file from github or go to your GitHub file directory
 Inside the project directory, write ‘php artisan serve’ on command prompt (cmd)
 If it does not work, it is because the vendor file and the .env file are missing
@@ -55,6 +61,7 @@ Go to Chrome and write the line from the command prompt after “Laravel develop
 
 
 How to Deploy a New Version of Product
+--------------------------------------
 Commit ready-to-deploy files to the GitHub ‘master’ branch
 Click ‘tempo-igc’ on Heroku
 Go to Deploy tab
@@ -64,4 +71,5 @@ Heroku builds the selected branch automatically
 By clicking ‘View’, the developer can check the deployed application
 
 Bug Tracking System
+---------------------
 We will use ‘GitHub Issues’ for keeping track of bugs
