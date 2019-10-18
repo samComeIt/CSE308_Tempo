@@ -15,11 +15,11 @@ Kyu Hee is a designer and a product owner.
 
 Website Link
 -------------
-- https://tempo-igc.herokuapp.com/
+https://tempo-igc.herokuapp.com/
 
 Operating System
 ------------------
-- Windows
+Windows
 
 Programs to install/make accounts
 ----------------------------------
