@@ -19,7 +19,7 @@ https://tempo-igc.herokuapp.com/
 
 Operating System
 ------------------
-Windows
+- Windows
 
 Programs to install/make accounts
 ----------------------------------
@@ -34,11 +34,12 @@ Programs to install/make accounts
 
 The Latest Product Version Source Code
 ---------------------------------------
-The source code for the latest version of the application is in the ‘master’ branch of our GitHub repository: “samComeIt/CSE308”
+- The source code for the latest version of the application is in the ‘master’ branch of our GitHub repository: “samComeIt/CSE308”
 
 How to Connect to our Database Server
 -------------------------------------
-- Make a new MySQL Connection from MySQL Workbench with the following configuration
+- Open MySQL Workbench
+- Set a new Connection with the following configuration
   - Connection name: tempo
   - Hostname: us-cdbr-iron-east-05.cleardb.net
   - Username: b7784c7eb8ce5c
@@ -48,15 +49,15 @@ How to Connect to our Database Server
 
 How to Test in your Local Machine
 ----------------------------------
-- Download the file from github or go to your GitHub file directory
-- Inside the project directory, write ‘php artisan serve’ on command prompt (cmd)
+- Download the file from GitHub or go to your GitHub file directory
+- Inside the project directory, open a command prompt (cmd) and run ‘php artisan serve’
 - If it does not work, it is because the vendor file and the .env file are missing
-  - Write ‘composer update’ on the command prompt
-  - Write ‘composer install’ on the command prompt
+  - Run ‘composer update’ on the command prompt
+  - Run ‘composer install’ on the command prompt
   - Make a .env file in your project file, ‘echo. 2>.env’. 
   - Copy the codes from the .env.example file and paste it to the .env file
-  - Write ‘php artisan key:generate’ on the command prompt
-  - Write ‘php artisan serve’ on the command prompt
+  - Run ‘php artisan key:generate’ on the command prompt
+  - Run ‘php artisan serve’ on the command prompt
 - Go to Chrome and write the line from the command prompt after “Laravel development server started:” http://127.0.0.1:8000
 <div>
    <img width= 400 src="https://github.com/samComeIt/CSE308/blob/master/phpartisanserve.PNG">
@@ -66,13 +67,16 @@ How to Test in your Local Machine
 How to Deploy a New Version of Product
 --------------------------------------
 - Commit ready-to-deploy files to the GitHub ‘master’ branch
-- Click ‘tempo-igc’ on Heroku
+- Go to Heroku and select our team 'tempo'
+- Select our application 'tempo-igc'
 - Go to Deploy tab
-- Check Deployment method: connected to GitHub
-- On ‘Manual Deploy’, click ‘Deploy Branch’
+- Set Deployment method: 'GitHub'
+  - You should be able to see 'Connected to samComeIt/CSE308'
+  - If not, please contact our team
+- Find ‘Manual Deploy’, choose 'master' branch, and click ‘Deploy Branch’
 - Heroku builds the selected branch automatically
 - By clicking ‘View’, the developer can check the deployed application
 
 Bug Tracking System
 ---------------------
-We will use ‘GitHub Issues’ for keeping track of bugs
+- We will use ‘GitHub Issues’ for keeping track of bugs
