@@ -19,7 +19,7 @@
                         <td>Status</td>
                     </thead>
                     <tbody>
-                        @foreach ($allfacilities as $facility)
+                        @foreach ($allFacilities as $facility)
                             <tr>
                                 <td>{{ $facility->Name }}</td>
                                 <td class="inner-table">{{ $facility->Location }}</td>

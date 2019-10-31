@@ -8,6 +8,8 @@
         <div class="flex-center position-ref full-height">
             <div class="content">
                 <form method="POST" action="/facility">
+                    @csrf
+                    
                     <h1> Enter Details to create a facility</h1>
                     <div class="form-input">
                         <label>Name</label> <input type="text" name="Name">

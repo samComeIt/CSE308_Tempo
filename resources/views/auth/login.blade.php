@@ -90,9 +90,9 @@
                     <div class="content">
                         <div class="title m-b-md">Facility</div>
                         <div class="links">
-                            <a href="{{ route('facility/create') }}">Create Facility</a>
-                            <a href="{{ route('facility/create') }}">Create Facility</a>
-                            <a href="{{ route('facility/') }}">View Facility</a>
+                            <a href="/facility/create">Create Facility</a>
+                            
+                            <a href="facility/">View Facility</a>
                         </div>
                     </div>
                 </div>
