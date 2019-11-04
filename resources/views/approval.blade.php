@@ -9,12 +9,10 @@
         </header>
     </div>
 
+
     <div class="inner">
-      <a href="/approval/create">Create Facility</a>
-        </div>
-    <div class="inner">
-        <a href="/approval/create" class="button primary">Create Facility</a>
-        </div>
+        <a href="/approval/create" class="button large">Create Facility</a>
+    </div>
 
         <div class="inner">
         <h2>Dorm A</h2>
@@ -34,14 +32,12 @@
                 @method('DELETE')
                 <td><button type="submit" class="btn btn-danger">Delete</button>   </td>
                 </tr>
-
-
-
                 @endif
             @endforeach
             </tbody>
         </table>
     </div>
+
     <div class="inner">
         <h2>Dorm B</h2>
         <table>
