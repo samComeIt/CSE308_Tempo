@@ -67,7 +67,7 @@ class FacilityController extends Controller
 
     $facilities = \App\Facility::where('Facility_ID', $id)->get();
 
-            return view('showfacility',compact('facilities'));
+            return view('showfacility',compact('facility'));
 
     }
 
@@ -82,7 +82,7 @@ class FacilityController extends Controller
 
     $facilities = \App\Facility::where('Facility_ID', $id)->get();
 
-            return view('editfacility',compact('facilities'));
+            return view('editfacility',compact('facility'));
 
     }
 

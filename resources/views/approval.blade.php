@@ -17,7 +17,7 @@
         <div class="inner">
         <h2>Dorm A</h2>
         <table>
-            <thead>
+            <thead> 
             <td>Name</td>
             <td>Action</td>
 
@@ -31,7 +31,7 @@
                 @csrf
                 @method('DELETE')
                 <td><button type="submit" class="btn btn-danger">Delete</button>   </td>
-                </tr>
+                </tr></form>
                 @endif
             @endforeach
             </tbody>
@@ -56,7 +56,7 @@
                     @csrf
                     @method('DELETE')
                     <td><button type="submit" class="btn btn-danger">Delete</button>   </td>
-                </tr>
+                </tr></form>
                     @endif
             @endforeach
             </tbody>
