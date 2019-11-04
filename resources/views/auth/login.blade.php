@@ -13,7 +13,7 @@
                     @csrf
                     <div class="content">
                         <div class="content" style="padding:0px">
-                            <label for="email" style="font-size: 100%">
+                            <label for="email" style="font-size: 120%">
                             {{ __('EMAIL') }}
                             </label>
                             <div class="content" style="padding:0px">
@@ -21,7 +21,7 @@
                             </div>
                         </div>
                         <div class="content" style="padding:0px">
-                            <label for="password" style="font-size: 100%">
+                            <label for="password" style="font-size: 120%">
                             {{ __('PASSWORD') }}
                             </label>
                             <div class="content" style="padding:0px">
