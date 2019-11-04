@@ -1,4 +1,4 @@
- @extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
 <section class="wrapper">
@@ -9,12 +9,10 @@
         </header>
     </div>
 
+
     <div class="inner">
-      <a href="/approval/create">Create Facility</a>
-        </div>
-    <div class="inner">
-        <a href="/approval/create" class="button primary">Create Facility</a>
-        </div>
+        <a href="/approval/create" class="button large">Create Facility</a>
+    </div>
 
         <div class="inner">
         <h2>Dorm A</h2>
@@ -32,16 +30,15 @@
                 <td>{{ $facility->Name }}</td>
                 @csrf
                 @method('DELETE')
-                <td><button type="submit" class="btn btn-danger">Select</button>   </td>
+                <td><button type="submit" class="btn btn-danger">Delete</button>   </td>
                 </tr>
-
-
-
                 @endif
             @endforeach
+            </form>
             </tbody>
         </table>
     </div>
+
     <div class="inner">
         <h2>Dorm B</h2>
         <table>
@@ -59,10 +56,11 @@
                     <td>{{ $facility->Name }}</td>
                     @csrf
                     @method('DELETE')
-                    <td><button type="submit" class="btn btn-danger">Select</button>   </td>
+                    <td><button type="submit" class="btn btn-danger">Delete</button>   </td>
                 </tr>
                     @endif
             @endforeach
+            </form>
             </tbody>
         </table>
     </div>
