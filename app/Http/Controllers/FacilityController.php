@@ -1,11 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 
 class FacilityController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -15,8 +19,8 @@ class FacilityController extends Controller
     {
         //
         $facilities = \App\Facility::all();
-        
-        return view('viewfacility', ['allFacilities' => $facilities]);
+
+        return view('approval', ['allFacilities' => $facilities]);
     }
 
     /**
@@ -27,7 +31,7 @@ class FacilityController extends Controller
     public function create()
     {
         //
-        return view('createFacility');
+        return view('createfacility');
     }
 
     /**
@@ -45,11 +49,11 @@ class FacilityController extends Controller
             'Location' => $request->get('Location'),
             'Type' => $request->get('Type'),
             'Capacity' => $request->get('Capacity'),
-            'Picture' => $request->get('Picture'),
+            'Picture'=> $request->get('Picture'),
             'Status' => $request->get('Status'),
         ]);
-        
-        return redirect('/facility');
+
+        return redirect('approval');
     }
 
     /**
@@ -59,8 +63,12 @@ class FacilityController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+     {
+
+    $facilities = \App\Facility::where('Facility_ID', $id)->get();
+
+            return view('showfacility',compact('facilities'));
+
     }
 
     /**
@@ -71,7 +79,11 @@ class FacilityController extends Controller
      */
     public function edit($id)
     {
-        //
+
+    $facilities = \App\Facility::where('Facility_ID', $id)->get();
+
+            return view('editfacility',compact('facilities'));
+
     }
 
     /**
@@ -82,18 +94,53 @@ class FacilityController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
-    }
+        {
+       $request->validate([
+                   'Name' =>'required',
+                   'Category' =>'required',
+                   'Location' =>'required',
+                   'Type' =>'required',
+                   'Capacity' =>'required',
 
+                   'Status' =>'required',
+               ]);
+
+               $update = [
+               'Name' => $request->Name,
+               'Category' => $request->Category,
+               'Location' => $request->Location,
+               'Type' => $request->Type,
+               'Capacity' => $request->Capacity,
+               'Picture' => $request->Picture,
+               'Status' => $request->Status,
+               ];
+               \App\Facility::where('Facility_ID',$id)->update($update);
+
+        return redirect('/facility')->with('success', 'Facility has been updated!!');
+    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+     public function updateFacility($data)
+     {
+             $facility = $this->find($data['Facility_ID']);
+             $facility->Name = $data['Name'];
+             $facility->Category = $data['Category'];
+             $facility->Location = $data['Location'];
+             $facility->Type = $data['Type'];
+             $facility->Capacity = $data['Capacity'];
+             $facility->Picture = $data['Picture'];
+             $facility->Status = $data['Status'];
+             $facility->save();
+             return 1;
+     }
     public function destroy($id)
     {
-        //
+        $facilities = \App\Facility::find($id);
+        $facilities -> delete();
+       return redirect('/approval');
     }
 }

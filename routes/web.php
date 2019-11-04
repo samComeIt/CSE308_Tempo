@@ -24,3 +24,4 @@ Route::resource('/facility', 'FacilityController');
 Route::get('/approval', function () {
     return view('approval');
 });
+Route::resource('/approval', 'FacilityController');
