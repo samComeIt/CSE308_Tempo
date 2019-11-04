@@ -17,5 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/facility', 'FacilityController');
+
+Route::get('/approval', function () {
+    return view('approval');
+});
