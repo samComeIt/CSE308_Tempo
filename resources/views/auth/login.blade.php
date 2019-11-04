@@ -21,7 +21,7 @@
                 <form method="post" action="{{ route('login') }}">
                     @csrf
                     
-                    <div class="header">
+                    <div class="row">
                         <label for="email" style="font-size: 100%">
                         {{ __('EMAIL') }}
                         </label>
@@ -29,7 +29,7 @@
                             <input type="email" name="email" id="email" value="" placeholder="Email" />
                         </div>
                         
-                        <label for="email" style="font-size: 100%">
+                        <label for="password" style="font-size: 100%">
                         {{ __('PASSWORD') }}
                         </label>
                         <div class="content">
