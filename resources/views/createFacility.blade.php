@@ -1,4 +1,4 @@
-@extends('layouts.app')
+
 
 @section('content')
 
@@ -9,12 +9,11 @@
             <h1>Create Facility</h1>
         </header>
     </div>
-    <body>
         <div class="flex-center position-ref full-height">
-            <div class="inner">
+            <div class="content">
                 <form method="POST" action="/approval">
                     @csrf
-
+                    <h1> Enter Details to create a facility</h1>
                     <div class="form-input">
                         <label>Name</label> <input type="text" name="Name">
                     </div>
@@ -57,7 +56,5 @@
                 </form>
             </div>
         </div>
-    </body>
 </section>
-
 @endsection

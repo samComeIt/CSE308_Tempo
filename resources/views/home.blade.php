@@ -39,7 +39,7 @@
                     <nav style="float: left; width: 20%; padding: 80px; margin-left: 160px; margin-top: 130px; text-align: center;  border-style: solid; border-width: 5px; font-family:'Didact Gothic', sans-serif;">
                         <a href="/approval"; style="font-size:200%" class="button large">Approval</a>
                     </nav>
-
+                        <div class="col-6 col-12-xsmall"> <a href="/approval"; style="font-size:200%" class="button large">Approval</a></div>
 
                     <nav style="float: right; padding: 80px; width: 20%; background-color: white; border-radius: 15px; margin-right: 160px; margin-top: 130px; text-align: center; color: #13136b; border-style: solid; border-width: 5px; font-family:'Didact Gothic', sans-serif;">
                         <a href="#"; style="font-size:200%"; class="button large">Open</a>

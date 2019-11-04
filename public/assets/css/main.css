@@ -466,13 +466,13 @@ input[type="radio"] {
       border: solid 1px;
       content: '';
       display: inline-block;
-      height: 1.95rem;
+      height: 1.3rem;
       left: 0;
-      line-height: 1.86875rem;
+      line-height: 1.1rem;
       position: absolute;
       text-align: center;
-      top: -0.1625rem;
-      width: 1.95rem; }
+      /*top: -0.1625rem;*/
+      width: 1.3rem; }
   input[type="checkbox"]:checked + label:before,
   input[type="radio"]:checked + label:before {
     content: '\f00c'; }
@@ -534,13 +534,13 @@ input[type="radio"] + label {
     border-color: rgba(0, 0, 0, 0.25); }
 input[type="checkbox"]:checked + label:before,
 input[type="radio"]:checked + label:before {
-  background-color: #ce1b28;
-  border-color: #ce1b28;
+  background-color: #13136b;
+  border-color: #13136b;
   color: #ffffff; }
 input[type="checkbox"]:focus + label:before,
 input[type="radio"]:focus + label:before {
-  border-color: #ce1b28;
-  box-shadow: 0 0 0 1px #ce1b28; }
+  border-color: #13136b;
+  box-shadow: 0 0 0 1px #13136b; }
 
 ::-webkit-input-placeholder {
   color: #bbbbbb !important; }
@@ -1089,7 +1089,7 @@ ul.actions {
 .row > .off-11 {
   margin-left: 91.6666666667%; }
 .row > .col-12 {
-  width: 100%; }
+  width: 50%; }
 .row > .off-12 {
   margin-left: 100%; }
 .row.gtr-0 {
@@ -2443,6 +2443,7 @@ body {
     padding: 0 0.75rem;
     text-decoration: none; }
     #header > nav > a:hover {
+      background-color: #3e5ead;
       color: #ffffff; }
     #header > nav > a[href="#menu"] {
       text-decoration: none;
@@ -2667,6 +2668,7 @@ body {
   border-radius: 4px;
   margin-bottom: 2rem;
   padding: 1rem; }
+  padding: 3rem; }
   @media screen and (max-width: 980px) {
     #main .content {
       padding: 2rem; } }
