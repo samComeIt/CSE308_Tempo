@@ -27,12 +27,12 @@
             <tbody>
             @foreach ($allFacilities as $facility)
             @if ($facility->Location == "DormA" && $facility->Type == "Approval")
-            <form action="{{ route('facility.destroy',$facility->Facility_ID) }}" method="POST">
+            <form action="{{ route('facility.show',$facility->Facility_ID) }}" method="POST">
             <tr>
                 <td>{{ $facility->Name }}</td>
                 @csrf
                 @method('DELETE')
-                <td><button type="submit" class="btn btn-danger">Select</button>   </td>
+                <td><button type="submit" class="btn btn-danger">Delete</button>   </td>
                 </tr>
 
 
@@ -54,12 +54,12 @@
             <tbody>
             @foreach ($allFacilities as $facility)
             @if ($facility->Location == "DormB" && $facility->Type == "Approval")
-            <form action="{{ route('facility.destroy',$facility->Facility_ID) }}" method="POST">
+            <form action="{{ route('facility.show',$facility->Facility_ID) }}" method="POST">
                 <tr>
                     <td>{{ $facility->Name }}</td>
                     @csrf
                     @method('DELETE')
-                    <td><button type="submit" class="btn btn-danger">Select</button>   </td>
+                    <td><button type="submit" class="btn btn-danger">Delete</button>   </td>
                 </tr>
                     @endif
             @endforeach
