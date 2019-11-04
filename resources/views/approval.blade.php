@@ -17,7 +17,7 @@
         <div class="inner">
         <h2>Dorm A</h2>
         <table>
-            <thead> 
+            <thead>
             <td>Name</td>
             <td>Action</td>
 
@@ -29,6 +29,7 @@
             <tr>
                 <td>{{ $facility->Name }}</td>
                 @csrf
+                <td><a href="{{ route('facility.show',$facility->Facility_ID) }}" class="button">Show</a></td>
                 @method('DELETE')
                 <td><button type="submit" class="btn btn-danger">Delete</button>   </td>
                 </tr></form>
@@ -55,6 +56,7 @@
                 <tr>
                     <td>{{ $facility->Name }}</td>
                     @csrf
+                    <td><a href="{{ route('facility.show',$facility->Facility_ID) }}" class="button">Show</a></td>
                     @method('DELETE')
                     <td><button type="submit" class="btn btn-danger">Delete</button>   </td>
                 </tr></form>

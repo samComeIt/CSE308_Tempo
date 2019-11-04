@@ -1,16 +1,17 @@
-  <!doctype html>
-    <html lang="{{ app()->getLocale() }}">
-    <head>
-        <title>View Facility | Facilities</title>
-        <!-- Styles etc. -->
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-          
-            
-            <div class="content">
-                <h1>Here's a list of available facilities</h1>
-                <table>
+@extends('layouts.app')
+
+@section('content')
+<section class="wrapper">
+    <div class="inner">
+        <header class="special">
+
+            <h1>Show Facility</h1>
+        </header>
+    </div>
+
+
+    <div class="inner">
+                       <table>
                     <thead>
                         <td>Name</td>
                         <td>Location</td>
@@ -22,7 +23,7 @@
                         <td>Action</td>
                     </thead>
                     <tbody>
-                        
+
                         @foreach ($facilities as $facility)
                          <form action="{{ route('facility.destroy',$facility->Facility_ID) }}" method="POST">
                             <tr>
@@ -34,19 +35,18 @@
                                 <td class="inner-table">{{ $facility->Picture }}</td>
                                 <img class="inner-table" src="{{url('uploads/'.$facility->Picture)}}" alt="{{$facility->Picture}}">
                                 <td class="inner-table">{{ $facility->Status }}</td>
-                               <td><a class="btn btn-primary" href="{{ route('facility.edit',$facility->Facility_ID) }}" method="GET">Edit</a></td>
-   
+                                <td><a href="{{ route('facility.edit',$facility->Facility_ID) }}" class="button">Edit</a></td>
+
                     @csrf
                     @method('DELETE')
                           <td><button type="submit" class="btn btn-danger">Delete</button>   </td>
-                             
-                             </tr>            
+
+                             </tr>
                     @endforeach
                               </form>
                     </tbody>
                 </table>
             </div>
-         
-        </div>
-    </body>
-    </html>
+
+</section>
+@endsection
