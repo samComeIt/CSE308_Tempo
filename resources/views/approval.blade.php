@@ -1,4 +1,4 @@
- @extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
 <section class="wrapper">
@@ -25,7 +25,7 @@
             <tbody>
             @foreach ($allFacilities as $facility)
             @if ($facility->Location == "DormA" && $facility->Type == "Approval")
-            <form action="{{ route('facility.show',$facility->Facility_ID) }}" method="POST">
+            <form action="{{ route('facility.destroy',$facility->Facility_ID) }}" method="POST">
             <tr>
                 <td>{{ $facility->Name }}</td>
                 @csrf
@@ -34,6 +34,7 @@
                 </tr>
                 @endif
             @endforeach
+            </form>
             </tbody>
         </table>
     </div>
@@ -50,7 +51,7 @@
             <tbody>
             @foreach ($allFacilities as $facility)
             @if ($facility->Location == "DormB" && $facility->Type == "Approval")
-            <form action="{{ route('facility.show',$facility->Facility_ID) }}" method="POST">
+            <form action="{{ route('facility.destroy',$facility->Facility_ID) }}" method="POST">
                 <tr>
                     <td>{{ $facility->Name }}</td>
                     @csrf
@@ -59,6 +60,7 @@
                 </tr>
                     @endif
             @endforeach
+            </form>
             </tbody>
         </table>
     </div>
