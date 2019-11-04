@@ -11,20 +11,22 @@
             <div class="content" style="display:flex; justify-content:center; align-items:center">
                 <form method="post" style="width:500px" action="{{ route('login') }}">
                     @csrf
-                    
-                    <div class="row">
-                        <label for="email" style="font-size: 100%">
-                        {{ __('EMAIL') }}
-                        </label>
-                        <div class="content">
-                            <input type="email" name="email" id="email" value="" placeholder="Email" />
+                    <div class="content">
+                        <div class="content" style="padding:0px">
+                            <label for="email" style="font-size: 100%">
+                            {{ __('EMAIL') }}
+                            </label>
+                            <div class="content" style="padding:0px">
+                                <input type="email" name="email" id="email" value="" placeholder="Email" />
+                            </div>
                         </div>
-                        
-                        <label for="password" style="font-size: 100%">
-                        {{ __('PASSWORD') }}
-                        </label>
-                        <div class="content">
-                            <input type="password" name="password" id="password" value="" placeholder="Password" />
+                        <div class="content" style="padding:0px">
+                            <label for="password" style="font-size: 100%">
+                            {{ __('PASSWORD') }}
+                            </label>
+                            <div class="content" style="padding:0px">
+                                <input type="password" name="password" id="password" value="" placeholder="Password" />
+                            </div>
                         </div>
                         <div class="content">
                             <button style="width:100%" type="submit" >
@@ -32,7 +34,6 @@
                             </button>
                         </div>
                     </div>
-                    
                 </form>
             </div>
         </div>
