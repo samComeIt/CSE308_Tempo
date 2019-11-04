@@ -44,30 +44,6 @@
                         </ul>    
                     </div>
                     
-<!--
-                    <div class="row gtr-uniform">
-                        <label for="email" class="col-md-4 col-form-label text-md-right" style="font-size: 100%">
-                        {{ __('EMAIL') }}
-                        </label>
-                        <div class="col-12">
-                            <input type="email" name="email" id="email" value="" placeholder="Email" />
-                        </div>
-                        
-                        <label for="email" class="col-md-4 col-form-label text-md-right" style="font-size: 100%">
-                        {{ __('PASSWORD') }}
-                        </label>
-                        <div class="col-12">
-                            <input type="password" name="password" id="password" value="" placeholder="Password" />
-                        </div>
-                        <ul class="actions">
-                            <li>
-                                <button type="submit" >
-                                    {{ __('Login') }}
-                                </button>
-                            </li>                            
-                        </ul>    
-                    </div>
--->
                 </form>
             </div>
         </div>
