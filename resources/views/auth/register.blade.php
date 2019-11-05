@@ -21,13 +21,16 @@
                             <input type="text" name="email" id="email" value="" placeholder="E-mail" /><br>
                         </div>
 
+                        
                         <label for="role" style="font-size: 120%">Role</label>
                         <div class="col-12">
+
                             <input type="radio" name="role" id="student" value="student"/>
                             <label for="student">Student</label>
                         </div>
                         <div class="col-12" style="margin-bottom:15px">
                             <input type="radio" name="role" id="staff" value="staff"/>
+
                             <label for="staff">Staff</label>
                         </div>
 

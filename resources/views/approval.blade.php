@@ -5,13 +5,13 @@
     <div class="inner">
         <header class="special">
 
-            <h1>Approval</h1>
+            <h2 style="font-size:60px">Approval</h2>
         </header>
     </div>
 
 
-    <div class="inner">
-        <a href="/approval/create" class="button large">Create Facility</a>
+    <div class="inner" style="margin-bottom: 20px">
+        <a href="/approval/create" class="button medium">Create Facility</a>
     </div>
 
         <div class="inner">
