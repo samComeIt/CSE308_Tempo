@@ -35,7 +35,7 @@
                 </tr></form>
                 @endif
             @endforeach
-            </form>
+            
             </tbody>
         </table>
     </div>
@@ -62,7 +62,7 @@
                 </tr></form>
                     @endif
             @endforeach
-            </form>
+            
             </tbody>
         </table>
     </div>

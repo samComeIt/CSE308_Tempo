@@ -23,11 +23,11 @@
 
                         <label for="role" style="font-size: 120%">Role</label>
                         <div class="col-12">
-                            <input type="radio" name="radio" id="student" value="student"/>
+                            <input type="radio" name="role" id="student" value="student"/>
                             <label for="student">Student</label>
                         </div>
                         <div class="col-12" style="margin-bottom:15px">
-                            <input type="radio" name="radio" id="staff" value="staff"/>
+                            <input type="radio" name="role" id="staff" value="staff"/>
                             <label for="staff">Staff</label>
                         </div>
 
