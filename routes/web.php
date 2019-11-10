@@ -21,7 +21,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/facility', 'FacilityController');
 
-Route::get('/approval', function () {
-    return view('approval');
-});
+//Route::get('/approval', 'FacilityController@approval')->name('approval');
+//Route::get('/open', 'FacilityController@open')->name('open');
 Route::resource('/approval', 'FacilityController');
+Route::resource('/open', 'OpenFacilityController');
