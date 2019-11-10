@@ -32,7 +32,8 @@
                         <tr>
                             <td>{{ $facility->Name }}</td>
                             @csrf
-                            <td><a href="{{ route('facility.show',$facility->Facility_ID) }}" class="button">Show</a></td>
+                            <td><a href="{{ route('facility.show',$facility->Facility_ID) }}" class="button">Time table</a>
+                            <a href="{{ route('facility.edit',$facility->Facility_ID) }}" class="button">Edit</a></td>
                             @method('DELETE')
                             <td><button type="submit" class="btn btn-danger">Delete</button>   </td>
                         </tr></form>
@@ -68,7 +69,8 @@
                 <tr>
                     <td>{{ $facility->Name }}</td>
                     @csrf
-                    <td><a href="{{ route('facility.show',$facility->Facility_ID) }}" class="button">Show</a></td>
+                    <td><a href="{{ route('facility.show',$facility->Facility_ID) }}" class="button">Time table</a>
+                        <a href="{{ route('facility.edit',$facility->Facility_ID) }}" class="button">Edit</a></td>
                     @method('DELETE')
                     <td><button type="submit" class="btn btn-danger">Delete</button>   </td>
                 </tr></form>
