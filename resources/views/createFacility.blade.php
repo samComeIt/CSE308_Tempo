@@ -20,19 +20,38 @@
 
                     <div class="form-input">
                         <label>Location</label>
-                        <input type="radio" id="DormA" name="Location" value="DormA">
+                        <input type="radio" onclick="uncheck()" id="DormA" name="Location" value="DormA">
                         <label for="DormA">Dorm A</label>
-                        <input type="radio" id="DormB" name="Location" value="DormB">
+                        <input type="radio" onclick="uncheck()" id="DormB" name="Location" value="DormB">
                         <label for="DormB">Dorm B</label>
+                        <div class="details" style="display:none"><label>Other:</label><input type="text" name="Location"></div>
+                        <a id="more" href="#" onclick="check()">Others</a>
+                        <script>
+                            function check() {
+                            $('.details').slideToggle(function(){$('#more').html($('.details').is(':visible')?'':'Others');});
+
+                                document.getElementById("DormA").checked = false;
+                                document.getElementById("DormB").checked = false;
+                            }
+                            function uncheck() {
+                                document.getElementById("more").checked = false;
+                                $('.details').slideToggle(function(){$('#more').html($('.details').is(':visible')?'':'Others');});
+
+                            }
+                            </script>
+
+                        ​​​​​​​​​​​​​​​​​​​​​​
                     </div>
+
+
 
                     <div class="form-input">
                         <label>Category</label>
-                        <input type="radio" id="StudyRoom" name="Category" value="StudyRoom">
+                        <input type="radio" id="StudyRoom" name="Category" value="Study Room">
                         <label for="StudyRoom">Study Room</label>
-                        <input type="radio" id="MusicRoom" name="Category" value="MusicRoom">
+                        <input type="radio" id="MusicRoom" name="Category" value="Music Room">
                         <label for="MusicRoom">Music Room</label>
-                        <input type="radio" id="MovieRoom" name="Category" value="MovieRoom">
+                        <input type="radio" id="MovieRoom" name="Category" value="Movie Room">
                         <label for="MovieRoom">Movie Room</label>
                     </div>
 
@@ -46,11 +65,11 @@
 
                     <div class="form-input">
                         <label>Status</label>
-                        <input type="radio" id="Open" name="Status" value="Open">
-                        <label for="Open">Open</label>
+                        <input type="radio" id="Open1" name="Status" value="Open">
+                        <label for="Open1">Open</label>
                         <input type="radio" id="Closed" name="Status" value="Closed">
                         <label for="Closed">Closed</label>
-                        <input type="radio" id="OutOfOrder" name="Status" value="OutOfOrder">
+                        <input type="radio" id="OutOfOrder" name="Status" value="Out Of Order">
                         <label for="OutOfOrder">Out of Order</label>
                     </div>
 
