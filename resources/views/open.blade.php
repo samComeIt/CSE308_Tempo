@@ -6,18 +6,17 @@
     <div class="inner">
         <header class="special">
 
-            <h2 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Approval</h2>
+            <h2 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Open</h2>
         </header>
     </div>
 
 
     <div class="inner" style="margin-bottom: 20px">
-        <a href="/approval/create" class="button medium">Create Facility</a>
+        <a href="/open/create" class="button medium">Create Facility</a>
     </div>
 
     <div class="inner">
         <h2>Dorm A</h2>
-
 
         <div class="details" style="display:none">
             <table>
@@ -28,7 +27,7 @@
                 </thead>
                 <tbody>
                 @foreach ($allFacilities as $facility)
-                @if ($facility->Category == "DormA" && $facility->Type == "Approval")
+                @if ($facility->Category == "DormA" && $facility->Type == "Open")
                 <form action="{{ route('facility.destroy',$facility->Facility_ID) }}" method="POST">
                     <tr>
                         <td>{{ $facility->Name }}</td>
@@ -41,6 +40,7 @@
                         </td>
                     </tr>
                 </form>
+
                 @endif
                 @endforeach
 
@@ -58,6 +58,7 @@
 
     <div class="inner">
         <h2>Dorm B</h2>
+
         <div class="details2" style="display:none">
             <table>
                 <thead>
@@ -68,7 +69,7 @@
                 </thead>
                 <tbody>
                 @foreach ($allFacilities as $facility)
-                @if ($facility->Category == "DormB" && $facility->Type == "Approval")
+                @if ($facility->Category == "DormB" && $facility->Type == "Open")
                 <form action="{{ route('facility.destroy',$facility->Facility_ID) }}" method="POST">
                     <tr>
                         <td>{{ $facility->Name }}</td>
