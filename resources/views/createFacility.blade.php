@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<link href="https://fonts.googleapis.com/css?family=Bitter:700|Didact+Gothic|Patua+One&display=swap" rel="stylesheet">
 <section class="wrapper">
     <div class="inner">
         <header class="special">
 
-            <h1 style="font-size:60px">Create Facility</h1>
+            <h1 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Create Facility</h1>
         </header>
     </div>
 
@@ -20,6 +21,8 @@
 
                     <div class="form-input" style="margin-bottom: 10px">
                         <label>Location</label>
+                        <input type="text" name="Location">
+<!--
                         <input type="radio" onclick="uncheck()" id="DormA" name="Location" value="DormA">
                         <label for="DormA">Dorm A</label>
                         <input type="radio" onclick="uncheck()" id="DormB" name="Location" value="DormB">
@@ -39,6 +42,7 @@
 
                             }
                             </script>
+-->
 
                       
                     </div>
@@ -47,12 +51,10 @@
                     <div class="form-input" style="margin-bottom: 10px">
 
                         <label>Category</label>
-                        <input type="radio" id="StudyRoom" name="Category" value="Study Room">
-                        <label for="StudyRoom">Study Room</label>
-                        <input type="radio" id="MusicRoom" name="Category" value="Music Room">
-                        <label for="MusicRoom">Music Room</label>
-                        <input type="radio" id="MovieRoom" name="Category" value="Movie Room">
-                        <label for="MovieRoom">Movie Room</label>
+                        <input type="radio" id="DormA" name="Category" value="DormA">
+                        <label for="DormA">Dorm A</label>
+                        <input type="radio" id="DormB" name="Category" value="DormB">
+                        <label for="DormB">Dorm B</label>
                     </div>
 
                     <div class="form-input" style="margin-bottom: 10px">
@@ -65,12 +67,10 @@
 
                     <div class="form-input" style="margin-bottom: 10px">
                         <label>Status</label>
-                        <input type="radio" id="Open1" name="Status" value="Open">
-                        <label for="Open1">Open</label>
-                        <input type="radio" id="Closed" name="Status" value="Closed">
-                        <label for="Closed">Closed</label>
-                        <input type="radio" id="OutOfOrder" name="Status" value="Out Of Order">
-                        <label for="OutOfOrder">Out of Order</label>
+                        <input type="radio" id="Available" name="Status" value="Available">
+                        <label for="Available">Available</label>
+                        <input type="radio" id="OutofOrder" name="Status" value="OutofOrder">
+                        <label for="OutofOrder">Out of Order</label>
                     </div>
 
 

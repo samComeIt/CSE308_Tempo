@@ -17,7 +17,6 @@
     <div class="inner">
         <h2>Dorm A</h2>
 
-
         <div class="details" style="display:none">
             <table>
                 <thead>
@@ -37,6 +36,7 @@
                         @method('DELETE')
                         <td><button type="submit" class="btn btn-danger">Delete</button>   </td>
                     </tr></form>
+
                 @endif
                 @endforeach
 
@@ -54,11 +54,13 @@
 
     <div class="inner">
         <h2>Dorm B</h2>
+
         <div class="details2" style="display:none">
             <table>
                 <thead>
                 <td>Name</td>
                 <td>Action</td>
+
 
 
                 </thead>
