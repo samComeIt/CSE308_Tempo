@@ -80,7 +80,7 @@
             </tbody>
         </table>
     </div>
-        <a id="more" href="#" onclick="$('.details2').slideToggle(function(){$('#more').html($('.details').is(':visible')?'See Less Details':'See More Details');});">See More Details</a>
+        <a id="more2" href="#" onclick="$('.details2').slideToggle(function(){$('#more2').html($('.details2').is(':visible')?'See Less Details':'See More Details');});">See More Details</a>
     </div>
 
 </section>
