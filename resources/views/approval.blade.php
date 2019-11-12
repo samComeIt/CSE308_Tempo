@@ -28,7 +28,7 @@
                     </thead>
                     <tbody>
                     @foreach ($allFacilities as $facility)
-                    @if ($facility->Location == "DormA" && $facility->Type == "Approval")
+                    @if ($facility->Category == "DormA" && $facility->Type == "Approval")
                     <form action="{{ route('facility.destroy',$facility->Facility_ID) }}" method="POST">
                         <tr>
                             <td>{{ $facility->Name }}</td>
@@ -65,7 +65,7 @@
             </thead>
             <tbody>
             @foreach ($allFacilities as $facility)
-            @if ($facility->Location == "DormB" && $facility->Type == "Approval")
+            @if ($facility->Category == "DormB" && $facility->Type == "Approval")
             <form action="{{ route('facility.destroy',$facility->Facility_ID) }}" method="POST">
                 <tr>
                     <td>{{ $facility->Name }}</td>
