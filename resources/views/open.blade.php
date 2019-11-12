@@ -1,74 +1,87 @@
 @extends('layouts.app')
 
 @section('content')
-<link href="https://fonts.googleapis.com/css?family=Bitter:700|Didact+Gothic|Patua+One&display=swap" rel="stylesheet">
-
 <section class="wrapper">
     <div class="inner">
-        <div class="content">
+        <header class="special">
 
-            <h2 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Open</h2>
-        </div>
+            <h2 style="font-size:60px">Open</h2>
+        </header>
     </div>
 
 
     <div class="inner" style="margin-bottom: 20px">
-        <a href="/open/create" class="button medium">Create Facility</a>
+        <a href="/approval/create" class="button medium">Create Facility</a>
     </div>
 
-        <div class="inner">
+    <div class="inner">
         <h2>Dorm A</h2>
-        <table>
-            <thead>
-            <td>Name</td>
-            <td>Action</td>
 
-            </thead>
-            <tbody>
-            @foreach ($allFacilities as $facility)
-            @if ($facility->Location == "DormA" && $facility->Type == "Approval")
-            <form action="{{ route('facility.destroy',$facility->Facility_ID) }}" method="POST">
-            <tr>
-                <td>{{ $facility->Name }}</td>
-                @csrf
-                <td><a href="{{ route('facility.show',$facility->Facility_ID) }}" class="button">Show</a></td>
-                @method('DELETE')
-                <td><button type="submit" class="btn btn-danger">Delete</button>   </td>
-                </tr></form>
+
+        <div class="details" style="display:none">
+            <table>
+                <thead>
+                <td>Name</td>
+                <td>Action</td>
+
+                </thead>
+                <tbody>
+                @foreach ($allFacilities as $facility)
+                @if ($facility->Category == "DormA" && $facility->Type == "Open")
+                <form action="{{ route('facility.destroy',$facility->Facility_ID) }}" method="POST">
+                    <tr>
+                        <td>{{ $facility->Name }}</td>
+                        @csrf
+                        <td><a href="{{ route('facility.show',$facility->Facility_ID) }}" class="button">Time table</a>
+                            <a href="{{ route('facility.edit',$facility->Facility_ID) }}" class="button">Edit</a></td>
+                        @method('DELETE')
+                        <td><button type="submit" class="btn btn-danger">Delete</button>   </td>
+                    </tr></form>
                 @endif
-            @endforeach
-            
-            </tbody>
-        </table>
+                @endforeach
+
+                </tbody>
+            </table>
+
+
+
+        </div>
+        <a id="more" href="#" onclick="$('.details').slideToggle(function(){$('#more').html($('.details').is(':visible')?'See Less Details':'See More Details');});">See More Details</a>
+
+
+
     </div>
 
     <div class="inner">
         <h2>Dorm B</h2>
-        <table>
-            <thead>
-            <td>Name</td>
-            <td>Action</td>
+        <div class="details2" style="display:none">
+            <table>
+                <thead>
+                <td>Name</td>
+                <td>Action</td>
 
 
-            </thead>
-            <tbody>
-            @foreach ($allFacilities as $facility)
-            @if ($facility->Location == "DormB" && $facility->Type == "Approval")
-            <form action="{{ route('facility.destroy',$facility->Facility_ID) }}" method="POST">
-                <tr>
-                    <td>{{ $facility->Name }}</td>
-                    @csrf
-                    <td><a href="{{ route('facility.show',$facility->Facility_ID) }}" class="button">Show</a></td>
-                    @method('DELETE')
-                    <td><button type="submit" class="btn btn-danger">Delete</button>   </td>
-                </tr></form>
-                    @endif
-            @endforeach
-            
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                @foreach ($allFacilities as $facility)
+                @if ($facility->Category == "DormB" && $facility->Type == "Open")
+                <form action="{{ route('facility.destroy',$facility->Facility_ID) }}" method="POST">
+                    <tr>
+                        <td>{{ $facility->Name }}</td>
+                        @csrf
+                        <td><a href="{{ route('facility.show',$facility->Facility_ID) }}" class="button">Time table</a>
+                            <a href="{{ route('facility.edit',$facility->Facility_ID) }}" class="button">Edit</a></td>
+                        @method('DELETE')
+                        <td><button type="submit" class="btn btn-danger">Delete</button>   </td>
+                    </tr></form>
+                @endif
+                @endforeach
+
+                </tbody>
+            </table>
+        </div>
+        <a id="more2" href="#" onclick="$('.details2').slideToggle(function(){$('#more2').html($('.details2').is(':visible')?'See Less Details':'See More Details');});">See More Details</a>
     </div>
-
 
 </section>
 @endsection
