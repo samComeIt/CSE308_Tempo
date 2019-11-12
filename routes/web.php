@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Auth::routes(); 
+Auth::routes();
 
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -26,3 +26,7 @@ Route::resource('/facility', 'OpenFacilityController');
 //Route::get('/open', 'FacilityController@open')->name('open');
 Route::resource('/approval', 'FacilityController');
 Route::resource('/open', 'OpenFacilityController');
+
+Route::get('/fullcalendar', function () {
+    return view('fullcalendar');
+});
