@@ -1,17 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+<link href="https://fonts.googleapis.com/css?family=Bitter:700|Didact+Gothic|Patua+One&display=swap" rel="stylesheet">
 <section class="wrapper">
     <div class="inner">
         <header class="special">
 
-            <h2 style="font-size:60px">Open</h2>
+            <h2 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Open</h2>
         </header>
     </div>
 
 
     <div class="inner" style="margin-bottom: 20px">
-        <a href="/approval/create" class="button medium">Create Facility</a>
+        <a href="/open/create" class="button medium">Create Facility</a>
     </div>
 
     <div class="inner">
