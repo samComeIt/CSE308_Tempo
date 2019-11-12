@@ -11,6 +11,7 @@
 
 
     <div class="inner">
+        <div class="content">
                        <table>
                     <thead>
                         <td>Name</td>
@@ -39,7 +40,7 @@
 
                     @csrf
                     @method('DELETE')
-                          <td><button type="submit" class="btn btn-danger">Delete</button>   </td>
+                          <td><button type="submit" class="btn btn-danger">Delete</button></td>
 
                              </tr>
                     @endforeach
@@ -47,6 +48,26 @@
                     </tbody>
                 </table>
             </div>
+        <div class="content">
+            <table>
+                <thead>
+                    <td></td>
+                    <td><?php $today = new DateTime(); echo $today->format('m/d'); ?></td>
+                    <td><?php $today->modify('+1 day'); echo $today->format('m/d'); ?></td>
+                    <td><?php $today->modify('+1 day'); echo $today->format('m/d'); ?></td>
+                    <td><?php $today->modify('+1 day'); echo $today->format('m/d'); ?></td>
+                    <td><?php $today->modify('+1 day'); echo $today->format('m/d'); ?></td>
+                    <td><?php $today->modify('+1 day'); echo $today->format('m/d'); ?></td>
+                    <td><?php $today->modify('+1 day'); echo $today->format('m/d'); ?></td>
+                </thead>
+                <tbody>
+                    <tr id="row1" name="row1">
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 </section>
 @endsection
