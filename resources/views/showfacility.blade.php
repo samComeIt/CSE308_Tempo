@@ -74,7 +74,7 @@
                     <tbody>
                     <tr id="row1" name="row1">
                         <td>8am ~ 9am</td>
-                        <td><button type="button" data-toggle="modal" data-target="#myModal" id="open">Select</button></td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -341,11 +341,10 @@
         for(i=1;i<tabela.rows.length;i++){
             for(j=1;j<tabela.rows[i].cells.length;j++){
                 tabela.rows[i].cells[j].onclick=function(i,j){
-                    alert(tabela.rows[0].cells[j].innerText+" "+ tabela.rows[i].cells[0].innerText)
                     console.log(tabela.rows[0].cells[j].innerText)
                     console.log(tabela.rows[i].cells[0].innerText)
                     console.log(i+":"+j)
-
+                    $(myModal).modal('show');
                 }.bind(null,i,j)
 
             }
