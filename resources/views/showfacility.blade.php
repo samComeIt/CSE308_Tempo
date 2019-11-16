@@ -40,7 +40,7 @@
                         @csrf
                         @method('DELETE')
                         <td>
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit">Delete</button>
                         </td>
 
                     </tr>
@@ -74,7 +74,7 @@
                     <tbody>
                     <tr id="row1" name="row1">
                         <td>8am ~ 9am</td>
-                        <td></td>
+                        <td><button type="button" data-toggle="modal" data-target="#myModal" id="open">Select</button></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -353,4 +353,22 @@
     </script>
 </section>
 
+<!-- Modal -->
+<div class="modal" style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%);" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        This is pop up page. 
+      </div>
+      <div class="modal-footer">
+        <button type="button" data-dismiss="modal">Close</button>
+        <button type="button">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 @endsection

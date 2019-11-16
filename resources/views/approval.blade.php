@@ -39,7 +39,7 @@
                             <a href="{{ route('facility.edit',$facility->Facility_ID) }}" class="button">Edit</a></td>
                         @method('DELETE')
                         <td>
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit">Delete</button>
                         </td>
                     </tr>
                 </form>
@@ -51,13 +51,6 @@
 
 
         </div>
-        
-<!--
-        <button id="more" href="#"
-           onclick="$('.details').slideToggle(function(){$('#more').html($('.details').is(':visible')?'Show Less':'Show More');});" style="height:3rem; padding: 0 1rem">Show More</button>
--->
-
-
     </div>
 <br>
     <div class="inner">
