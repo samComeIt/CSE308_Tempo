@@ -350,8 +350,8 @@
 
 
 
-                    startDate= tabela.rows[0].cells[j].innerText
-                    startTime= tabela.rows[i].cells[0].innerText
+                    startDate= "Date: "+tabela.rows[0].cells[j].innerText
+                    startTime= "Starting Time: " +tabela.rows[i].cells[0].innerText
                     document.getElementById("startDate").innerHTML = startDate
                     document.getElementById("startTime").innerHTML = startTime
 
@@ -372,8 +372,8 @@
       </div>
       <div class="modal-body">
 
-          Date: <label id="startDate"></label>
-          Starting Time:<label id="startTime"></label>
+          <label id="startDate"></label>
+         <label id="startTime"></label>
           <label>Duration:<br>
               <input type="radio" name="role" id="1hour" value="1hour" style="height: 1rem; width: 1rem">
               <label for="1hour" style="padding-left: 1.5rem">1 hour</label><br>
