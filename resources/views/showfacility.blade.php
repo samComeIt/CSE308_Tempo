@@ -338,12 +338,23 @@
 
 
     <script>
+        var startDate;
+        var startTime;
+
         for(i=1;i<tabela.rows.length;i++){
             for(j=1;j<tabela.rows[i].cells.length;j++){
                 tabela.rows[i].cells[j].onclick=function(i,j){
                     console.log(tabela.rows[0].cells[j].innerText)
                     console.log(tabela.rows[i].cells[0].innerText)
                     console.log(i+":"+j)
+
+
+
+                    startDate= tabela.rows[0].cells[j].innerText
+                    startTime= tabela.rows[i].cells[0].innerText
+                    document.getElementById("startDate").innerHTML = startDate
+                    document.getElementById("startTime").innerHTML = startTime
+
                     $(myModal).modal('show');
                 }.bind(null,i,j)
 
@@ -360,8 +371,9 @@
         <h2 class="modal-title" id="myModalLabel">Select Time</h2>
       </div>
       <div class="modal-body">
-          <label>Date:</label>
-          <label>Starting Time:</label>
+
+          Date: <label id="startDate"></label>
+          Starting Time:<label id="startTime"></label>
           <label>Duration:<br>
               <input type="radio" name="role" id="1hour" value="1hour" style="height: 1rem; width: 1rem">
               <label for="1hour" style="padding-left: 1.5rem">1 hour</label><br>
@@ -369,7 +381,7 @@
               <label for="2hour" style="padding-left: 1.5rem">2 hours</label>
           </label>
       </div>
-      <div class="modal-footer"> 
+      <div class="modal-footer">
         <button type="button" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>
         <button type="button" data-dismiss="modal" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Close</button>
       </div>
