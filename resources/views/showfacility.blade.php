@@ -357,15 +357,21 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h2 class="modal-title" id="myModalLabel">Select Time</h2>
       </div>
       <div class="modal-body">
-        This is pop up page. 
+          <label>Date:</label>
+          <label>Starting Time:</label>
+          <label>Duration:<br>
+              <input type="radio" name="role" id="1hour" value="1hour" style="height: 1rem; width: 1rem">
+              <label for="1hour" style="padding-left: 1.5rem">1 hour</label><br>
+              <input type="radio" name="role" id="2hour" value="2hour" style="height: 1rem; width: 1rem">
+              <label for="2hour" style="padding-left: 1.5rem">2 hours</label>
+          </label>
       </div>
-      <div class="modal-footer">
-        <button type="button" data-dismiss="modal">Close</button>
-        <button type="button">Save changes</button>
+      <div class="modal-footer"> 
+        <button type="button" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>
+        <button type="button" data-dismiss="modal" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Close</button>
       </div>
     </div>
   </div>
