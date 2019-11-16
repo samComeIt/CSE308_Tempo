@@ -11,13 +11,16 @@
     </div>
 
 
-    <div class="inner" style="margin-bottom: 20px">
+    <div class="inner" style="margin-bottom: 20px; text-align: right">
         <a href="/open/create" class="button medium">Create Facility</a>
     </div>
 
     <div class="inner">
-        <h2>Dorm A</h2>
-
+        <h2>Dorm A
+        <button id="more" href="#"
+           onclick="$('.details').slideToggle(function(){$('#more').html($('.details').is(':visible')?'Fold':'Unfold');});" style="height:2rem; padding: 0 0.5rem; line-height: 2rem; margin-left: 30px; font-size: 15px">Unfold</button>
+        </h2>
+        
         <div class="details" style="display:none">
             <table>
                 <thead>
@@ -36,7 +39,7 @@
                             <a href="{{ route('facility.edit',$facility->Facility_ID) }}" class="button">Edit</a></td>
                         @method('DELETE')
                         <td>
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit">Delete</button>
                         </td>
                     </tr>
                 </form>
@@ -49,15 +52,20 @@
 
 
         </div>
+<!--
         <a id="more" href="#"
            onclick="$('.details').slideToggle(function(){$('#more').html($('.details').is(':visible')?'See Less Details':'See More Details');});">See
             More Details</a>
+-->
 
 
     </div>
 
     <div class="inner">
-        <h2>Dorm B</h2>
+        <h2>Dorm B
+        <button id="more2" href="#"
+           onclick="$('.details2').slideToggle(function(){$('#more2').html($('.details2').is(':visible')?'Fold':'Unfold');});" style="height:2rem; padding: 0 0.5rem; line-height: 2rem; margin-left: 30px; font-size: 15px">Unfold</button>
+        </h2>
 
         <div class="details2" style="display:none">
             <table>
@@ -78,7 +86,7 @@
                             <a href="{{ route('facility.edit',$facility->Facility_ID) }}" class="button">Edit</a></td>
                         @method('DELETE')
                         <td>
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit">Delete</button>
                         </td>
                     </tr>
                 </form>
@@ -88,9 +96,11 @@
                 </tbody>
             </table>
         </div>
+<!--
         <a id="more2" href="#"
            onclick="$('.details2').slideToggle(function(){$('#more2').html($('.details2').is(':visible')?'See Less Details':'See More Details');});">See
             More Details</a>
+-->
     </div>
 
 </section>

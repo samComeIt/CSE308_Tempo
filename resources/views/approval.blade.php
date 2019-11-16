@@ -18,7 +18,7 @@
     <div class="inner">
         <h2>Dorm A
         <button id="more" href="#"
-           onclick="$('.details').slideToggle(function(){$('#more').html($('.details').is(':visible')?'Fold':'Unfold');});" style="height:2rem; padding: 0 0.5rem; line-height: 2rem; margin-left: 30px">Unfold</button>
+           onclick="$('.details').slideToggle(function(){$('#more').html($('.details').is(':visible')?'Fold':'Unfold');});" style="height:2rem; padding: 0 0.5rem; line-height: 2rem; margin-left: 30px; font-size: 15px">Unfold</button>
         </h2>
         
         <div class="details" style="display:none">
@@ -56,7 +56,7 @@
     <div class="inner">
         <h2>Dorm B
         <button id="more2" href="#"
-           onclick="$('.details2').slideToggle(function(){$('#more2').html($('.details2').is(':visible')?'Fold':'Unfold');});" style="height:2rem; padding: 0 0.5rem; line-height: 2rem; margin-left: 30px">Unfold</button>
+           onclick="$('.details2').slideToggle(function(){$('#more2').html($('.details2').is(':visible')?'Fold':'Unfold');});" style="height:2rem; padding: 0 0.5rem; line-height: 2rem; margin-left: 30px; font-size: 15px">Unfold</button>
         </h2>
         
         <div class="details2" style="display:none">
@@ -78,7 +78,7 @@
                             <a href="{{ route('facility.edit',$facility->Facility_ID) }}" class="button">Edit</a></td>
                         @method('DELETE')
                         <td>
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit">Delete</button>
                         </td>
                     </tr>
                 </form>
