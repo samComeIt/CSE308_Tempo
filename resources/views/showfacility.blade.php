@@ -340,20 +340,30 @@
     <script>
         var startDate;
         var startTime;
-
+        var unoHr;
+        var dosHr;
         for(i=1;i<tabela.rows.length;i++){
             for(j=1;j<tabela.rows[i].cells.length;j++){
                 tabela.rows[i].cells[j].onclick=function(i,j){
-                    console.log(tabela.rows[0].cells[j].innerText)
+                   /* console.log(tabela.rows[0].cells[j].innerText)
                     console.log(tabela.rows[i].cells[0].innerText)
-                    console.log(i+":"+j)
-
-
+                    console.log(i+":"+j)*/
 
                     startDate= "Date: "+tabela.rows[0].cells[j].innerText
                     startTime= "Starting Time: " +tabela.rows[i].cells[0].innerText
+                    unoHr = tabela.rows[i+1].cells[0].innerText
+                    dosHr = tabela.rows[i+2].cells[0].innerText
+
                     document.getElementById("startDate").innerHTML = startDate
                     document.getElementById("startTime").innerHTML = startTime
+                    document.getElementById("unoHr").innerHTML = unoHr
+                    document.getElementById("dosHr").innerHTML = dosHr
+
+                    if (document.getElementById('unoHr').checked){
+                        document.getElementById("unoHr").innerHTML = unoHr
+                    }else if(document.getElementById("dosHr").checked){
+                        document.getElementById("dosHr").innerHTML = dosHr
+                    }
 
                     $(myModal).modal('show');
                 }.bind(null,i,j)
@@ -373,7 +383,17 @@
       <div class="modal-body">
 
           <label id="startDate"></label>
-         <label id="startTime"></label>
+          <label id="startTime"></label>
+
+          <label id="unoHr"></label>
+          <label id="dosHr"></label>
+
+          <input type="radio" name="role" id="unoHr" value="unoHr">
+          <label for="unoHr" style="padding-left: 1.5rem">1hr</label><br>
+          <input type="radio" name="role" id="dosHr" value="2hr">
+          <label for="2hr" style="padding-left: 1.5rem">2hr</label>
+
+
           <label>Duration:<br>
               <input type="radio" name="role" id="1hour" value="1hour" style="height: 1rem; width: 1rem">
               <label for="1hour" style="padding-left: 1.5rem">1 hour</label><br>
