@@ -74,7 +74,7 @@
                     <tbody>
                     <tr id="row1" name="row1">
                         <td>8am ~ 9am</td>
-                        <td id="duration"></td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -350,11 +350,11 @@
                     document.getElementById("startTime").value = startTime
                     $('#myModal').modal('show');
 
-                    $('#complete').click(function() {
-                        duration = $('input[type=radio]:checked').val();
-                        $('#myModal').modal('hide');
-                        document.getElementById("duration").innerHTML = duration
-                    });
+//                    $('#complete').click(function() {
+//                        duration = $('input[type=radio]:checked').val();
+//                        $('#myModal').modal('hide');
+//                        document.getElementById("duration").innerHTML = duration
+//                    });
 
                 }.bind(null,i,j)
             }
@@ -375,9 +375,7 @@
                 </div>
                 <div class="modal-body">
 
-                    Selected Room: <label>{{$facility->Facility_ID}}</label>
                     <input type="hidden" name="facility_id" value='{{$facility->Facility_ID}}'>
-
 
                     Start Date:<input type="textarea" name="date" id="startDate" readonly>
                     <label for="startDate"></label>
