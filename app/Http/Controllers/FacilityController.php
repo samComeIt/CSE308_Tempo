@@ -82,8 +82,9 @@ class FacilityController extends Controller
     {
 
     $facilities = \App\Facility::where('Facility_ID', $id)->get();
+    $categories = DB::select( DB::raw("SELECT DISTINCT Category FROM facilities"));
 
-            return view('approvaleditfacility',compact('facilities'));
+            return view('approvaleditfacility',compact('facilities','categories'));
 
     }
 

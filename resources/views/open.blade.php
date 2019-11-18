@@ -17,7 +17,7 @@
 
     @foreach ($allCategories as $category)
     <div class="inner">
-        <h2>{{ $category->Category }}
+        <h2 style="font-weight:bold">{{ $category->Category }}
 <!--
         <button id="{{ $category->Category }}" href="#"
            onclick="$('.{{ $category->Category }}').slideToggle(function(){$('#{{ $category->Category }}').html($('.{{ $category->Category }}').is(':visible')?'Fold':'Unfold');});" style="height:2rem; padding: 0 0.5rem; line-height: 2rem; margin-left: 30px; font-size: 15px">Unfold</button>
@@ -28,7 +28,7 @@
             <table>
                 <thead>
                 <td>Name</td>
-                <td>Action</td>
+                <td></td>
 
                 </thead>
                 <tbody>
@@ -38,11 +38,10 @@
                     <tr>
                         <td>{{ $facility->Name }}</td>
                         @csrf
-                        <td><a href="{{ route('open.show',$facility->Facility_ID) }}" class="button">Time table</a>
-                            <a href="{{ route('open.edit',$facility->Facility_ID) }}" class="button">Edit</a></td>
+                        <td><a href="{{ route('open.show',$facility->Facility_ID) }}" class="button">Time table</a></td>
+                        <td><a href="{{ route('open.edit',$facility->Facility_ID) }}" class="button">Edit</a>
                         @method('DELETE')
-                        <td>
-                            <button type="submit">Delete</button>
+                        <button type="submit">Delete</button>
                         </td>
                     </tr>
                 </form>

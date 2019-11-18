@@ -20,7 +20,6 @@
                 <td>Capacity</td>
                 <td>Picture</td>
                 <td>Status</td>
-                <td>Action</td>
                 </thead>
                 <tbody>
 
@@ -36,14 +35,8 @@
                         <img class="inner-table" src="{{url('uploads/'.$facility->Picture)}}"
                              alt="{{$facility->Picture}}">
                         <td class="inner-table">{{ $facility->Status }}</td>
-                        <td><a href="{{ route('approval.edit',$facility->Facility_ID) }}" class="button">Edit</a></td>
 
                         @csrf
-                        @method('DELETE')
-                        <td>
-                            <button type="submit">Delete</button>
-                        </td>
-
                     </tr>
                     @endforeach
                 </form>
@@ -473,6 +466,23 @@
                     document.getElementById("startDate").value = startDate
                     document.getElementById("startTime").value = startTime
                     $('#myModal').modal('show');
+                    
+                    $('.modal-child').on('show.bs.modal', function () {
+                    var modalParent = $(this).attr('data-modal-parent');
+                    $(modalParent).css('opacity', 0);
+                    });
+
+                    $('.modal-child').on('hidden.bs.modal', function () {
+                    var modalParent = $(this).attr('data-modal-parent');
+                    $(modalParent).css('opacity', 0);
+                    });
+
+//                    $('#complete').click(function() {
+//                        duration = $('input[type=radio]:checked').val();
+//                        $('#myModal').modal('hide');
+//                        document.getElementById("duration").innerHTML = duration
+//                    });
+
                 }.bind(null,i,j)
             }
         }
@@ -483,6 +493,7 @@
 <!-- Modal -->
 <form action="/approval/timeslot" method="POST" style="width: 80%">
     @csrf
+
     <div class="modal" style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%); overflow: hidden" id="myModal"
          tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document" style="width: 600px; height: 90%">
@@ -508,13 +519,39 @@
                     <label id="duration"></label>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Next</button>
+                    <a href="#submit" role="button" class="button" data-toggle="modal" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</a>
+<!--                    <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>-->
+
                     <button type="button" data-dismiss="modal" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Cancel
                     </button>
                 </div>
             </div>
         </div>
     </div>
+    
+    <div id="submit" class="modal modal-child" style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%)" data-backdrop-limit="1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-modal-parent="#myModal">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Reservation Form</h2>
+            </div>
+            <div class="modal-body">
+                <label>Name:</label>
+                <input type="text" name="name" id="name" required>
+                <label>Number of Students:</label>
+                <input type="text" name="number" id="number" required>
+                <label>Purpose:</label>
+                <input type="text" name="purpose" id="purpose" required>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>
+                <button class="btn btn-default" data-dismiss="modal" data-dismiss="modal" aria-hidden="true" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Cancel</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 </form>
 <script>
     document.getElementById('tabela').rows[i].cells[j].style.backgroundColor = "#003366"
