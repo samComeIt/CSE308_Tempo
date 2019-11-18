@@ -353,7 +353,7 @@
 
                     $('.modal-child').on('hidden.bs.modal', function () {
                     var modalParent = $(this).attr('data-modal-parent');
-                    $(modalParent).css('opacity', 1);
+                    $(modalParent).css('opacity', 0);
                     });
 
 //                    $('#complete').click(function() {
@@ -372,9 +372,7 @@
 
 <!-- Modal -->
 <form action="/timeslot" method="POST" style="width: 80%">
-    @csrf
-    <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Modals in Modal</a>
-    
+    @csrf    
     <div class="modal" style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%); overflow: hidden" id="myModal"
          tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document" style="width: 600px; height: 90%">
@@ -409,19 +407,24 @@
         </div>
     </div>
     
-    <div id="submit" class="modal modal-child" data-backdrop-limit="1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-modal-parent="#myModal">
+    <div id="submit" class="modal modal-child" style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%)" data-backdrop-limit="1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-modal-parent="#myModal">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header 1</h4>
+                <h2 class="modal-title">Reservation Form</h2>
             </div>
             <div class="modal-body">
-                <p>Two modal body…1</p>
+                <label>Name:</label>
+                <input type="text" name="name" id="name" required>
+                <label>Number of Students:</label>
+                <input type="text" name="number" id="number" required>
+                <label>Purpose:</label>
+                <input type="text" name="purpose" id="purpose" required>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-default" data-dismiss="modal" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>
+                <button class="btn btn-default" data-dismiss="modal" data-dismiss="modal" aria-hidden="true" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Cancel</button>
             </div>
 
         </div>
