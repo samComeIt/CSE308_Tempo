@@ -17,10 +17,10 @@ class FacilityController extends Controller
      */
     public function index()
     {
-        //
         $facilities = \App\Facility::all();
+        $categories = DB::select( DB::raw("SELECT DISTINCT Category FROM facilities"));
 
-        return view('approval', ['allFacilities' => $facilities]);
+        return view('approval', ['allFacilities' => $facilities, 'allCategories' => $categories]);
     }
 
     /**
@@ -30,8 +30,8 @@ class FacilityController extends Controller
      */
     public function create()
     {
-        //
-        return view('createfacility');
+        $categories = DB::select( DB::raw("SELECT DISTINCT Category FROM facilities"));
+        return view('createfacility', ['allCategories' => $categories]);
     }
 
     /**

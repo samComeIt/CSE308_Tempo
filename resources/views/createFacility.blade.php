@@ -9,8 +9,6 @@
             <h1 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Create Facility</h1>
         </header>
     </div>
-
-    <body>
     <div class="inner" style="display:flex; justify-content:center; align-items:center">
         <form action="/approval" method="POST" style="width: 60%">
             @csrf
@@ -22,41 +20,23 @@
             <div class="form-input" style="margin-bottom: 10px">
                 <label>Location</label>
                 <input type="text" name="Location">
-                <!--
-                                        <input type="radio" onclick="uncheck()" id="DormA" name="Location" value="DormA">
-                                        <label for="DormA">Dorm A</label>
-                                        <input type="radio" onclick="uncheck()" id="DormB" name="Location" value="DormB">
-                                        <label for="DormB">Dorm B</label>
-                                        <div class="details" style="display:none"><label>Other:</label><input type="text" name="Location"></div>
-                                        <a id="more" href="#" onclick="check()">Others</a>
-                                        <script>
-                                            function check() {
-                                            $('.details').slideToggle(function(){$('#more').html($('.details').is(':visible')?'':'Others');});
-
-                                                document.getElementById("DormA").checked = false;
-                                                document.getElementById("DormB").checked = false;
-                                            }
-                                            function uncheck() {
-                                                document.getElementById("more").checked = false;
-                                                $('.details').slideToggle(function(){$('#more').html($('.details').is(':visible')?'':'Others');});
-
-                                            }
-                                            </script>
-                -->
-
-
             </div>
 
 
             <div class="form-input" style="margin-bottom: 10px">
 
                 <label>Category</label>
-                <input type="radio" id="DormA" name="Category" value="DormA">
-                <label for="DormA">Dorm A</label>
-                <input type="radio" id="DormB" name="Category" value="DormB">
-                <label for="DormB">Dorm B</label>
+                
+                @foreach ($allCategories as $category)
+                <input type="radio" id="{{ $category->Category }}" name="Category" value="{{ $category->Category }}">
+                <label for="{{ $category->Category }}">{{ $category->Category }}</label>
+                @endforeach
+                <input type="radio" id="categoryOther" name="Category" value="">
+                
+                <label for="categoryOther">Other (Type in the new category below)</label>
+                <textarea name="Category" rows="1" disabled id="otherField"></textarea>
             </div>
-
+            
             <div class="form-input" style="margin-bottom: 10px">
                 <label>Type</label>
                 <input type="radio" id="Approval" name="Type" value="Approval">
@@ -85,6 +65,27 @@
             <button type="submit">Submit</button>
         </form>
     </div>
-    </body>
 </section>
+
+<script>
+    var categoryOther = document.querySelectorAll('input[name="Category"]');
+    var otherField = document.getElementById('otherField');
+    var tempCategory = "";
+
+    for(var i = 0; i < categoryOther.length; i++) {
+        categoryOther[i].addEventListener("change", categoryHandler);
+    }
+
+
+    function categoryHandler() {
+        if(this.id == "categoryOther") {
+        otherField.disabled = false;
+        otherField.value = tempCategory;
+      } else {
+        tempCategory = otherField.value;
+        otherField.value = "";
+        otherField.disabled = true;
+      }
+}
+</script>
 @endsection
