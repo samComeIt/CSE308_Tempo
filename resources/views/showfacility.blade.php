@@ -78,7 +78,7 @@
                     <tbody style="text-align: center">
                     <tr id="row1" name="row1">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am ~ 9am</td>
-                        <td id="duration"></td>
+                        <td></td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -353,11 +353,12 @@
                     document.getElementById("startTime").value = startTime
                     $('#myModal').modal('show');
 
-                    $('#comp+lete').click(function() {
-                        duration = $('input[type=radio]:checked').val();
-                        $('#myModal').modal('hide');
-                        document.getElementById("duration").innerHTML = duration
-                    });
+//                    $('#complete').click(function() {
+//                        duration = $('input[type=radio]:checked').val();
+//                        $('#myModal').modal('hide');
+//                        document.getElementById("duration").innerHTML = duration
+//                    });
+
 
                 }.bind(null,i,j)
             }
@@ -379,6 +380,7 @@
                 <div class="modal-body">
 
                     Start Date: <input type="textarea" name="date" id="startDate" disabled>
+                    <input type="hidden" name="facility_id" value='{{$facility->Facility_ID}}'>
                     <label for="startDate"></label>
                     Start Time: <input type="textarea" name="start_time" id="startTime" disabled>
                     <label for="startTime"></label>
