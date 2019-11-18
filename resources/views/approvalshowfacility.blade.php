@@ -43,6 +43,16 @@
                 </tbody>
             </table>
         </div>
+        
+        @foreach ($timeslots as $timeslot)
+        <div>
+            {{ $timeslot -> date }}
+            <br>
+            {{ $timeslot -> start_time }}
+            <br>
+            {{ $timeslot -> duration }}
+        </div>
+        @endforeach
 
         <div class="content">
             <div class="form-popup" id="myForm">
@@ -371,8 +381,9 @@
 </section>
 
 <!-- Modal -->
-<form action="/timeslot" method="POST" style="width: 80%">
-    @csrf    
+<form action="/approval/timeslot" method="POST" style="width: 80%">
+    @csrf
+
     <div class="modal" style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%); overflow: hidden" id="myModal"
          tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document" style="width: 600px; height: 90%">
@@ -382,10 +393,10 @@
                 </div>
                 <div class="modal-body">
 
-                    Start Date: <input type="textarea" name="date" id="startDate" readable>
+                    Start Date: <input type="textarea" name="date" id="startDate" readonly>
                     <input type="hidden" name="facility_id" value='{{$facility->Facility_ID}}'>
                     <label for="startDate"></label>
-                    Start Time: <input type="textarea" name="start_time" id="startTime" readable>
+                    Start Time: <input type="textarea" name="start_time" id="startTime" readonly>
                     <label for="startTime"></label>
 
                     <label>Duration:<br>

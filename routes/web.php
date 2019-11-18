@@ -28,3 +28,5 @@ Route::resource('/approval', 'FacilityController');
 Route::resource('/open', 'OpenFacilityController');
 
 Route::resource('/timeslot', 'TimeslotController');
+Route::post('/open/timeslot', 'TimeslotController@openStore')->name('openTimeslot');
+Route::post('/approval/timeslot', 'TimeslotController@approvalStore')->name('approvalTimeslot');
