@@ -50,16 +50,6 @@
                 </tbody>
             </table>
         </div>
-        
-        @foreach ($timeslots as $timeslot)
-        <div>
-            {{ $timeslot -> date }}
-            <br>
-            {{ $timeslot -> start_time }}
-            <br>
-            {{ $timeslot -> duration }}
-        </div>
-        @endforeach
 
         <div class="content">
             <div class="form-popup" id="myForm">
@@ -69,20 +59,55 @@
                     <thead style="text-align: center; color:#13136b; font-weight:bold; font-size:20px">
                     <tr style="background-color: #97c1e8">
                     <td></td>
-                    <td><?php $today = new DateTime();
-                        echo $today->format('m/d'); ?></td>
-                    <td><?php $today->modify('+1 day');
-                        echo $today->format('m/d'); ?></td>
-                    <td><?php $today->modify('+1 day');
-                        echo $today->format('m/d'); ?></td>
-                    <td><?php $today->modify('+1 day');
-                        echo $today->format('m/d'); ?></td>
-                    <td><?php $today->modify('+1 day');
-                        echo $today->format('m/d'); ?></td>
-                    <td><?php $today->modify('+1 day');
-                        echo $today->format('m/d'); ?></td>
-                    <td><?php $today->modify('+1 day');
-                        echo $today->format('m/d'); ?></td>
+                    <td>
+                        @php
+                        $today = new DateTime();
+                        $todaystr1 = $today->format('m/d');
+                        echo $todaystr1;
+                        @endphp
+                    </td>
+                    <td>
+                        @php
+                        $today->modify('+1 day');
+                        $todaystr2 = $today->format('m/d');
+                        echo $todaystr2;
+                        @endphp
+                    </td>
+                    <td>
+                        @php
+                        $today->modify('+1 day');
+                        $todaystr3 = $today->format('m/d');
+                        echo $todaystr3;
+                        @endphp
+                    </td>
+                    <td>
+                        @php
+                        $today->modify('+1 day');
+                        $todaystr4 = $today->format('m/d');
+                        echo $todaystr4;
+                        @endphp
+                    </td>
+                    <td>
+                        @php
+                        $today->modify('+1 day');
+                        $todaystr5 = $today->format('m/d');
+                        echo $todaystr5;
+                        @endphp
+                    </td>
+                    <td>
+                        @php
+                        $today->modify('+1 day');
+                        $todaystr6 = $today->format('m/d');
+                        echo $todaystr6;
+                        @endphp
+                    </td>
+                    <td>
+                        @php
+                        $today->modify('+1 day');
+                        $todaystr7 = $today->format('m/d');
+                        echo $todaystr7;
+                        @endphp
+                    </td>
                     </tr>
                     </thead>
                     <tbody style="text-align: center">
@@ -177,16 +202,6 @@
                         <td></td>
                     </tr>
                     <tr id="row10" name="row10">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">4pm ~ 5pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr id="row11" name="row11">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">5pm ~ 6pm</td>
                         <td></td>
                         <td></td>
@@ -196,7 +211,7 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr id="row12" name="row12">
+                    <tr id="row11" name="row11">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">6pm ~ 7pm</td>
                         <td></td>
                         <td></td>
@@ -206,7 +221,7 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr id="row13" name="row13">
+                    <tr id="row12" name="row12">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">7pm ~ 8pm</td>
                         <td></td>
                         <td></td>
@@ -216,7 +231,7 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr id="row14" name="row14">
+                    <tr id="row13" name="row13">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8pm ~ 9pm</td>
                         <td></td>
                         <td></td>
@@ -226,7 +241,7 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr id="row15" name="row15">
+                    <tr id="row14" name="row14">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">9pm ~ 10pm</td>
                         <td></td>
                         <td></td>
@@ -236,7 +251,7 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr id="row16" name="row16">
+                    <tr id="row15" name="row15">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">10pm ~ 11pm</td>
                         <td></td>
                         <td></td>
@@ -246,58 +261,8 @@
                         <td></td>
                         <td></td>
                     </tr>
-                    <tr id="row17" name="row17">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">11pm ~ 12pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr id="row1" name="row1">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am ~ 9am</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr id="row1" name="row1">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am ~ 9am</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr id="row1" name="row1">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am ~ 9am</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr id="row1" name="row1">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am ~ 9am</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr id="row1" name="row1">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am ~ 9am</td>
+                    <tr id="row16" name="row16">
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">11pm ~ 12am</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -347,8 +312,154 @@
         }
 
     </style>
+    
+    @foreach ($timeslots as $timeslot)
+        {{ $timeslot -> date }}
+        {{ $timeslot -> start_time }}
+        {{ $timeslot -> duration }}
+        <br>
+    @endforeach
 
-
+<!--
+    @foreach ($timeslots as $timeslot)
+        @if ( $timeslot -> date == $todaystr1 )
+            <input type="hidden" id="date" name="date" value='{{ $todaystr1 }}'>
+            <input type="hidden" id="time" name="time" value='{{ $timeslot -> start_time }}'>
+            <script>
+                var row;
+                var column;
+                for(j=1;j<tabela.rows[0].cells.length;j++){
+                    if(document.getElementById("date").value == tabela.rows[0].cells[j].innerText) {
+                        column = j;
+                    }
+                }
+                for(i=1;i<tabela.rows.length;i++){
+                    if(document.getElementById("time").value == tabela.rows[i].cells[0].innerText) {
+                        row = i;
+                    }
+                }
+                tabela.rows[row].cells[column].style.backgroundcolor = "black";
+            </script>
+        {{ $todaystr1 }}
+    
+        @elseif ( $timeslot -> date == $todaystr2 )
+            <input type="hidden" id="date" name="date" value='{{ $todaystr2 }}'>
+            <input type="hidden" id="time" name="time" value='{{ $timeslot -> start_time }}'>
+            <script>
+                var row;
+                var column;
+                for(j=1;j<tabela.rows[0].cells.length;j++){
+                    if(document.getElementById("date").value == tabela.rows[0].cells[j].innerText) {
+                        column = j;
+                    }
+                }
+                for(i=1;i<tabela.rows.length;i++){
+                    if(document.getElementById("time").value == tabela.rows[i].cells[0].innerText) {
+                        row = i;
+                    }
+                }
+                tabela.rows[row].cells[column].style.backgroundcolor = "black";
+            </script>
+    {{ $todaystr2 }}
+        @elseif ( $timeslot -> date == $todaystr3 )
+            <input type="hidden" id="date" name="date" value='{{ $todaystr3 }}'>
+            <input type="hidden" id="time" name="time" value='{{ $timeslot -> start_time }}'>
+            <script>
+                var row;
+                var column;
+                for(j=1;j<tabela.rows[0].cells.length;j++){
+                    if(document.getElementById("date").value == tabela.rows[0].cells[j].innerText) {
+                        column = j;
+                    }
+                }
+                for(i=1;i<tabela.rows.length;i++){
+                    if(document.getElementById("time").value == tabela.rows[i].cells[0].innerText) {
+                        row = i;
+                    }
+                }
+                tabela.rows[row].cells[column].style.backgroundcolor = "black";
+            </script>
+    {{ $todaystr3 }}
+        @elseif ( $timeslot -> date == $todaystr4 )
+            <input type="hidden" id="date" name="date" value='{{ $todaystr4 }}'>
+            <input type="hidden" id="time" name="time" value='{{ $timeslot -> start_time }}'>
+            <script>
+                var row;
+                var column;
+                for(j=1;j<tabela.rows[0].cells.length;j++){
+                    if(document.getElementById("date").value == tabela.rows[0].cells[j].innerText) {
+                        column = j;
+                    }
+                }
+                for(i=1;i<tabela.rows.length;i++){
+                    if(document.getElementById("time").value == tabela.rows[i].cells[0].innerText) {
+                        row = i;
+                    }
+                }
+                tabela.rows[row].cells[column].style.backgroundcolor = "black";
+            </script>
+    {{ $todaystr4 }}
+        @elseif ( $timeslot -> date == $todaystr5 )
+            <input type="hidden" id="date" name="date" value='{{ $todaystr5 }}'>
+            <input type="hidden" id="time" name="time" value='{{ $timeslot -> start_time }}'>
+            <script>
+                var row;
+                var column;
+                for(j=1;j<tabela.rows[0].cells.length;j++){
+                    if(document.getElementById("date").value == tabela.rows[0].cells[j].innerText) {
+                        column = j;
+                    }
+                }
+                for(i=1;i<tabela.rows.length;i++){
+                    if(document.getElementById("time").value == tabela.rows[i].cells[0].innerText) {
+                        row = i;
+                    }
+                }
+                tabela.rows[row].cells[column].style.backgroundcolor = "black";
+            </script>
+    {{ $todaystr5 }}
+        @elseif ( $timeslot -> date == $todaystr6 )
+            <input type="hidden" id="date" name="date" value='{{ $todaystr6 }}'>
+            <input type="hidden" id="time" name="time" value='{{ $timeslot -> start_time }}'>
+            <script>
+                var row;
+                var column;
+                for(j=1;j<tabela.rows[0].cells.length;j++){
+                    if(document.getElementById("date").value == tabela.rows[0].cells[j].innerText) {
+                        column = j;
+                    }
+                }
+                for(i=1;i<tabela.rows.length;i++){
+                    if(document.getElementById("time").value == tabela.rows[i].cells[0].innerText) {
+                        row = i;
+                    }
+                }
+                tabela.rows[row].cells[column].style.backgroundcolor = "black";
+            </script>
+    {{ $todaystr6 }}
+        @else ( $timeslot -> date == $todaystr7 )
+            <input type="hidden" id="date" name="date" value='{{ $todaystr7 }}'>
+            <input type="hidden" id="time" name="time" value='{{ $timeslot -> start_time }}'>
+            <script>
+                var row;
+                var column;
+                for(j=1;j<tabela.rows[0].cells.length;j++){
+                    if(document.getElementById("date").value == tabela.rows[0].cells[j].innerText) {
+                        column = j;
+                    }
+                }
+                for(i=1;i<tabela.rows.length;i++){
+                    if(document.getElementById("time").value == tabela.rows[i].cells[0].innerText) {
+                        row = i;
+                    }
+                }
+                document.getElementById('tabela').rows[2].cells[2].style.backgroundcolor = "black";
+            </script>
+    {{ $todaystr7 }}
+        @endif
+    @endforeach
+-->
+    
     <script>
         var startDate;
         var startTime;
@@ -362,14 +473,6 @@
                     document.getElementById("startDate").value = startDate
                     document.getElementById("startTime").value = startTime
                     $('#myModal').modal('show');
-
-//                    $('#complete').click(function() {
-//                        duration = $('input[type=radio]:checked').val();
-//                        $('#myModal').modal('hide');
-//                        document.getElementById("duration").innerHTML = duration
-//                    });
-
-
                 }.bind(null,i,j)
             }
         }
@@ -405,7 +508,7 @@
                     <label id="duration"></label>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>
+                    <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Next</button>
                     <button type="button" data-dismiss="modal" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Cancel
                     </button>
                 </div>
