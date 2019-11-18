@@ -66,8 +66,9 @@ class OpenFacilityController extends Controller
      {
 
     $facilities = \App\Facility::where('Facility_ID', $id)->get();
+    $timeslots = \App\Timeslot::where('facility_id', $id)->get();
 
-            return view('openshowfacility',compact('facilities'));
+            return view('openshowfacility',compact('facilities', 'timeslots'));
 
     }
 
