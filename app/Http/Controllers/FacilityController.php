@@ -31,7 +31,7 @@ class FacilityController extends Controller
     public function create()
     {
         $categories = DB::select( DB::raw("SELECT DISTINCT Category FROM facilities"));
-        return view('approvalcreatefacility', ['allCategories' => $categories]);
+        return view('approvalcreateFacility', ['allCategories' => $categories]);
     }
 
     /**
