@@ -325,7 +325,6 @@
         .hoverTable th:hover {
             background-color: #ffffff;
         }
-
         .hoverTable tr:hover {
             background-color: #ffffff;
         }
@@ -344,52 +343,66 @@
         for(i=1;i<tabela.rows.length;i++){
             for(j=1;j<tabela.rows[i].cells.length;j++){
                 tabela.rows[i].cells[j].onclick=function(i,j){
-                    startDate= "Date: "+tabela.rows[0].cells[j].innerText
-                    startTime= "Starting Time: " +tabela.rows[i].cells[0].innerText
+                    startDate= tabela.rows[0].cells[j].innerText
+                    startTime= tabela.rows[i].cells[0].innerText
 
-                    document.getElementById("startDate").innerHTML = startDate
-                    document.getElementById("startTime").innerHTML = startTime
-
+                    document.getElementById("startDate").value = startDate
+                    document.getElementById("startTime").value = startTime
                     $('#myModal').modal('show');
-                    
+
                     $('#complete').click(function() {
                         duration = $('input[type=radio]:checked').val();
                         $('#myModal').modal('hide');
                         document.getElementById("duration").innerHTML = duration
                     });
+
                 }.bind(null,i,j)
             }
         }
-        
+
     </script>
 </section>
 
 <!-- Modal -->
-<div class="modal" style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%);" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title" id="myModalLabel">Select Time</h2>
-      </div>
-      <div class="modal-body">
+<form action="/timeslot" method="POST" style="width: 60%">
+    @csrf
+    <div class="modal" style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%);" id="myModal"
+         tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="myModalLabel">Select Time</h2>
+                </div>
+                <div class="modal-body">
 
-          <label id="startDate"></label>
-          <label id="startTime"></label>
+                    Selected Room: <label>{{$facility->Facility_ID}}</label>
+                    <input type="hidden" name="facility_id" value='{{$facility->Facility_ID}}'>
 
-          <label>Duration:<br>
-              <input type="radio" name="duration" id="1hour" value="1" style="height: 1rem; width: 1rem">
-              <label for="1hour" style="padding-left: 1.5rem">1 hour</label><br>
-              <input type="radio" name="duration" id="2hour" value="2" style="height: 1rem; width: 1rem">
-              <label for="2hour" style="padding-left: 1.5rem">2 hours</label>
-          </label>
-          
-          <label id="duration"></label>
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="complete" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>
-        <button type="button" data-dismiss="modal" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Close</button>
-      </div>
+
+                    Start Date:<input type="textarea" name="date" id="startDate" readonly>
+                    <label for="startDate"></label>
+                    Start Time:<input type="textarea" name="start_time" id="startTime" readonly>
+                    <label for="startTime"></label>
+
+                    <label>Duration:<br>
+                        <input type="radio" name="duration" id="1hour" value="1" style="height: 1rem; width: 1rem">
+                        <label for="1hour" style="padding-left: 1.5rem">1 hour</label><br>
+                        <input type="radio" name="duration" id="2hour" value="2" style="height: 1rem; width: 1rem">
+                        <label for="2hour" style="padding-left: 1.5rem">2 hours</label>
+                    </label>
+
+                    <label id="duration"></label>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>
+                    <button type="button" data-dismiss="modal" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+</form>
+<script>
+    document.getElementById('tabela').rows[i].cells[j].style.backgroundColor = "#003366"
+</script>
 @endsection

@@ -27,6 +27,4 @@ Route::resource('/facility', 'OpenFacilityController');
 Route::resource('/approval', 'FacilityController');
 Route::resource('/open', 'OpenFacilityController');
 
-Route::get('/fullcalendar', function () {
-    return view('fullcalendar');
-});
+Route::resource('/timeslot', 'TimeslotController');
