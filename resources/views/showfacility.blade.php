@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<link href="https://fonts.googleapis.com/css?family=Bitter:700|Didact+Gothic|Patua+One&display=swap" rel="stylesheet">
 <section class="wrapper">
     <div class="inner">
         <header class="special">
 
-            <h1>Show Facility</h1>
+            <h1 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Show Facility</h1>
         </header>
     </div>
     <div class="inner">
@@ -53,8 +54,10 @@
         <div class="content">
             <div class="form-popup" id="myForm">
                 <table class="hoverTable" id="tabela">
+                    <h1 style="font-family:'Bitter', serif; text-align:center; font-size:50px">Timetable</h1>
 
-                    <thead>
+                    <thead style="text-align: center; color:#13136b; font-weight:bold; font-size:20px">
+                    <tr style="background-color: #97c1e8">
                     <td></td>
                     <td><?php $today = new DateTime();
                         echo $today->format('m/d'); ?></td>
@@ -70,10 +73,11 @@
                         echo $today->format('m/d'); ?></td>
                     <td><?php $today->modify('+1 day');
                         echo $today->format('m/d'); ?></td>
+                    </tr>
                     </thead>
-                    <tbody>
+                    <tbody style="text-align: center">
                     <tr id="row1" name="row1">
-                        <td>8am ~ 9am</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am ~ 9am</td>
                         <td id="duration"></td>
                         <td></td>
                         <td></td>
@@ -83,7 +87,7 @@
                         <td></td>
                     </tr>
                     <tr id="row2" name="row2">
-                        <td>9am ~ 10am</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">9am ~ 10am</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -93,7 +97,7 @@
                         <td></td>
                     </tr>
                     <tr id="row3" name="row3">
-                        <td>10am ~ 11am</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">10am ~ 11am</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -103,7 +107,7 @@
                         <td></td>
                     </tr>
                     <tr id="row4" name="row4">
-                        <td>11am ~ 12pm</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">11am ~ 12pm</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -113,7 +117,7 @@
                         <td></td>
                     </tr>
                     <tr id="row5" name="row5">
-                        <td>12pm ~ 1pm</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">12pm ~ 1pm</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -123,7 +127,7 @@
                         <td></td>
                     </tr>
                     <tr id="row6" name="row6">
-                        <td>1pm ~ 2pm</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">1pm ~ 2pm</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -133,7 +137,7 @@
                         <td></td>
                     </tr>
                     <tr id="row7" name="row7">
-                        <td>2pm ~ 3pm</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">2pm ~ 3pm</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -143,7 +147,7 @@
                         <td></td>
                     </tr>
                     <tr id="row8" name="row8">
-                        <td>3pm ~ 4pm</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">3pm ~ 4pm</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -153,7 +157,7 @@
                         <td></td>
                     </tr>
                     <tr id="row9" name="row9">
-                        <td>4pm ~ 5pm</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">4pm ~ 5pm</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -163,7 +167,7 @@
                         <td></td>
                     </tr>
                     <tr id="row10" name="row10">
-                        <td>4pm ~ 5pm</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">4pm ~ 5pm</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -173,7 +177,7 @@
                         <td></td>
                     </tr>
                     <tr id="row11" name="row11">
-                        <td>5pm ~ 6pm</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">5pm ~ 6pm</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -183,7 +187,7 @@
                         <td></td>
                     </tr>
                     <tr id="row12" name="row12">
-                        <td>6pm ~ 7pm</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">6pm ~ 7pm</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -193,7 +197,7 @@
                         <td></td>
                     </tr>
                     <tr id="row13" name="row13">
-                        <td>7pm ~ 8pm</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">7pm ~ 8pm</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -203,7 +207,7 @@
                         <td></td>
                     </tr>
                     <tr id="row14" name="row14">
-                        <td>8pm ~ 9pm</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8pm ~ 9pm</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -213,7 +217,7 @@
                         <td></td>
                     </tr>
                     <tr id="row15" name="row15">
-                        <td>9pm ~ 10pm</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">9pm ~ 10pm</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -223,7 +227,7 @@
                         <td></td>
                     </tr>
                     <tr id="row16" name="row16">
-                        <td>10pm ~ 11pm</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">10pm ~ 11pm</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -233,7 +237,7 @@
                         <td></td>
                     </tr>
                     <tr id="row17" name="row17">
-                        <td>11pm ~ 12pm</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">11pm ~ 12pm</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -243,7 +247,7 @@
                         <td></td>
                     </tr>
                     <tr id="row1" name="row1">
-                        <td>8am ~ 9am</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am ~ 9am</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -253,7 +257,7 @@
                         <td></td>
                     </tr>
                     <tr id="row1" name="row1">
-                        <td>8am ~ 9am</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am ~ 9am</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -263,7 +267,7 @@
                         <td></td>
                     </tr>
                     <tr id="row1" name="row1">
-                        <td>8am ~ 9am</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am ~ 9am</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -273,7 +277,7 @@
                         <td></td>
                     </tr>
                     <tr id="row1" name="row1">
-                        <td>8am ~ 9am</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am ~ 9am</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -283,7 +287,7 @@
                         <td></td>
                     </tr>
                     <tr id="row1" name="row1">
-                        <td>8am ~ 9am</td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am ~ 9am</td>
                         <td></td>
                         <td></td>
                         <td></td>
@@ -301,32 +305,31 @@
         .hoverTable {
             width: 100%;
             border-collapse: collapse;
+            overflow: hidden;
         }
 
         .hoverTable tr, th {
             position: relative;
         }
-
+        
         .hoverTable td {
-            padding: 7px;
-            border: #4e95f4 1px solid;
+/*            padding: 7px;*/
+            border: #13136b 2px solid;
+/*            background-color: #f0f0f0;*/
         }
 
         /* Define the default color for all the table rows */
         .hoverTable tr {
-            background: #b8d1f3;
+            background-color: #ececec;
         }
 
         /* Define the hover highlight color for the table row */
         .hoverTable td:hover {
-            background-color: #ffff99;
+            background-color: #4b93d6;
         }
 
-        .hoverTable th:hover {
-            background-color: #ffffff;
-        }
         .hoverTable tr:hover {
-            background-color: #ffffff;
+            background-color: #c8ddf7;
         }
 
         .hoverTable tr, th {
@@ -350,7 +353,7 @@
                     document.getElementById("startTime").value = startTime
                     $('#myModal').modal('show');
 
-                    $('#complete').click(function() {
+                    $('#comp+lete').click(function() {
                         duration = $('input[type=radio]:checked').val();
                         $('#myModal').modal('hide');
                         document.getElementById("duration").innerHTML = duration
@@ -364,24 +367,20 @@
 </section>
 
 <!-- Modal -->
-<form action="/timeslot" method="POST" style="width: 60%">
+<form action="/timeslot" method="POST" style="width: 80%">
     @csrf
-    <div class="modal" style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%);" id="myModal"
+    <div class="modal" style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%); overflow: hidden" id="myModal"
          tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
+        <div class="modal-dialog" role="document" style="width: 600px; height: 90%">
+            <div class="modal-content" style="height: 100%">
                 <div class="modal-header">
                     <h2 class="modal-title" id="myModalLabel">Select Time</h2>
                 </div>
                 <div class="modal-body">
 
-                    Selected Room: <label>{{$facility->Facility_ID}}</label>
-                    <input type="hidden" name="facility_id" value='{{$facility->Facility_ID}}'>
-
-
-                    Start Date:<input type="textarea" name="date" id="startDate" readonly>
+                    Start Date: <input type="textarea" name="date" id="startDate" disabled>
                     <label for="startDate"></label>
-                    Start Time:<input type="textarea" name="start_time" id="startTime" readonly>
+                    Start Time: <input type="textarea" name="start_time" id="startTime" disabled>
                     <label for="startTime"></label>
 
                     <label>Duration:<br>
