@@ -31,7 +31,7 @@ class OpenFacilityController extends Controller
     public function create()
     {
         $categories = DB::select( DB::raw("SELECT DISTINCT Category FROM facilities"));
-        return view('opencreatefacility', ['allCategories' => $categories]);
+        return view('opencreateFacility', ['allCategories' => $categories]);
     }
 
     /**
