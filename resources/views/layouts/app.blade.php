@@ -89,7 +89,6 @@ li a:hover:not(.active) {
         @csrf
         <a class="logo" href="/home">TEMPO</a>
         <nav>
-            <a href="#" style="color:white">User Manual</a>
             <a href="#" style="color:white">My Page</a>
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color:white">Logout</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
