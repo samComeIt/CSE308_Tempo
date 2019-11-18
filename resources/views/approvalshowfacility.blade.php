@@ -20,7 +20,6 @@
                 <td>Capacity</td>
                 <td>Picture</td>
                 <td>Status</td>
-                <td>Action</td>
                 </thead>
                 <tbody>
 
@@ -36,14 +35,8 @@
                         <img class="inner-table" src="{{url('uploads/'.$facility->Picture)}}"
                              alt="{{$facility->Picture}}">
                         <td class="inner-table">{{ $facility->Status }}</td>
-                        <td><a href="{{ route('approval.edit',$facility->Facility_ID) }}" class="button">Edit</a></td>
 
                         @csrf
-                        @method('DELETE')
-                        <td>
-                            <button type="submit">Delete</button>
-                        </td>
-
                     </tr>
                     @endforeach
                 </form>
@@ -352,6 +345,16 @@
                     document.getElementById("startDate").value = startDate
                     document.getElementById("startTime").value = startTime
                     $('#myModal').modal('show');
+                    
+                    $('.modal-child').on('show.bs.modal', function () {
+                    var modalParent = $(this).attr('data-modal-parent');
+                    $(modalParent).css('opacity', 0);
+                    });
+
+                    $('.modal-child').on('hidden.bs.modal', function () {
+                    var modalParent = $(this).attr('data-modal-parent');
+                    $(modalParent).css('opacity', 1);
+                    });
 
 //                    $('#complete').click(function() {
 //                        duration = $('input[type=radio]:checked').val();
@@ -370,6 +373,8 @@
 <!-- Modal -->
 <form action="/timeslot" method="POST" style="width: 80%">
     @csrf
+    <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Modals in Modal</a>
+    
     <div class="modal" style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%); overflow: hidden" id="myModal"
          tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document" style="width: 600px; height: 90%">
@@ -379,10 +384,10 @@
                 </div>
                 <div class="modal-body">
 
-                    Start Date: <input type="textarea" name="date" id="startDate" disabled>
+                    Start Date: <input type="textarea" name="date" id="startDate" readable>
                     <input type="hidden" name="facility_id" value='{{$facility->Facility_ID}}'>
                     <label for="startDate"></label>
-                    Start Time: <input type="textarea" name="start_time" id="startTime" disabled>
+                    Start Time: <input type="textarea" name="start_time" id="startTime" readable>
                     <label for="startTime"></label>
 
                     <label>Duration:<br>
@@ -395,13 +400,33 @@
                     <label id="duration"></label>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>
+                    <a href="#submit" role="button" class="button" data-toggle="modal" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</a>
+<!--                    <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>-->
                     <button type="button" data-dismiss="modal" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Cancel
                     </button>
                 </div>
             </div>
         </div>
     </div>
+    
+    <div id="submit" class="modal modal-child" data-backdrop-limit="1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-modal-parent="#myModal">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header 1</h4>
+            </div>
+            <div class="modal-body">
+                <p>Two modal body…1</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-default" data-dismiss="modal" data-dismiss="modal" aria-hidden="true">Cancel</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 </form>
 <script>
     document.getElementById('tabela').rows[i].cells[j].style.backgroundColor = "#003366"

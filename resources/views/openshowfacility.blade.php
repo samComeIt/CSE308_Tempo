@@ -20,7 +20,6 @@
                 <td>Capacity</td>
                 <td>Picture</td>
                 <td>Status</td>
-                <td>Action</td>
                 </thead>
                 <tbody>
 
@@ -36,14 +35,8 @@
                         <img class="inner-table" src="{{url('uploads/'.$facility->Picture)}}"
                              alt="{{$facility->Picture}}">
                         <td class="inner-table">{{ $facility->Status }}</td>
-                        <td><a href="{{ route('open.edit',$facility->Facility_ID) }}" class="button">Edit</a></td>
 
                         @csrf
-                        @method('DELETE')
-                        <td>
-                            <button type="submit">Delete</button>
-                        </td>
-
                     </tr>
                     @endforeach
                 </form>
