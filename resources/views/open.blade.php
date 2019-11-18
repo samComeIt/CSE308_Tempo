@@ -34,12 +34,12 @@
                 <tbody>
                 @foreach ($allFacilities as $facility)
                 @if ($facility->Category == $category->Category && $facility->Type == "Open")
-                <form action="{{ route('facility.destroy',$facility->Facility_ID) }}" method="POST">
+                <form action="{{ route('open.destroy',$facility->Facility_ID) }}" method="POST">
                     <tr>
                         <td>{{ $facility->Name }}</td>
                         @csrf
-                        <td><a href="{{ route('facility.show',$facility->Facility_ID) }}" class="button">Time table</a>
-                            <a href="{{ route('facility.edit',$facility->Facility_ID) }}" class="button">Edit</a></td>
+                        <td><a href="{{ route('open.show',$facility->Facility_ID) }}" class="button">Time table</a>
+                            <a href="{{ route('open.edit',$facility->Facility_ID) }}" class="button">Edit</a></td>
                         @method('DELETE')
                         <td>
                             <button type="submit">Delete</button>

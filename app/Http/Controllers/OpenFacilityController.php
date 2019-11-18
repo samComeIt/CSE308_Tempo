@@ -18,7 +18,7 @@ class OpenFacilityController extends Controller
     public function index()
     {
         $facilities = \App\Facility::all();
-        $categories = DB::select( DB::raw("SELECT DISTINCT Category FROM facilities"));
+        $categories = DB::select( DB::raw("SELECT DISTINCT Category FROM facilities WHERE Type = 'Open'"));
 
         return view('open', ['allFacilities' => $facilities, 'allCategories' => $categories]);
     }
@@ -31,7 +31,7 @@ class OpenFacilityController extends Controller
     public function create()
     {
         $categories = DB::select( DB::raw("SELECT DISTINCT Category FROM facilities"));
-        return view('createfacility', ['allCategories' => $categories]);
+        return view('opencreatefacility', ['allCategories' => $categories]);
     }
 
     /**
@@ -67,7 +67,7 @@ class OpenFacilityController extends Controller
 
     $facilities = \App\Facility::where('Facility_ID', $id)->get();
 
-            return view('showfacility',compact('facilities'));
+            return view('openshowfacility',compact('facilities'));
 
     }
 
@@ -82,7 +82,7 @@ class OpenFacilityController extends Controller
 
     $facilities = \App\Facility::where('Facility_ID', $id)->get();
 
-            return view('editfacility',compact('facilities'));
+            return view('openeditfacility',compact('facilities'));
 
     }
 
@@ -116,7 +116,7 @@ class OpenFacilityController extends Controller
                ];
                \App\Facility::where('Facility_ID',$id)->update($update);
 
-        return redirect('/facility')->with('success', 'Facility has been updated!!');
+        return redirect('/open')->with('success', 'Facility has been updated!!');
     }
     /**
      * Remove the specified resource from storage.

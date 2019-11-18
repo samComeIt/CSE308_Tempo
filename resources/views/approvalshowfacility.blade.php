@@ -25,7 +25,7 @@
                 <tbody>
 
                 @foreach ($facilities as $facility)
-                <form action="{{ route('facility.destroy',$facility->Facility_ID) }}" method="POST">
+                <form action="{{ route('approval.destroy',$facility->Facility_ID) }}" method="POST">
                     <tr>
                         <td>{{ $facility->Name }}</td>
                         <td class="inner-table">{{ $facility->Location }}</td>
@@ -36,7 +36,7 @@
                         <img class="inner-table" src="{{url('uploads/'.$facility->Picture)}}"
                              alt="{{$facility->Picture}}">
                         <td class="inner-table">{{ $facility->Status }}</td>
-                        <td><a href="{{ route('facility.edit',$facility->Facility_ID) }}" class="button">Edit</a></td>
+                        <td><a href="{{ route('approval.edit',$facility->Facility_ID) }}" class="button">Edit</a></td>
 
                         @csrf
                         @method('DELETE')

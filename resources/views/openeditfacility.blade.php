@@ -12,7 +12,7 @@
 
     <div class="inner">
         @foreach ($facilities as $facility)
-        <form action="{{ route('facility.update',$facility->Facility_ID) }}" method="POST">
+        <form action="{{ route('open.update',$facility->Facility_ID) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-input">
@@ -73,7 +73,7 @@
                 <label>Picture</label> <input type="file" name="Picture" value={{ $facility->Picture }}>
             </div>
 
-            <a class="btn btn-primary" href="{{ route('facility.index')}}">Cancel</a>
+            <a class="btn btn-primary" href="{{ route('open.index')}}">Cancel</a>
 
             <button type="submit" class="btn btn-danger">Update</button>
 
