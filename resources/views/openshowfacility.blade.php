@@ -340,7 +340,13 @@
         }
 
     </style>
-
+    
+    @foreach ($timeslots as $timeslot)
+        {{ $timeslot -> date }}
+        {{ $timeslot -> start_time }}
+        {{ $timeslot -> duration }}
+        <br>
+    @endforeach
 
     <script>
         var startDate;
