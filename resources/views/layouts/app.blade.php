@@ -36,6 +36,7 @@ ul {
 /*  background-color: #13136b;*/
 }
 
+/*
 li {
   float: right;
 }
@@ -68,6 +69,7 @@ li a {
 li a:hover:not(.active) {
   background-color: #3346b0;
 }
+*/
 
 .active {
   background-color: #4CAF50;
@@ -89,7 +91,8 @@ li a:hover:not(.active) {
         @csrf
         <a class="logo" href="/home">TEMPO</a>
         <nav>
-            <a href="#" style="color:white">My Page</a>
+            <a href="/home" style="color:white">Home</a>
+            <a href="/mypage" style="color:white">My Page</a>
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color:white">Logout</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
         </nav>

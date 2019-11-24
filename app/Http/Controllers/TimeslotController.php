@@ -38,4 +38,7 @@ class TimeslotController extends Controller
         $timeSelect -> delete();
         return redirect('/approval');
     }
+    public function index(){
+        return view('mypage');
+    }
 }
