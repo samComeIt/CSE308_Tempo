@@ -81,7 +81,7 @@ class FacilityController extends Controller
         $row14 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
         $row15 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
         $row16 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
-        
+
         $today = new DateTime();
         $todaystr1 = $today->format('m/d');
         $today->modify('+1 day');
@@ -105,7 +105,7 @@ class FacilityController extends Controller
         $timeslots5 = \App\Timeslot::where('date', $todaystr5)->get();
         $timeslots6 = \App\Timeslot::where('date', $todaystr6)->get();
         $timeslots7 = \App\Timeslot::where('date', $todaystr7)->get();
-        
+
         foreach ($timeslots1 as $timeslot){
             if ($timeslot->start_time == '8am') {
                 $row1['1'] = "fill";
@@ -151,12 +151,12 @@ class FacilityController extends Controller
             }
             if ($timeslot->start_time == '10pm') {
                 $row15['1'] = "fill";
-            } 
+            }
             if ($timeslot->start_time == '11pm') {
                 $row16['1'] = "fill";
             }
         }
-            
+
         foreach ($timeslots2 as $timeslot){
             if ($timeslot->start_time == '8am') {
                 $row1['2'] = "fill";
@@ -202,12 +202,12 @@ class FacilityController extends Controller
             }
             if ($timeslot->start_time == '10pm') {
                 $row15['2'] = "fill";
-            } 
+            }
             if ($timeslot->start_time == '11pm') {
                 $row16['2'] = "fill";
             }
         }
-                
+
         foreach ($timeslots3 as $timeslot){
             if ($timeslot->start_time == '8am') {
                 $row1['3'] = "fill";
@@ -253,12 +253,12 @@ class FacilityController extends Controller
             }
             if ($timeslot->start_time == '10pm') {
                 $row15['3'] = "fill";
-            } 
+            }
             if ($timeslot->start_time == '11pm') {
                 $row16['3'] = "fill";
             }
         }
-                
+
         foreach ($timeslots4 as $timeslot){
             if ($timeslot->start_time == '8am') {
                 $row1['4'] = "fill";
@@ -304,12 +304,12 @@ class FacilityController extends Controller
             }
             if ($timeslot->start_time == '10pm') {
                 $row15['4'] = "fill";
-            } 
+            }
             if ($timeslot->start_time == '11pm') {
                 $row16['4'] = "fill";
             }
         }
-                
+
         foreach ($timeslots5 as $timeslot){
             if ($timeslot->start_time == '8am') {
                 $row1['5'] = "fill";
@@ -355,12 +355,12 @@ class FacilityController extends Controller
             }
             if ($timeslot->start_time == '10pm') {
                 $row15['5'] = "fill";
-            } 
+            }
             if ($timeslot->start_time == '11pm') {
                 $row16['5'] = "fill";
             }
         }
-                
+
         foreach ($timeslots6 as $timeslot){
             if ($timeslot->start_time == '8am') {
                 $row1['6'] = "fill";
@@ -406,12 +406,12 @@ class FacilityController extends Controller
             }
             if ($timeslot->start_time == '10pm') {
                 $row15['6'] = "fill";
-            } 
+            }
             if ($timeslot->start_time == '11pm') {
                 $row16['6'] = "fill";
             }
         }
-                
+
         foreach ($timeslots7 as $timeslot){
             if ($timeslot->start_time == '8am') {
                 $row1['7'] = "fill";
@@ -457,12 +457,12 @@ class FacilityController extends Controller
             }
             if ($timeslot->start_time == '10pm') {
                 $row15['7'] = "fill";
-            } 
+            }
             if ($timeslot->start_time == '11pm') {
                 $row16['7'] = "fill";
             }
         }
-    
+
         return view('approvalshowfacility',compact('facilities', 'row1', 'row2', 'row3', 'row4', 'row5', 'row6', 'row7', 'row8', 'row9', 'row10', 'row11', 'row12', 'row13', 'row14', 'row15', 'row16'));
     }
 

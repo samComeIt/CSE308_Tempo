@@ -27,7 +27,7 @@
                 <form action="{{ route('approval.destroy',$facility->Facility_ID) }}" method="POST">
                     <tr>
                         <td>{{ $facility->Name }}</td>
-                        <td class="inner-table">{{ $facility->Location }}</td>
+                        <td class="inner-table">{{ $facility->Facility_ID }}</td>
                         <td class="inner-table">{{ $facility->Category }}</td>
                         <td class="inner-table">{{ $facility->Type }}</td>
                         <td class="inner-table">{{ $facility->Capacity }}</td>
@@ -263,7 +263,7 @@
         .hoverTable tr, th {
             position: relative;
         }
-        
+
         .hoverTable td {
 /*            padding: 7px;*/
             border: #13136b 2px solid;
@@ -292,7 +292,7 @@
             background-color: #4b93d6;
         }
     </style>
-    
+
     <script>
         var startDate;
         var startTime;
@@ -306,7 +306,7 @@
                     document.getElementById("startDate").value = startDate
                     document.getElementById("startTime").value = startTime
                     $('#myModal').modal('show');
-                    
+
                     $('.modal-child').on('show.bs.modal', function () {
                     var modalParent = $(this).attr('data-modal-parent');
                     $(modalParent).css('opacity', 0);
@@ -334,7 +334,8 @@
 <form action="/approval/timeslot" method="POST" style="width: 80%">
     @csrf
 
-    <div class="modal" style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%); overflow: hidden" id="myModal"
+    <div class="modal" style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%); overflow: hidden"
+         id="myModal"
          tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document" style="width: 600px; height: 90%">
             <div class="modal-content" style="height: 100%">
@@ -348,52 +349,73 @@
                     <label for="startDate"></label>
                     Start Time: <input type="textarea" name="start_time" id="startTime" readonly>
                     <label for="startTime"></label>
+                    <input type="hidden" name="duration" value="1">
 
+                    <input type="hidden" name="type" value='{{$facility->Type}}'>
+                    <input type="hidden" name="user_id" value='{{ Auth::user()->id}}'>
+
+                    <!--
                     <label>Duration:<br>
                         <input type="radio" name="duration" id="1hour" value="1" style="height: 1rem; width: 1rem">
                         <label for="1hour" style="padding-left: 1.5rem">1 hour</label><br>
                         <input type="radio" name="duration" id="2hour" value="2" style="height: 1rem; width: 1rem">
                         <label for="2hour" style="padding-left: 1.5rem">2 hours</label>
-                    </label>
+                    </label>-->
 
                     <label id="duration"></label>
                 </div>
                 <div class="modal-footer">
-                    <a href="#submit" role="button" class="button" data-toggle="modal" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</a>
-<!--                    <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>-->
+                    <button type="submit">Submit</button>
+                   <!-- <a href="submit" role="button" class="button" data-toggle="modal"
+                       style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</a>-->
+                    <!--                    <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>-->
 
-                    <button type="button" data-dismiss="modal" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Cancel
+                    <button type="button" data-dismiss="modal" style="height: 2rem; padding: 0 1rem; line-height: 0rem">
+                        Cancel
                     </button>
                 </div>
             </div>
         </div>
     </div>
-    
-    <div id="submit" class="modal modal-child" style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%)" data-backdrop-limit="1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-modal-parent="#myModal">
-    <div class="modal-dialog">
-         Modal content
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Reservation Form</h2>
-            </div>
-            <div class="modal-body">
-                <label>Name:</label>
-                <input type="text" name="name" id="name" required>
-                <label>Number of Students:</label>
-                <input type="text" name="number" id="number" required>
-                <label>Purpose:</label>
-                <input type="text" name="purpose" id="purpose" required>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>
-                <button class="btn btn-default" data-dismiss="modal" data-dismiss="modal" aria-hidden="true" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Cancel</button>
-            </div>
+</form>
+<!--
 
+<form action="/approval/reservation" method="POST" style="width: 80%">
+    @csrf
+    <div id="submit" class="modal modal-child"
+         style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%)" data-backdrop-limit="1"
+         tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-modal-parent="#myModal">
+        <div class="modal-dialog">
+            Modal content
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Reservation Form</h2>
+                </div>
+                <div class="modal-body">
+                    <label>Name:</label>
+                    <input type="text" name="name" id="name" required>
+                    <label>Number of Students:</label>
+                    <input type="text" name="number" id="number" required>
+                    <label>Purpose:</label>
+                    <input type="text" name="purpose" id="purpose" required>
+
+                    <input type="hidden" name="facility_id" value='{{$facility->Facility_ID}}'>
+
+                    <input type="hidden" name="user_id" value='{{ Auth::user()->id}}'>
+                    <input type="hidden" name="type" value='{{$facility->Type}}'>
+                    <input type="hidden" name="reservation_status" value="booked">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>
+                    <button class="btn btn-default" data-dismiss="modal" data-dismiss="modal" aria-hidden="true"
+                            style="height: 2rem; padding: 0 1rem; line-height: 0rem">Cancel
+                    </button>
+                </div>
+
+            </div>
         </div>
     </div>
-</div>
 </form>
-<script>
-    document.getElementById('tabela').rows[i].cells[j].style.backgroundColor = "#003366"
-</script>
+-->
 @endsection
