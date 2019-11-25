@@ -82,7 +82,8 @@ class FacilityController extends Controller
         $row15 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
         $row16 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
         
-        $today = new DateTime();
+        $timezone = new DateTimeZone('Asia/Seoul');
+        $today = new DateTime('now', $timezone);
         $todaystr1 = $today->format('m/d');
         $today->modify('+1 day');
         $todaystr2 = $today->format('m/d');
