@@ -29,18 +29,24 @@ class TimeslotController extends Controller
             'duration' => $request->get('duration'),
             'facility_id' => $request->get('facility_id'),
             ]);
+
+        $timeslot_id = DB::table('timeslot')->where([
+            ['date', '=', $request->get('date')],
+            ['start_time', '=', $request->get('start_time')],
+            ['facility_id', '=', $request->get('facility_id')],
+        ])->get();
+
         \App\Reservation::create([
             'type' => $request->get('type'),
             'user_id' => $request->get('user_id'),
-            'timeslot_id' => $request->get('timeslot_id'),
+            'timeslot_id' => $timeslot_id,
             'facility_id' => $request->get('facility_id'),
             'reservation_status' => $request->get('reservation_status'),
             'purpose' => $request->get('purpose'),
             'number' => $request->get('number'),
         ]);
-        $timeslot_id = DB::select( DB::raw("SELECT timeslot_id  FROM Timeslot WHERE Type='Approval'"));
-
-        return redirect('',['allTimeslot_id'=>$timeslot_id]);
+        
+        return redirect('approval/reservation', [alltimeslot_id=>$timeslot_id]);
     }
 
     public function cancel($id)

@@ -6,13 +6,14 @@
     <div class="inner">
         <header class="special">
 
-            <h1 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Edit Facility</h1>
+            <h1 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Reservation Step 2</h1>
         </header>
     </div>
 
 
     <div class="inner" style="display:flex; justify-content:center; align-items:center">
-        @foreach ($facilities as $facility)
+        @foreach ($timeslots as $timeslot)
+        @if ($timeslots->facility_id== {{ $facility->id }})
         <form action="{{ route('open.update',$facility->Facility_ID) }}" method="POST" style="width: 60%">
             @csrf
             @method('PUT')
@@ -32,7 +33,7 @@
                 <label for="{{ $category->Category }}">{{ $category->Category }}</label>
                 @endforeach
                 <input type="radio" id="categoryOther" name="Category" value="">
-                
+
                 <label for="categoryOther">Other (Type in the new category below)</label>
                 <textarea name="Category" rows="1" disabled id="otherField"></textarea>
             </div>
@@ -69,7 +70,7 @@
 
             <button type="submit">Update</button>
 
-
+            @endif
             @endforeach
         </form>
     </div>

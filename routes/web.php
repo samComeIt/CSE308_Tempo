@@ -33,4 +33,4 @@ Route::post('/approval/timeslot', 'TimeslotController@approvalStore')->name('app
 
 //Route::resource('/mypage', 'TimeslotController');
 
-Route::resource('/approval/reservation', 'ReservationController');
+Route::resource('/approval/reservation', 'ReservationController')->name('approvalReservation');

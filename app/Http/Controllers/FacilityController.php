@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 use DateTime;
+use DateTimeZone;
 
 use Illuminate\Http\Request;
 
@@ -81,7 +82,7 @@ class FacilityController extends Controller
         $row14 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
         $row15 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
         $row16 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
-        
+
         $timezone = new DateTimeZone('Asia/Seoul');
         $today = new DateTime('now', $timezone);
 
