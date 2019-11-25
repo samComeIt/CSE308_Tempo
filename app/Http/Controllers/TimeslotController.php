@@ -36,17 +36,7 @@ class TimeslotController extends Controller
             ['facility_id', '=', $request->get('facility_id')],
         ])->get();
 
-        \App\Reservation::create([
-            'type' => $request->get('type'),
-            'user_id' => $request->get('user_id'),
-            'timeslot_id' => $timeslot_id,
-            'facility_id' => $request->get('facility_id'),
-            'reservation_status' => $request->get('reservation_status'),
-            'purpose' => $request->get('purpose'),
-            'number' => $request->get('number'),
-        ]);
-        
-        return redirect('approval/reservation', [alltimeslot_id=>$timeslot_id]);
+        return redirect('approval/reservation', $timeslot_id);
     }
 
     public function cancel($id)
