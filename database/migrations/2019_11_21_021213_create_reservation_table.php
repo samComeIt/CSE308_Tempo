@@ -17,11 +17,11 @@ class CreateReservationTable extends Migration
             $table->bigIncrements('reservation_id');
             $table->string('type');
             $table->integer('user_id');
-            $table->integer('timeslot_id');
+            $table->integer('timeslot_id')->nullable();
             $table->integer('facility_id');
-            $table->string('reservation_status');
-            $table->string('purpose');
-            $table->integer('number');
+            $table->string('reservation_status')->nullable();
+            $table->string('purpose')->nullable();
+            $table->integer('number')->nullable();
             $table->timestamps();
         });
     }

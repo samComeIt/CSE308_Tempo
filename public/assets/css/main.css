@@ -116,9 +116,11 @@ a {
   -webkit-transition: color 0.2s ease-in-out;
   -ms-transition: color 0.2s ease-in-out;
   transition: color 0.2s ease-in-out;
-  text-decoration: underline; }
+  text-decoration: none; }
   a:hover {
-    text-decoration: none; }
+    text-decoration: underline;
+    color: #13136b;
+}
 
 strong, b {
   font-weight: 600; }
@@ -223,7 +225,7 @@ input, select, textarea {
   color: #555555; }
 
 a {
-  color: #ce1b28; }
+  color: #13136b; }
 
 strong, b {
   color: #555555; }

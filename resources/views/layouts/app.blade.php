@@ -8,7 +8,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
     <!-- Scripts -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
@@ -16,16 +15,16 @@
     <script src="{{ asset('assets/js/breakpoints.min.js') }}"></script>
 	<script src="{{ asset('assets/js/util.js') }}"></script>
 	<script src="{{ asset('assets/js/main.js') }}"></script>
-    
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bitter:700|Didact+Gothic|Patua+One&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    
+
     <!-- Styles -->
 	<style>
 ul {
@@ -36,6 +35,7 @@ ul {
 /*  background-color: #13136b;*/
 }
 
+/*
 li {
   float: right;
 }
@@ -43,7 +43,7 @@ li {
 ri {
   float: left;
 }
-        
+
 ri a {
 
   color: white;
@@ -56,7 +56,7 @@ ri a {
 ri a:hover:not(.active) {
   background-color: #3346b0;
 }
-        
+
 li a {
   display: block;
   color: white;
@@ -68,6 +68,7 @@ li a {
 li a:hover:not(.active) {
   background-color: #3346b0;
 }
+*/
 
 .active {
   background-color: #4CAF50;
@@ -89,17 +90,18 @@ li a:hover:not(.active) {
         @csrf
         <a class="logo" href="/home">TEMPO</a>
         <nav>
-            <a href="#" style="color:white">My Page</a>
+            <a href="/home" style="color:white">Home</a>
+            <a href="/mypage" style="color:white">My Page</a>
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color:white">Logout</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
         </nav>
         @endguest
-        
+
     </header>
-    
+
         <main class="py-4">
             @yield('content')
         </main>
-    
+
 </body>
 </html>
