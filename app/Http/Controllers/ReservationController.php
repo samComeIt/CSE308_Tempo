@@ -18,30 +18,16 @@ class ReservationController extends Controller
         \App\Reservation::create([
             'type' => $request->get('type'),
             'user_id' => $request->get('user_id'),
-            'timeslot_id' => $timeslot_id,
+            'timeslot_id' => $request->get('$timeslot_id'),
             'facility_id' => $request->get('facility_id'),
             'reservation_status' => $request->get('reservation_status'),
             'purpose' => $request->get('purpose'),
             'number' => $request->get('number'),
         ]);
 
-        return redirect('approval');
-    }
-    public function create()
-    {
-        $timeslots = DB::select( DB::raw("SELECT * FROM TimeSlot WHERE Type='Approval'"));
-        return view('secondStepApprovalReservation', ['allTimeslot' => $timeslots]);
+        return redirect('secondApprovalReservation');
     }
 
-    public function select($id)
-    {
-
-        $facilities = \App\Facility::where('Facility_ID', $id)->get();
-        $categories = DB::select( DB::raw("SELECT DISTINCT Category FROM facilities"));
-
-        return view('reservation.update',compact('facilities','categories'));
-
-    }
 
     /**
      * Update the specified resource in storage.

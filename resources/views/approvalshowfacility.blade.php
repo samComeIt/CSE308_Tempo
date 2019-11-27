@@ -318,13 +318,6 @@
                     var modalParent = $(this).attr('data-modal-parent');
                     $(modalParent).css('opacity', 0);
                     });
-
-//                    $('#complete').click(function() {
-//                        duration = $('input[type=radio]:checked').val();
-//                        $('#myModal').modal('hide');
-//                        document.getElementById("duration").innerHTML = duration
-//                    });
-
                 }.bind(null,i,j)
             }
         }
@@ -367,7 +360,7 @@
                     <label id="duration"></label>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit">Submit</button>
+                    <button type="submit">Confirm</button>
                    <!-- <a href="submit" role="button" class="button" data-toggle="modal"
                        style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</a>-->
                     <!--                    <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>-->
