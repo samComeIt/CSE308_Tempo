@@ -54,7 +54,8 @@
                     <td></td>
                     <td>
                         @php
-                        $today = new DateTime();
+                        $timezone = new DateTimeZone('Asia/Seoul');
+                        $today = new DateTime('now', $timezone);
                         $todaystr1 = $today->format('m/d');
                         echo $todaystr1;
                         @endphp
