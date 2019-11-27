@@ -500,7 +500,6 @@ class FacilityController extends Controller
                    'Location' =>'required',
                    'Type' =>'required',
                    'Capacity' =>'required',
-
                    'Status' =>'required',
                ]);
 
