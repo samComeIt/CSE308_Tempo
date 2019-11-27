@@ -30,12 +30,16 @@ class TimeslotController extends Controller
             'facility_id' => $request->get('facility_id'),
             ]);
 
-        $timeslot_id = DB::table('timeslots')->where([
+        $target = \App\Timeslot::->where([
             'date' => $request->get('date'),
             'start_time' => $request->get('start_time'),
             'duration' => $request->get('duration'),
             'facility_id' => $request->get('facility_id'),
         ])->get();
+        
+        foreach($target as $timeslot) {
+            $timeslot_id = $timeslot->timeslot_id;
+        }
 
         return redirect('approval', $timeslot_id);
     }

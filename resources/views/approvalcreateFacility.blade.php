@@ -10,7 +10,7 @@
         </header>
     </div>
     <div class="inner" style="display:flex; justify-content:center; align-items:center">
-        <form action="/approval" method="POST" style="width: 60%">
+        <form action="/approval" method="POST" style="width: 60%" enctype="multipart/form-data">
             @csrf
 
             <div class="form-input" style="margin-bottom: 10px;">

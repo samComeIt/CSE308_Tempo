@@ -13,14 +13,16 @@ class CreateFacilityTable extends Migration
      */
     public function up()
     {
-        Schema::create('facility', function (Blueprint $table) {
+        Schema::create('facilities', function (Blueprint $table) {
             $table->bigIncrements('Facility_ID');
             $table->string('Name');
             $table->string('Location');
             $table->string('Category');
             $table->string('Type');
             $table->integer('Capacity');
-            $table->string('Picture')->nullable();
+            $table->string('filename')->nullable();
+            $table->string('mime')->nullable();
+            $table->string('original_filename')->nullable();
             $table->string('Status');
             $table->timestamps();
         });
@@ -33,6 +35,6 @@ class CreateFacilityTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('facility');
+        Schema::dropIfExists('facilities');
     }
 }

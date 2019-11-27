@@ -45,13 +45,19 @@ class FacilityController extends Controller
     public function store(Request $request)
     {
         //
+        $image = $request->file('Picture');
+        $extension = $image->getClientOriginalExtension();
+        Storage::disk('public')->put($image->getFilename().'.'.$extension,  File::get($image));
+        
         \App\Facility::create([
             'Name' => $request->get('Name'),
             'Category' => $request->get('Category'),
             'Location' => $request->get('Location'),
             'Type' => $request->get('Type'),
             'Capacity' => $request->get('Capacity'),
-            'Picture'=> $request->get('Picture'),
+            'filename' => $image->getFilename().'.'.$extension,
+            'mime' => $image->getClientMimeType(),
+            'original_filename' => $image->getClientOriginalName(),
             'Status' => $request->get('Status'),
         ]);
 
