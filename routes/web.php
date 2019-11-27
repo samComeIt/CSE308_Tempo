@@ -33,10 +33,9 @@ Route::post('/approval/timeslot', 'TimeslotController@approvalStore')->name('app
 
 
 Route::get('/mypage/current', 'TimeslotController@index')->name('index');
+Route::get('/mypage/penalty', 'PenaltyController@index')->name('index');
 Route::resource('/mypage', 'TimeslotController');
 Route::resource('/approval/reservation', 'ReservationController');
-
-//Route::resource('/mypage', 'TimeslotController');
 
 Route::resource('/approval/reservation', 'ReservationController@approvalReservation');
 
