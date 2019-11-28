@@ -15,18 +15,18 @@
             @csrf
 
             <div class="form-input" style="margin-bottom: 10px;">
-                <label>Name</label> <input type="text" name="Name">
+                <label>Room Name</label> <input type="text" name="Name">
             </div>
 
             <div class="form-input" style="margin-bottom: 10px">
-                <label>Location</label>
+                <label>Room Number</label>
                 <input type="text" name="Location">
             </div>
 
 
             <div class="form-input" style="margin-bottom: 10px">
 
-                <label>Category</label>
+                <label>Building</label>
                 
                 @foreach ($allCategories as $category)
                 <input type="radio" id="{{ $category->Category }}" name="Category" value="{{ $category->Category }}">
@@ -34,16 +34,14 @@
                 @endforeach
                 <input type="radio" id="categoryOther" name="Category" value="">
                 
-                <label for="categoryOther">Other (Type in the new category below)</label>
+                <label for="categoryOther">Other (Type in the new building below)</label>
                 <textarea name="Category" rows="1" disabled id="otherField"></textarea>
             </div>
             
             <div class="form-input" style="margin-bottom: 10px">
                 <label>Type</label>
-                <input type="radio" id="Approval" name="Type" value="Approval">
+                <input type="radio" id="Approval" name="Type" value="Approval" checked readonly>
                 <label for="Approval">Approval</label>
-                <input type="radio" id="Open" name="Type" value="Open">
-                <label for="Open">Open</label>
             </div>
 
             <div class="form-input" style="margin-bottom: 10px">

@@ -14,9 +14,9 @@
         <div class="content">
             <table>
                 <thead>
-                <td style="font-weight: bold">Name</td>
-                <td style="font-weight: bold">Location</td>
-                <td style="font-weight: bold">Category</td>
+                <td style="font-weight: bold">Room Name</td>
+                <td style="font-weight: bold">Room Number</td>
+                <td style="font-weight: bold">Building</td>
                 <td style="font-weight: bold">Type</td>
                 <td style="font-weight: bold">Capacity</td>
                 <td style="font-weight: bold">Status</td>

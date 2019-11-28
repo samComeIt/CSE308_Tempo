@@ -14,9 +14,9 @@
         <div class="content">
             <table>
                 <thead>
-                <td style="font-weight: bold">Name</td>
-                <td style="font-weight: bold">Location</td>
-                <td style="font-weight: bold">Category</td>
+                <td style="font-weight: bold">Room Name</td>
+                <td style="font-weight: bold">Room Number</td>
+                <td style="font-weight: bold">Building</td>
                 <td style="font-weight: bold">Type</td>
                 <td style="font-weight: bold">Capacity</td>
                 <td style="font-weight: bold">Status</td>
@@ -39,7 +39,7 @@
                 </form>
                 </tbody>
             </table>
-            <img style="display: block; margin-left: auto; margin-right: auto" src="{{url('image/'.$facility->filename)}}" alt="{{$facility->filename}}" height=300 width=500>
+            <img style="display: block; margin-left: auto; margin-right: auto" src="{{url('image/'.$facility->filename)}}" alt="{{$facility->filename}}" height=20% width=40%>
         </div>
         <br>
 

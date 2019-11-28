@@ -45,9 +45,18 @@ class FacilityController extends Controller
     public function store(Request $request)
     {
         //
-        $image = $request->file('Picture');
-        $extension = $image->getClientOriginalExtension();
-        Storage::disk('public')->put($image->getFilename().'.'.$extension,  File::get($image));
+        $image_filename = NULL;
+        $image_mime = NULL;
+        $image_original_filename = NULL;
+        
+        if($request->file('Picture') != NULL) {
+            $image = $request->file('Picture');
+            $extension = $image->getClientOriginalExtension();
+            Storage::disk('public')->put($image->getFilename().'.'.$extension,  File::get($image));
+            $image_filename = $image->getFilename().'.'.$extension;
+            $image_mime = $image->getClientMimeType();
+            $image_original_filename = $image->getClientOriginalName();
+        }
         
         \App\Facility::create([
             'Name' => $request->get('Name'),
@@ -55,9 +64,9 @@ class FacilityController extends Controller
             'Location' => $request->get('Location'),
             'Type' => $request->get('Type'),
             'Capacity' => $request->get('Capacity'),
-            'filename' => $image->getFilename().'.'.$extension,
-            'mime' => $image->getClientMimeType(),
-            'original_filename' => $image->getClientOriginalName(),
+            'filename' => $image_filename,
+            'mime' => $image_mime,
+            'original_filename' => $image_original_filename,
             'Status' => $request->get('Status'),
         ]);
 
@@ -500,7 +509,19 @@ class FacilityController extends Controller
      */
     public function update(Request $request, $id)
         {
-       $request->validate([
+            $image_filename = NULL;
+            $image_mime = NULL;
+            $image_original_filename = NULL;
+        
+            if($request->file('Picture') != NULL) {
+                $image = $request->file('Picture');
+                $extension = $image->getClientOriginalExtension();
+                Storage::disk('public')->put($image->getFilename().'.'.$extension,  File::get($image));
+                $image_filename = $image->getFilename().'.'.$extension;
+                $image_mime = $image->getClientMimeType();
+                $image_original_filename = $image->getClientOriginalName();
+            }
+        $request->validate([
                    'Name' =>'required',
                    'Category' =>'required',
                    'Location' =>'required',
@@ -515,7 +536,9 @@ class FacilityController extends Controller
                'Location' => $request->Location,
                'Type' => $request->Type,
                'Capacity' => $request->Capacity,
-               'Picture' => $request->Picture,
+               'filename' => $image_filename,
+                'mime' => $image_mime,
+                'original_filename' => $image_original_filename,
                'Status' => $request->Status,
                ];
                \App\Facility::where('Facility_ID',$id)->update($update);
@@ -530,16 +553,18 @@ class FacilityController extends Controller
      */
      public function updateFacility($data)
      {
-             $facility = $this->find($data['Facility_ID']);
-             $facility->Name = $data['Name'];
-             $facility->Category = $data['Category'];
-             $facility->Location = $data['Location'];
-             $facility->Type = $data['Type'];
-             $facility->Capacity = $data['Capacity'];
-             $facility->Picture = $data['Picture'];
-             $facility->Status = $data['Status'];
-             $facility->save();
-             return 1;
+         $facility = $this->find($data['Facility_ID']);
+         $facility->Name = $data['Name'];
+         $facility->Category = $data['Category'];
+         $facility->Location = $data['Location'];
+         $facility->Type = $data['Type'];
+         $facility->Capacity = $data['Capacity'];
+         $facility->filename = $data['filename'];
+         $facility->mime = $data['mime'];
+         $facility->original_filename = $data['original_filename'];
+         $facility->Status = $data['Status'];
+         $facility->save();
+         return 1;
      }
     public function destroy($id)
     {
