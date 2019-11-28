@@ -17,25 +17,24 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 //Route::resource('/approval/facility', 'FacilityController');
 //Route::resource('/open/facility', 'OpenFacilityController');
 
 //Route::get('/approval', 'FacilityController@approval')->name('approval');
 //Route::get('/open', 'FacilityController@open')->name('open');
-Route::resource('/approval', 'FacilityController');
-Route::resource('/open', 'OpenFacilityController');
+Route::resource('/approval', 'FacilityController')->middleware('auth');
+Route::resource('/open', 'OpenFacilityController')->middleware('auth');
 
-Route::resource('/timeslot', 'TimeslotController');
-Route::post('/open/timeslot', 'TimeslotController@openStore')->name('openTimeslot');
-Route::post('/approval/timeslot', 'TimeslotController@approvalStore')->name('approvalTimeslot');
+Route::resource('/timeslot', 'TimeslotController')->middleware('auth');
+Route::post('/open/timeslot', 'TimeslotController@openStore')->name('openTimeslot')->middleware('auth');
+Route::post('/approval/timeslot', 'TimeslotController@approvalStore')->name('approvalTimeslot')->middleware('auth');
 
 
 Route::get('/mypage/current', 'TimeslotController@index')->name('index');
 Route::get('/mypage/penalty', 'PenaltyController@index')->name('index');
-Route::resource('/mypage', 'TimeslotController');
-Route::resource('/approval/reservation', 'ReservationController');
+Route::resource('/mypage', 'TimeslotController')->middleware('auth');
+Route::resource('/approval/reservation', 'ReservationController')->middleware('auth');
 
 Route::resource('/approval/reservation', 'ReservationController@approvalReservation');
 

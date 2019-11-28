@@ -35,41 +35,6 @@ ul {
 /*  background-color: #13136b;*/
 }
 
-/*
-li {
-  float: right;
-}
-
-ri {
-  float: left;
-}
-
-ri a {
-
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 20px;
-}
-
-ri a:hover:not(.active) {
-  background-color: #3346b0;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover:not(.active) {
-  background-color: #3346b0;
-}
-*/
-
 .active {
   background-color: #4CAF50;
 }
