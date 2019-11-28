@@ -4,6 +4,7 @@
 <link href="https://fonts.googleapis.com/css?family=Bitter:700|Didact+Gothic|Patua+One&display=swap" rel="stylesheet">
 <section class="wrapper">
     <div class="inner">
+        <a href="/open" class="button"><i class="fa fa-arrow-left"> Back</i></a>
         <header class="special">
 
             <h1 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Show Facility</h1>
@@ -13,13 +14,12 @@
         <div class="content">
             <table>
                 <thead>
-                <td>Name</td>
-                <td>Location</td>
-                <td>Category</td>
-                <td>Type</td>
-                <td>Capacity</td>
-                <td>Picture</td>
-                <td>Status</td>
+                <td style="font-weight: bold">Room Name</td>
+                <td style="font-weight: bold">Room Number</td>
+                <td style="font-weight: bold">Building</td>
+                <td style="font-weight: bold">Type</td>
+                <td style="font-weight: bold">Capacity</td>
+                <td style="font-weight: bold">Status</td>
                 </thead>
                 <tbody>
 
@@ -31,9 +31,6 @@
                         <td class="inner-table">{{ $facility->Category }}</td>
                         <td class="inner-table">{{ $facility->Type }}</td>
                         <td class="inner-table">{{ $facility->Capacity }}</td>
-                        <td class="inner-table">{{ $facility->Picture }}</td>
-                        <img class="inner-table" src="{{url('uploads/'.$facility->Picture)}}"
-                             alt="{{$facility->Picture}}">
                         <td class="inner-table">{{ $facility->Status }}</td>
 
                         @csrf
@@ -42,8 +39,9 @@
                 </form>
                 </tbody>
             </table>
+            <img style="display: block; margin-left: auto; margin-right: auto" src="{{url('image/'.$facility->filename)}}" alt="{{$facility->filename}}" height=300 width=500>
         </div>
-        
+        <br>
         <div class="content">
             <div class="form-popup" id="myForm">
                 <table class="hoverTable" id="tabela">

@@ -4,6 +4,7 @@
 <link href="https://fonts.googleapis.com/css?family=Bitter:700|Didact+Gothic|Patua+One&display=swap" rel="stylesheet">
 <section class="wrapper">
     <div class="inner">
+        <a href="/approval" class="button"><i class="fa fa-arrow-left"> Back</i></a>
         <header class="special">
 
             <h1 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Show Facility</h1>
@@ -13,13 +14,12 @@
         <div class="content">
             <table>
                 <thead>
-                <td>Name</td>
-                <td>Location</td>
-                <td>Category</td>
-                <td>Type</td>
-                <td>Capacity</td>
-                <td>Picture</td>
-                <td>Status</td>
+                <td style="font-weight: bold">Room Name</td>
+                <td style="font-weight: bold">Room Number</td>
+                <td style="font-weight: bold">Building</td>
+                <td style="font-weight: bold">Type</td>
+                <td style="font-weight: bold">Capacity</td>
+                <td style="font-weight: bold">Status</td>
                 </thead>
                 <tbody>
 
@@ -27,22 +27,21 @@
                 <form action="{{ route('approval.destroy',$facility->Facility_ID) }}" method="POST">
                     <tr>
                         <td>{{ $facility->Name }}</td>
-                        <td class="inner-table">{{ $facility->Facility_ID }}</td>
+                        <td class="inner-table">{{ $facility->Location }}</td>
                         <td class="inner-table">{{ $facility->Category }}</td>
                         <td class="inner-table">{{ $facility->Type }}</td>
                         <td class="inner-table">{{ $facility->Capacity }}</td>
-                        <td class="inner-table">{{ $facility->Picture }}</td>
-                        <img class="inner-table" src="{{url('uploads/'.$facility->Picture)}}"
-                             alt="{{$facility->Picture}}">
                         <td class="inner-table">{{ $facility->Status }}</td>
-
                         @csrf
                     </tr>
                     @endforeach
+
                 </form>
                 </tbody>
             </table>
+            <img style="display: block; margin-left: auto; margin-right: auto" src="{{url('image/'.$facility->filename)}}" alt="{{$facility->filename}}" height=20% width=40%>
         </div>
+        <br>
 
         <div class="content">
             <div class="form-popup" id="myForm">
@@ -348,22 +347,13 @@
 
                     <input type="hidden" name="type" value='{{$facility->Type}}'>
                     <input type="hidden" name="user_id" value='{{ Auth::user()->id}}'>
-                    @endforeach
-                    <!--
-                    <label>Duration:<br>
-                        <input type="radio" name="duration" id="1hour" value="1" style="height: 1rem; width: 1rem">
-                        <label for="1hour" style="padding-left: 1.5rem">1 hour</label><br>
-                        <input type="radio" name="duration" id="2hour" value="2" style="height: 1rem; width: 1rem">
-                        <label for="2hour" style="padding-left: 1.5rem">2 hours</label>
-                    </label>-->
+
 
                     <label id="duration"></label>
                 </div>
                 <div class="modal-footer">
                     <button type="submit">Confirm</button>
-                   <!-- <a href="submit" role="button" class="button" data-toggle="modal"
-                       style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</a>-->
-                    <!--                    <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>-->
+
 
                     <button type="button" data-dismiss="modal" style="height: 2rem; padding: 0 1rem; line-height: 0rem">
                         Cancel

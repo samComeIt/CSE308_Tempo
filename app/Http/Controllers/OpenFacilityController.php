@@ -45,13 +45,28 @@ class OpenFacilityController extends Controller
     public function store(Request $request)
     {
         //
+        $image_filename = NULL;
+        $image_mime = NULL;
+        $image_original_filename = NULL;
+        
+        if($request->file('Picture') != NULL) {
+            $image = $request->file('Picture');
+            $extension = $image->getClientOriginalExtension();
+            Storage::disk('public')->put($image->getFilename().'.'.$extension,  File::get($image));
+            $image_filename = $image->getFilename().'.'.$extension;
+            $image_mime = $image->getClientMimeType();
+            $image_original_filename = $image->getClientOriginalName();
+        }
+        
         \App\Facility::create([
             'Name' => $request->get('Name'),
             'Category' => $request->get('Category'),
             'Location' => $request->get('Location'),
             'Type' => $request->get('Type'),
             'Capacity' => $request->get('Capacity'),
-            'Picture'=> $request->get('Picture'),
+            'filename' => $image_filename,
+            'mime' => $image_mime,
+            'original_filename' => $image_original_filename,
             'Status' => $request->get('Status'),
         ]);
 
