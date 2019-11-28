@@ -3,14 +3,15 @@
 @section('content')
 <link href="https://fonts.googleapis.com/css?family=Bitter:700|Didact+Gothic|Patua+One&display=swap" rel="stylesheet">
 <section class="wrapper">
-    <div class="inner">
+    <div class="inner" style="width: 60%">
+        <a href="javascript:history.back()" class="button"><i class="fa fa-arrow-left"> Back</i></a>
         <header class="special">
 
             <h1 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Create Facility</h1>
         </header>
     </div>
     <div class="inner" style="display:flex; justify-content:center; align-items:center">
-        <form action="/approval" method="POST" style="width: 60%">
+        <form action="/approval" method="POST" style="width: 60%" enctype="multipart/form-data">
             @csrf
 
             <div class="form-input" style="margin-bottom: 10px;">

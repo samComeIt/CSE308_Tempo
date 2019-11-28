@@ -30,3 +30,12 @@ Route::resource('/open', 'OpenFacilityController');
 Route::resource('/timeslot', 'TimeslotController');
 Route::post('/open/timeslot', 'TimeslotController@openStore')->name('openTimeslot');
 Route::post('/approval/timeslot', 'TimeslotController@approvalStore')->name('approvalTimeslot');
+
+
+Route::get('/mypage/current', 'TimeslotController@index')->name('index');
+Route::get('/mypage/penalty', 'PenaltyController@index')->name('index');
+Route::resource('/mypage', 'TimeslotController');
+Route::resource('/approval/reservation', 'ReservationController');
+
+Route::resource('/approval/reservation', 'ReservationController@approvalReservation');
+

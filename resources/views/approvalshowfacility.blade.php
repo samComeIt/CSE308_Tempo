@@ -4,6 +4,7 @@
 <link href="https://fonts.googleapis.com/css?family=Bitter:700|Didact+Gothic|Patua+One&display=swap" rel="stylesheet">
 <section class="wrapper">
     <div class="inner">
+        <a href="javascript:history.back()" class="button"><i class="fa fa-arrow-left"> Back</i></a>
         <header class="special">
 
             <h1 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Show Facility</h1>
@@ -13,13 +14,12 @@
         <div class="content">
             <table>
                 <thead>
-                <td>Name</td>
-                <td>Location</td>
-                <td>Category</td>
-                <td>Type</td>
-                <td>Capacity</td>
-                <td>Picture</td>
-                <td>Status</td>
+                <td style="font-weight: bold">Name</td>
+                <td style="font-weight: bold">Location</td>
+                <td style="font-weight: bold">Category</td>
+                <td style="font-weight: bold">Type</td>
+                <td style="font-weight: bold">Capacity</td>
+                <td style="font-weight: bold">Status</td>
                 </thead>
                 <tbody>
 
@@ -31,18 +31,17 @@
                         <td class="inner-table">{{ $facility->Category }}</td>
                         <td class="inner-table">{{ $facility->Type }}</td>
                         <td class="inner-table">{{ $facility->Capacity }}</td>
-                        <td class="inner-table">{{ $facility->Picture }}</td>
-                        <img class="inner-table" src="{{url('uploads/'.$facility->Picture)}}"
-                             alt="{{$facility->Picture}}">
                         <td class="inner-table">{{ $facility->Status }}</td>
-
                         @csrf
-                    </tr>
+                    </tr> 
                     @endforeach
+                    
                 </form>
                 </tbody>
             </table>
+            <img style="display: block; margin-left: auto; margin-right: auto" src="{{url('image/'.$facility->filename)}}" alt="{{$facility->filename}}" height=300 width=500>
         </div>
+        <br>
 
         <div class="content">
             <div class="form-popup" id="myForm">
@@ -54,7 +53,8 @@
                     <td></td>
                     <td>
                         @php
-                        $today = new DateTime();
+                        $timezone = new DateTimeZone('Asia/Seoul');
+                        $today = new DateTime('now', $timezone);
                         $todaystr1 = $today->format('m/d');
                         echo $todaystr1;
                         @endphp
@@ -105,164 +105,148 @@
                     </thead>
                     <tbody style="text-align: center">
                     <tr id="row1" name="row1">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am ~ 9am</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row1["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row2" name="row2">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">9am ~ 10am</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">9am</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row2["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row3" name="row3">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">10am ~ 11am</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">10am</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row3["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row4" name="row4">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">11am ~ 12pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">11am</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row4["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row5" name="row5">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">12pm ~ 1pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">12pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row5["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row6" name="row6">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">1pm ~ 2pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">1pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row6["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row7" name="row7">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">2pm ~ 3pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">2pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row7["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row8" name="row8">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">3pm ~ 4pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">3pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row8["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row9" name="row9">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">4pm ~ 5pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">4pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row9["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row10" name="row10">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">5pm ~ 6pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">5pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row10["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row11" name="row11">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">6pm ~ 7pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">6pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row11["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row12" name="row12">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">7pm ~ 8pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">7pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row12["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row13" name="row13">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8pm ~ 9pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row13["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row14" name="row14">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">9pm ~ 10pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">9pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row14["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row15" name="row15">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">10pm ~ 11pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">10pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row15["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row16" name="row16">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">11pm ~ 12am</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">11pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row16["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     </tbody>
                 </table>
@@ -279,7 +263,7 @@
         .hoverTable tr, th {
             position: relative;
         }
-        
+
         .hoverTable td {
 /*            padding: 7px;*/
             border: #13136b 2px solid;
@@ -304,155 +288,11 @@
             position: relative;
         }
 
+        .fill {
+            background-color: #4b93d6;
+        }
     </style>
-    
-    @foreach ($timeslots as $timeslot)
-        {{ $timeslot -> date }}
-        {{ $timeslot -> start_time }}
-        {{ $timeslot -> duration }}
-        <br>
-    @endforeach
 
-<!--
-    @foreach ($timeslots as $timeslot)
-        @if ( $timeslot -> date == $todaystr1 )
-            <input type="hidden" id="date" name="date" value='{{ $todaystr1 }}'>
-            <input type="hidden" id="time" name="time" value='{{ $timeslot -> start_time }}'>
-            <script>
-                var row;
-                var column;
-                for(j=1;j<tabela.rows[0].cells.length;j++){
-                    if(document.getElementById("date").value == tabela.rows[0].cells[j].innerText) {
-                        column = j;
-                    }
-                }
-                for(i=1;i<tabela.rows.length;i++){
-                    if(document.getElementById("time").value == tabela.rows[i].cells[0].innerText) {
-                        row = i;
-                    }
-                }
-                tabela.rows[row].cells[column].style.backgroundcolor = "black";
-            </script>
-        {{ $todaystr1 }}
-    
-        @elseif ( $timeslot -> date == $todaystr2 )
-            <input type="hidden" id="date" name="date" value='{{ $todaystr2 }}'>
-            <input type="hidden" id="time" name="time" value='{{ $timeslot -> start_time }}'>
-            <script>
-                var row;
-                var column;
-                for(j=1;j<tabela.rows[0].cells.length;j++){
-                    if(document.getElementById("date").value == tabela.rows[0].cells[j].innerText) {
-                        column = j;
-                    }
-                }
-                for(i=1;i<tabela.rows.length;i++){
-                    if(document.getElementById("time").value == tabela.rows[i].cells[0].innerText) {
-                        row = i;
-                    }
-                }
-                tabela.rows[row].cells[column].style.backgroundcolor = "black";
-            </script>
-    {{ $todaystr2 }}
-        @elseif ( $timeslot -> date == $todaystr3 )
-            <input type="hidden" id="date" name="date" value='{{ $todaystr3 }}'>
-            <input type="hidden" id="time" name="time" value='{{ $timeslot -> start_time }}'>
-            <script>
-                var row;
-                var column;
-                for(j=1;j<tabela.rows[0].cells.length;j++){
-                    if(document.getElementById("date").value == tabela.rows[0].cells[j].innerText) {
-                        column = j;
-                    }
-                }
-                for(i=1;i<tabela.rows.length;i++){
-                    if(document.getElementById("time").value == tabela.rows[i].cells[0].innerText) {
-                        row = i;
-                    }
-                }
-                tabela.rows[row].cells[column].style.backgroundcolor = "black";
-            </script>
-    {{ $todaystr3 }}
-        @elseif ( $timeslot -> date == $todaystr4 )
-            <input type="hidden" id="date" name="date" value='{{ $todaystr4 }}'>
-            <input type="hidden" id="time" name="time" value='{{ $timeslot -> start_time }}'>
-            <script>
-                var row;
-                var column;
-                for(j=1;j<tabela.rows[0].cells.length;j++){
-                    if(document.getElementById("date").value == tabela.rows[0].cells[j].innerText) {
-                        column = j;
-                    }
-                }
-                for(i=1;i<tabela.rows.length;i++){
-                    if(document.getElementById("time").value == tabela.rows[i].cells[0].innerText) {
-                        row = i;
-                    }
-                }
-                tabela.rows[row].cells[column].style.backgroundcolor = "black";
-            </script>
-    {{ $todaystr4 }}
-        @elseif ( $timeslot -> date == $todaystr5 )
-            <input type="hidden" id="date" name="date" value='{{ $todaystr5 }}'>
-            <input type="hidden" id="time" name="time" value='{{ $timeslot -> start_time }}'>
-            <script>
-                var row;
-                var column;
-                for(j=1;j<tabela.rows[0].cells.length;j++){
-                    if(document.getElementById("date").value == tabela.rows[0].cells[j].innerText) {
-                        column = j;
-                    }
-                }
-                for(i=1;i<tabela.rows.length;i++){
-                    if(document.getElementById("time").value == tabela.rows[i].cells[0].innerText) {
-                        row = i;
-                    }
-                }
-                tabela.rows[row].cells[column].style.backgroundcolor = "black";
-            </script>
-    {{ $todaystr5 }}
-        @elseif ( $timeslot -> date == $todaystr6 )
-            <input type="hidden" id="date" name="date" value='{{ $todaystr6 }}'>
-            <input type="hidden" id="time" name="time" value='{{ $timeslot -> start_time }}'>
-            <script>
-                var row;
-                var column;
-                for(j=1;j<tabela.rows[0].cells.length;j++){
-                    if(document.getElementById("date").value == tabela.rows[0].cells[j].innerText) {
-                        column = j;
-                    }
-                }
-                for(i=1;i<tabela.rows.length;i++){
-                    if(document.getElementById("time").value == tabela.rows[i].cells[0].innerText) {
-                        row = i;
-                    }
-                }
-                tabela.rows[row].cells[column].style.backgroundcolor = "black";
-            </script>
-    {{ $todaystr6 }}
-        @else ( $timeslot -> date == $todaystr7 )
-            <input type="hidden" id="date" name="date" value='{{ $todaystr7 }}'>
-            <input type="hidden" id="time" name="time" value='{{ $timeslot -> start_time }}'>
-            <script>
-                var row;
-                var column;
-                for(j=1;j<tabela.rows[0].cells.length;j++){
-                    if(document.getElementById("date").value == tabela.rows[0].cells[j].innerText) {
-                        column = j;
-                    }
-                }
-                for(i=1;i<tabela.rows.length;i++){
-                    if(document.getElementById("time").value == tabela.rows[i].cells[0].innerText) {
-                        row = i;
-                    }
-                }
-                document.getElementById('tabela').rows[2].cells[2].style.backgroundcolor = "black";
-            </script>
-    {{ $todaystr7 }}
-        @endif
-    @endforeach
--->
-    
     <script>
         var startDate;
         var startTime;
@@ -466,7 +306,7 @@
                     document.getElementById("startDate").value = startDate
                     document.getElementById("startTime").value = startTime
                     $('#myModal').modal('show');
-                    
+
                     $('.modal-child').on('show.bs.modal', function () {
                     var modalParent = $(this).attr('data-modal-parent');
                     $(modalParent).css('opacity', 0);
@@ -476,13 +316,6 @@
                     var modalParent = $(this).attr('data-modal-parent');
                     $(modalParent).css('opacity', 0);
                     });
-
-//                    $('#complete').click(function() {
-//                        duration = $('input[type=radio]:checked').val();
-//                        $('#myModal').modal('hide');
-//                        document.getElementById("duration").innerHTML = duration
-//                    });
-
                 }.bind(null,i,j)
             }
         }
@@ -494,7 +327,8 @@
 <form action="/approval/timeslot" method="POST" style="width: 80%">
     @csrf
 
-    <div class="modal" style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%); overflow: hidden" id="myModal"
+    <div class="modal" style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%); overflow: hidden"
+         id="myModal"
          tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document" style="width: 600px; height: 90%">
             <div class="modal-content" style="height: 100%">
@@ -508,52 +342,63 @@
                     <label for="startDate"></label>
                     Start Time: <input type="textarea" name="start_time" id="startTime" readonly>
                     <label for="startTime"></label>
+                    <input type="hidden" name="duration" value="1">
 
-                    <label>Duration:<br>
-                        <input type="radio" name="duration" id="1hour" value="1" style="height: 1rem; width: 1rem">
-                        <label for="1hour" style="padding-left: 1.5rem">1 hour</label><br>
-                        <input type="radio" name="duration" id="2hour" value="2" style="height: 1rem; width: 1rem">
-                        <label for="2hour" style="padding-left: 1.5rem">2 hours</label>
-                    </label>
+                    <input type="hidden" name="type" value='{{$facility->Type}}'>
+                    <input type="hidden" name="user_id" value='{{ Auth::user()->id}}'>
 
                     <label id="duration"></label>
                 </div>
                 <div class="modal-footer">
-                    <a href="#submit" role="button" class="button" data-toggle="modal" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</a>
-<!--                    <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>-->
+                    <button type="submit">Confirm</button>
+                   
 
-                    <button type="button" data-dismiss="modal" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Cancel
+                    <button type="button" data-dismiss="modal" style="height: 2rem; padding: 0 1rem; line-height: 0rem">
+                        Cancel
                     </button>
                 </div>
             </div>
         </div>
     </div>
-    
-    <div id="submit" class="modal modal-child" style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%)" data-backdrop-limit="1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-modal-parent="#myModal">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title">Reservation Form</h2>
-            </div>
-            <div class="modal-body">
-                <label>Name:</label>
-                <input type="text" name="name" id="name" required>
-                <label>Number of Students:</label>
-                <input type="text" name="number" id="number" required>
-                <label>Purpose:</label>
-                <input type="text" name="purpose" id="purpose" required>
-            </div>
-            <div class="modal-footer">
-                <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>
-                <button class="btn btn-default" data-dismiss="modal" data-dismiss="modal" aria-hidden="true" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Cancel</button>
-            </div>
+</form>
+<!--
 
+<form action="/approval/reservation" method="POST" style="width: 80%">
+    @csrf
+    <div id="submit" class="modal modal-child"
+         style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%)" data-backdrop-limit="1"
+         tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-modal-parent="#myModal">
+        <div class="modal-dialog">
+            Modal content
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Reservation Form</h2>
+                </div>
+                <div class="modal-body">
+                    <label>Name:</label>
+                    <input type="text" name="name" id="name" required>
+                    <label>Number of Students:</label>
+                    <input type="text" name="number" id="number" required>
+                    <label>Purpose:</label>
+                    <input type="text" name="purpose" id="purpose" required>
+
+                    <input type="hidden" name="facility_id" value='{{$facility->Facility_ID}}'>
+
+                    <input type="hidden" name="user_id" value='{{ Auth::user()->id}}'>
+                    <input type="hidden" name="type" value='{{$facility->Type}}'>
+                    <input type="hidden" name="reservation_status" value="booked">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>
+                    <button class="btn btn-default" data-dismiss="modal" data-dismiss="modal" aria-hidden="true"
+                            style="height: 2rem; padding: 0 1rem; line-height: 0rem">Cancel
+                    </button>
+                </div>
+
+            </div>
         </div>
     </div>
-</div>
 </form>
-<script>
-    document.getElementById('tabela').rows[i].cells[j].style.backgroundColor = "#003366"
-</script>
+-->
 @endsection

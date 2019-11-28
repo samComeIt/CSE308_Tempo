@@ -8,6 +8,7 @@
 
             <h2 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Approval</h2>
         </header>
+        <a href="javascript:history.back()" class="button"><i class="fa fa-arrow-left"> Back</i></a>
     </div>
 
 

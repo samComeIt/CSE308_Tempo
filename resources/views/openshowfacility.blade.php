@@ -4,6 +4,7 @@
 <link href="https://fonts.googleapis.com/css?family=Bitter:700|Didact+Gothic|Patua+One&display=swap" rel="stylesheet">
 <section class="wrapper">
     <div class="inner">
+        <a href="javascript:history.back()" class="button"><i class="fa fa-arrow-left"> Back</i></a>
         <header class="special">
 
             <h1 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Show Facility</h1>
@@ -13,13 +14,12 @@
         <div class="content">
             <table>
                 <thead>
-                <td>Name</td>
-                <td>Location</td>
-                <td>Category</td>
-                <td>Type</td>
-                <td>Capacity</td>
-                <td>Picture</td>
-                <td>Status</td>
+                <td style="font-weight: bold">Name</td>
+                <td style="font-weight: bold">Location</td>
+                <td style="font-weight: bold">Category</td>
+                <td style="font-weight: bold">Type</td>
+                <td style="font-weight: bold">Capacity</td>
+                <td style="font-weight: bold">Status</td>
                 </thead>
                 <tbody>
 
@@ -31,9 +31,6 @@
                         <td class="inner-table">{{ $facility->Category }}</td>
                         <td class="inner-table">{{ $facility->Type }}</td>
                         <td class="inner-table">{{ $facility->Capacity }}</td>
-                        <td class="inner-table">{{ $facility->Picture }}</td>
-                        <img class="inner-table" src="{{url('uploads/'.$facility->Picture)}}"
-                             alt="{{$facility->Picture}}">
                         <td class="inner-table">{{ $facility->Status }}</td>
 
                         @csrf
@@ -42,18 +39,9 @@
                 </form>
                 </tbody>
             </table>
+            <img style="display: block; margin-left: auto; margin-right: auto" src="{{url('image/'.$facility->filename)}}" alt="{{$facility->filename}}" height=300 width=500>
         </div>
-        
-        @foreach ($timeslots as $timeslot)
-        <div>
-            {{ $timeslot -> date }}
-            <br>
-            {{ $timeslot -> start_time }}
-            <br>
-            {{ $timeslot -> duration }}
-        </div>
-        @endforeach
-        
+        <br>
         <div class="content">
             <div class="form-popup" id="myForm">
                 <table class="hoverTable" id="tabela">
@@ -62,242 +50,202 @@
                     <thead style="text-align: center; color:#13136b; font-weight:bold; font-size:20px">
                     <tr style="background-color: #97c1e8">
                     <td></td>
-                    <td><?php $today = new DateTime();
-                        echo $today->format('m/d'); ?></td>
-                    <td><?php $today->modify('+1 day');
-                        echo $today->format('m/d'); ?></td>
-                    <td><?php $today->modify('+1 day');
-                        echo $today->format('m/d'); ?></td>
-                    <td><?php $today->modify('+1 day');
-                        echo $today->format('m/d'); ?></td>
-                    <td><?php $today->modify('+1 day');
-                        echo $today->format('m/d'); ?></td>
-                    <td><?php $today->modify('+1 day');
-                        echo $today->format('m/d'); ?></td>
-                    <td><?php $today->modify('+1 day');
-                        echo $today->format('m/d'); ?></td>
+                    <td>
+                        @php
+                        $timezone = new DateTimeZone('Asia/Seoul');
+                        $today = new DateTime('now', $timezone);
+                        $todaystr1 = $today->format('m/d');
+                        echo $todaystr1;
+                        @endphp
+                    </td>
+                    <td>
+                        @php
+                        $today->modify('+1 day');
+                        $todaystr2 = $today->format('m/d');
+                        echo $todaystr2;
+                        @endphp
+                    </td>
+                    <td>
+                        @php
+                        $today->modify('+1 day');
+                        $todaystr3 = $today->format('m/d');
+                        echo $todaystr3;
+                        @endphp
+                    </td>
+                    <td>
+                        @php
+                        $today->modify('+1 day');
+                        $todaystr4 = $today->format('m/d');
+                        echo $todaystr4;
+                        @endphp
+                    </td>
+                    <td>
+                        @php
+                        $today->modify('+1 day');
+                        $todaystr5 = $today->format('m/d');
+                        echo $todaystr5;
+                        @endphp
+                    </td>
+                    <td>
+                        @php
+                        $today->modify('+1 day');
+                        $todaystr6 = $today->format('m/d');
+                        echo $todaystr6;
+                        @endphp
+                    </td>
+                    <td>
+                        @php
+                        $today->modify('+1 day');
+                        $todaystr7 = $today->format('m/d');
+                        echo $todaystr7;
+                        @endphp
+                    </td>
                     </tr>
                     </thead>
                     <tbody style="text-align: center">
                     <tr id="row1" name="row1">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am ~ 9am</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row1["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row2" name="row2">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">9am ~ 10am</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">9am</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row2["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row3" name="row3">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">10am ~ 11am</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">10am</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row3["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row4" name="row4">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">11am ~ 12pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">11am</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row4["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row5" name="row5">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">12pm ~ 1pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">12pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row5["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row6" name="row6">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">1pm ~ 2pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">1pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row6["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row7" name="row7">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">2pm ~ 3pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">2pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row7["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row8" name="row8">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">3pm ~ 4pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">3pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row8["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row9" name="row9">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">4pm ~ 5pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">4pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row9["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row10" name="row10">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">4pm ~ 5pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">5pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row10["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row11" name="row11">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">5pm ~ 6pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">6pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row11["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row12" name="row12">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">6pm ~ 7pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">7pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row12["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row13" name="row13">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">7pm ~ 8pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row13["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row14" name="row14">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8pm ~ 9pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">9pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row14["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row15" name="row15">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">9pm ~ 10pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">10pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row15["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     <tr id="row16" name="row16">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">10pm ~ 11pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr id="row17" name="row17">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">11pm ~ 12pm</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr id="row1" name="row1">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am ~ 9am</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr id="row1" name="row1">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am ~ 9am</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr id="row1" name="row1">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am ~ 9am</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr id="row1" name="row1">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am ~ 9am</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr id="row1" name="row1">
-                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am ~ 9am</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">11pm</td>
+                        <?php
+                            for($i=1; $i<=7; $i++) {
+                                $temp = $row16["$i"];
+                                echo '<td class=" '. $temp. ' " ></td>';
+                            }
+                        ?>
                     </tr>
                     </tbody>
                 </table>
@@ -339,14 +287,10 @@
             position: relative;
         }
 
+        .fill {
+            background-color: #4b93d6;
+        }
     </style>
-    
-    @foreach ($timeslots as $timeslot)
-        {{ $timeslot -> date }}
-        {{ $timeslot -> start_time }}
-        {{ $timeslot -> duration }}
-        <br>
-    @endforeach
 
     <script>
         var startDate;
@@ -362,11 +306,15 @@
                     document.getElementById("startTime").value = startTime
                     $('#myModal').modal('show');
 
-//                    $('#complete').click(function() {
-//                        duration = $('input[type=radio]:checked').val();
-//                        $('#myModal').modal('hide');
-//                        document.getElementById("duration").innerHTML = duration
-//                    });
+                    $('.modal-child').on('show.bs.modal', function () {
+                    var modalParent = $(this).attr('data-modal-parent');
+                    $(modalParent).css('opacity', 0);
+                    });
+
+                    $('.modal-child').on('hidden.bs.modal', function () {
+                    var modalParent = $(this).attr('data-modal-parent');
+                    $(modalParent).css('opacity', 0);
+                    });
 
 
                 }.bind(null,i,j)
@@ -393,13 +341,10 @@
                     <label for="startDate"></label>
                     Start Time: <input type="textarea" name="start_time" id="startTime" readonly>
                     <label for="startTime"></label>
+                    <input type="hidden" name="duration" value="1">
 
-                    <label>Duration:<br>
-                        <input type="radio" name="duration" id="1hour" value="1" style="height: 1rem; width: 1rem">
-                        <label for="1hour" style="padding-left: 1.5rem">1 hour</label><br>
-                        <input type="radio" name="duration" id="2hour" value="2" style="height: 1rem; width: 1rem">
-                        <label for="2hour" style="padding-left: 1.5rem">2 hours</label>
-                    </label>
+                    <input type="hidden" name="type" value='{{$facility->Type}}'>
+                    <input type="hidden" name="user_id" value='{{ Auth::user()->id}}'>
 
                     <label id="duration"></label>
                 </div>
