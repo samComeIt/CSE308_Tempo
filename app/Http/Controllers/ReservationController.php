@@ -63,11 +63,5 @@ class ReservationController extends Controller
 
         return redirect('approval');
     }
-    public function destroy($id)
-    {
-        $facilities = \App\Reservation::find($id);
 
-        //change it to cancel for 'resevation' and change the status to 'no' for timeslot
-        return redirect('/approval/timeslot');
-    }
 }

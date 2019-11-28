@@ -26,7 +26,13 @@
                 <label>Capacity</label> <input type="text" name="number">
             </div>
                 <button type="submit">Complete</button>
-            </form>
+        </form>
+
+        <form action="{{ route('timeslot.destroy', $timeslot_id) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit">Cancel</button>
+        </form>
         </div>
 </section>
 
