@@ -36,5 +36,5 @@ Route::get('/mypage/current', 'TimeslotController@index')->name('index');
 Route::get('/mypage/penalty', 'PenaltyController@index')->name('index');
 Route::resource('/mypage', 'TimeslotController');
 Route::resource('/approval/reservation', 'ReservationController');
-S
+
 
