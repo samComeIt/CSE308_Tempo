@@ -347,21 +347,11 @@
                     <input type="hidden" name="type" value='{{$facility->Type}}'>
                     <input type="hidden" name="user_id" value='{{ Auth::user()->id}}'>
 
-                    <!--
-                    <label>Duration:<br>
-                        <input type="radio" name="duration" id="1hour" value="1" style="height: 1rem; width: 1rem">
-                        <label for="1hour" style="padding-left: 1.5rem">1 hour</label><br>
-                        <input type="radio" name="duration" id="2hour" value="2" style="height: 1rem; width: 1rem">
-                        <label for="2hour" style="padding-left: 1.5rem">2 hours</label>
-                    </label>-->
-
                     <label id="duration"></label>
                 </div>
                 <div class="modal-footer">
                     <button type="submit">Confirm</button>
-                   <!-- <a href="submit" role="button" class="button" data-toggle="modal"
-                       style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</a>-->
-                    <!--                    <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>-->
+                   
 
                     <button type="button" data-dismiss="modal" style="height: 2rem; padding: 0 1rem; line-height: 0rem">
                         Cancel

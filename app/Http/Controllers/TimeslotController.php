@@ -30,23 +30,23 @@ class TimeslotController extends Controller
             'facility_id' => $request->get('facility_id'),
             ]);
 
-        $target= DB::table('timeslots')->where([
-            'date' => $request->get('date'),
-            'start_time' => $request->get('start_time'),
-            'duration' => $request->get('duration'),
-            'facility_id' => $request->get('facility_id'),
+        // $target= DB::table('timeslots')->where([
+        //     'date' => $request->get('date'),
+        //     'start_time' => $request->get('start_time'),
+        //     'duration' => $request->get('duration'),
+        //     'facility_id' => $request->get('facility_id'),
 
-        ])->get();
+        // ])->get();
         
-        foreach($target as $timeslot) {
-            $timeslot_id = $timeslot->timeslot_id;
-        }
+        // foreach($target as $timeslot) {
+        //     $timeslot_id = $timeslot->timeslot_id;
+        // }
 
-            foreach($target as $timeslot){
-                $timeslot_id = $timeslot->timeslot_id;
-            }
+            // foreach($target as $timeslot){
+            //     $timeslot_id = $timeslot->timeslot_id;
+            // }
 
-        return view('secondApprovalRervation', $timeslot_id);
+        return redirect('approval');
     }
 
     public function cancel($id)
