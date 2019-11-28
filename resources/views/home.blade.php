@@ -5,7 +5,7 @@
 <section id="main" class="wrapper">
     <div class="inner">
         <div class="content">
-            <h2 style="font-family:'Bitter', serif; text-align:center; font-size: 50px; margin-top:25px">TEMPO</h2>
+            <h2 style="font-family:'Bitter', serif; text-align:center; font-size: 60px">TEMPO</h2>
             @csrf
             <section>
                 <div class="content"
