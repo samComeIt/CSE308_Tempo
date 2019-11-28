@@ -38,5 +38,4 @@ Route::resource('/approval/reservation', 'ReservationController');
 
 //Route::resource('/mypage', 'TimeslotController');
 
-Route::resource('/approval/reservation', 'ReservationController@approvalReservation');
 

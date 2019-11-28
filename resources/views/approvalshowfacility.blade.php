@@ -339,6 +339,7 @@
                 <div class="modal-body">
 
                     Start Date: <input type="textarea" name="date" id="startDate" readonly>
+                    @foreach ($facilities as $facility)
                     <input type="hidden" name="facility_id" value='{{$facility->Facility_ID}}'>
                     <label for="startDate"></label>
                     Start Time: <input type="textarea" name="start_time" id="startTime" readonly>
@@ -347,7 +348,7 @@
 
                     <input type="hidden" name="type" value='{{$facility->Type}}'>
                     <input type="hidden" name="user_id" value='{{ Auth::user()->id}}'>
-
+                    @endforeach
                     <!--
                     <label>Duration:<br>
                         <input type="radio" name="duration" id="1hour" value="1" style="height: 1rem; width: 1rem">
@@ -393,11 +394,7 @@
                     <label>Purpose:</label>
                     <input type="text" name="purpose" id="purpose" required>
 
-                    <input type="hidden" name="facility_id" value='{{$facility->Facility_ID}}'>
 
-                    <input type="hidden" name="user_id" value='{{ Auth::user()->id}}'>
-                    <input type="hidden" name="type" value='{{$facility->Type}}'>
-                    <input type="hidden" name="reservation_status" value="booked">
 
                 </div>
                 <div class="modal-footer">

@@ -38,11 +38,15 @@ class TimeslotController extends Controller
 
         ])->get();
 
-            foreach($target as $timeslot){
+
+
+
+        foreach($target as $timeslot){
                 $timeslot_id = $timeslot->timeslot_id;
+                $timeslot_facillity_id = $timeslot->facility_id;
             }
 
-        return view('secondApprovalRervation', $timeslot_id);
+        return view('secondApprovalReservation', compact('timeslot_id', 'timeslot_facillity_id'));
     }
 
     public function cancel($id)
