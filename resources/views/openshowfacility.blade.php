@@ -14,12 +14,12 @@
         <div class="content">
             <table>
                 <thead>
-                <td>Name</td>
-                <td>Location</td>
-                <td>Category</td>
-                <td>Type</td>
-                <td>Capacity</td>
-                <td>Status</td>
+                <td style="font-weight: bold">Name</td>
+                <td style="font-weight: bold">Location</td>
+                <td style="font-weight: bold">Category</td>
+                <td style="font-weight: bold">Type</td>
+                <td style="font-weight: bold">Capacity</td>
+                <td style="font-weight: bold">Status</td>
                 </thead>
                 <tbody>
 
