@@ -53,7 +53,7 @@ ul {
         </nav>
         @else
         @csrf
-        <a class="logo" href="/home">TEMPO</a>
+        <a class="logo" href="/home" style="font-family:'Bitter', serif">TEMPO</a>
         <nav>
             <a href="/home" style="color:white">Home</a>
             <a href="/mypage" style="color:white">My Page</a>

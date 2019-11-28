@@ -13,20 +13,7 @@ class ReservationController extends Controller
         return view('approval', ['allReservations' => $reservations]);
 
     }
-    public function approvalReservation(Request $request)
-    {
-        \App\Reservation::create([
-            'type' => $request->get('type'),
-            'user_id' => $request->get('user_id'),
-            'timeslot_id' => $request->get('$timeslot_id'),
-            'facility_id' => $request->get('facility_id'),
-            'reservation_status' => $request->get('reservation_status'),
-            'purpose' => $request->get('purpose'),
-            'number' => $request->get('number'),
-        ]);
 
-        return redirect('secondApprovalReservation');
-    }
 
 
     /**
@@ -64,8 +51,7 @@ class ReservationController extends Controller
 
     public function store(Request $request)
     {
-        //
-        \App\Reservation::updated([
+        \App\Reservation::create([
             'type' => $request->get('type'),
             'user_id' => $request->get('user_id'),
             'timeslot_id' => $request->get('timeslot_id'),

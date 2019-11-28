@@ -36,5 +36,4 @@ Route::get('/mypage/penalty', 'PenaltyController@index')->name('index');
 Route::resource('/mypage', 'TimeslotController')->middleware('auth');
 Route::resource('/approval/reservation', 'ReservationController')->middleware('auth');
 
-Route::resource('/approval/reservation', 'ReservationController@approvalReservation');
 
