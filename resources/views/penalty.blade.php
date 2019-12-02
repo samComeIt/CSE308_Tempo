@@ -69,7 +69,7 @@
                         <tr>
                             <td class="inner-table">{{ $user->name }}</td>
                             <td class="inner-table">{{ $user->email }}</td>
-                            <td><a href="{{ route('index',$user->id) }}" class="button">Give Penalty</a></td>
+                            <td><a href="{{ route('index.create',$user->id) }}" class="button">Give Penalty</a></td>
                         </tr>
                         @endif
                         @endforeach
