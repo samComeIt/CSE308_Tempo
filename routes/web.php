@@ -18,11 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
-//Route::resource('/approval/facility', 'FacilityController');
-//Route::resource('/open/facility', 'OpenFacilityController');
 
-//Route::get('/approval', 'FacilityController@approval')->name('approval');
-//Route::get('/open', 'FacilityController@open')->name('open');
 Route::resource('/approval', 'FacilityController')->middleware('auth');
 Route::resource('/open', 'OpenFacilityController')->middleware('auth');
 

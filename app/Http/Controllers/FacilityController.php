@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 use DateTime;
 use DateTimeZone;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -21,6 +22,8 @@ class FacilityController extends Controller
     {
         $facilities = \App\Facility::all();
         $categories = DB::select( DB::raw("SELECT DISTINCT Category FROM facilities WHERE Type = 'Approval'"));
+        $id = Auth::user()->id;
+        $role = 
 
         return view('approval', ['allFacilities' => $facilities, 'allCategories' => $categories]);
     }
