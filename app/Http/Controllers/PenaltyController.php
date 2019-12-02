@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PenaltyController extends Controller
 {
@@ -11,10 +12,15 @@ class PenaltyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        return view('penalty');
+        $search = $request->get('search');
+        $users = \App\User::all();
+
+        $student = \App\User::all();
+        $student = $student->where('email','like','%' . $search .'%');
+
+        return view('penalty', [$student,'allUsers' => $users]);
     }
 
     /**
@@ -46,7 +52,7 @@ class PenaltyController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

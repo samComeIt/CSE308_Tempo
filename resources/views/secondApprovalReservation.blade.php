@@ -28,7 +28,7 @@
                 <button type="submit">Complete</button>
         </form>
 
-        <form action="{{ route('timeslot.destroy', $timeslot_id) }}" method="POST">
+        <form action="{{ route('timeslot.destroy', [$timeslot_id, $timeslot_facillity_id]) }}" method="POST">
             @csrf
             @method('DELETE')
             <button type="submit">Cancel</button>

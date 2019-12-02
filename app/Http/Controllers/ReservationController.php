@@ -61,7 +61,7 @@ class ReservationController extends Controller
             'number' => $request->get('number'),
         ]);
 
-        return redirect('approval');
+        return redirect('/approval/timeslot');
     }
 
 }

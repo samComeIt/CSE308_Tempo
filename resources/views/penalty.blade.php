@@ -18,7 +18,7 @@
 .searchEmail:focus{
   color: #13136b;
 }
-    
+
 .searchButton {
 /*  width: 40px;*/
   border: 1.1px solid #13136b;
@@ -40,36 +40,70 @@
             <ul style="padding: 20px"><a href="/mypage/report">Report</a></ul>
             <ul style="padding: 20px"><a href="/mypage/penalty">Penalty</a></ul>
         </nav>
-        
+
         <article>
             <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px; margin-bottom:50px">Give Penalty</h2>
             <div class="inner" style="float:left; width:70%;">
                 <form>
-                    <input type="email" id="searchEmail" onkeyup="search_email()" placeholder="Type student's e-mail here" style="width:60%; display: inline">
-                    <button type="submit" id="searchButton"><i class="fa fa-search"></i></button>
-                    <ol id="list"></ol>
+                    <div class="col-sm-5 form-group">
+                        <div class="input-group">
+                            <input class="form-control" id="search"
+                                   value="{{ request('search') }}"
+                                   placeholder="Search name" name="email"
+                                   type="text" id="search"/>
+                            <div class="input-group-btn">
+                                <button type="submit" class="btn btn-warning">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <table>
+                        <thead>
+                        <td style="font-weight: bold">Name</td>
+                        <td style="font-weight: bold">Email</td>
+                        <td style="font-weight: bold"></td>
+                        </thead>
+                        <tbody>
+
+                        @foreach ($allUsers as $user)
+                        @if ($user->role=="staff" )
+                        <tr>
+                            <td class="inner-table">{{ $user->name }}</td>
+                            <td class="inner-table">{{ $user->email }}</td>
+                            <td><a href="{{ route('index',$user->id) }}" class="button">Give Penalty</a></td>
+                        </tr>
+                        @endif
+                        @endforeach
+
+                        </tbody>
+                    </table>
                 </form>
             </div>
+
+
         </article>
+
+
     </section>
-    
+
 <!--
     <script>
-        function search_email() { 
-            let input = document.getElementById('searchEmail').value 
-            input=input.toLowerCase(); 
-            let x = document.getElementsByClassName('animals'); 
-      
-            for (i = 0; i < x.length; i++) {  
-                if (!x[i].innerHTML.toLowerCase().includes(input)) { 
-                    x[i].style.display="none"; 
-                } 
-                else { 
-                    x[i].style.display="list-item";                  
-                } 
-            } 
-        } 
+        function search_email() {
+            let input = document.getElementById('searchEmail').value
+            input=input.toLowerCase();
+            let x = document.getElementsByClassName('animals');
+
+            for (i = 0; i < x.length; i++) {
+                if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                    x[i].style.display="none";
+                }
+                else {
+                    x[i].style.display="list-item";
+                }
+            }
+        }
     </script>
 -->
-    
+
 </section>
