@@ -26,9 +26,9 @@
                             @foreach ($allReservations as $res)
                             @if ($res->user_id == Auth::user()->id) 
                             <tr>
-                                <td class="inner-table">{{ $res->user_id }}</td>
-                                <td class="inner-table">{{ $res->Location }}</td>
-                                <td class="inner-table">{{ $res->purpose }}</td>
+                                <td style="height:60px" class="inner-table">{{ $res->user_id }}</td>
+                                <td style="height:60px" class="inner-table">{{ $res->Location }}</td>
+                                <td style="height:60px" class="inner-table">{{ $res->purpose }}</td>
                             </tr>
                             @endif
                             @endforeach
