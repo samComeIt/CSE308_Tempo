@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
@@ -17,9 +18,8 @@ class ReservationController extends Controller
     public function mypageReservation()
     {
         $reservations2 = \App\Reservation::all();
-        $findId = {{ Auth::user()->id }};
+        $findId = Auth::user()->id;
         return view('mypage', [$findId, 'allReservations' => $reservations2]);
-
     }
 
     /**
