@@ -331,7 +331,7 @@
          id="myModal"
          tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document" style="width: 600px; height: 90%">
-            <div class="modal-content" style="height: 100%">
+            <div class="modal-content">
                 <div class="modal-header">
                     <h2 class="modal-title" id="myModalLabel">Select Time</h2>
                 </div>
@@ -354,7 +354,7 @@
                     <label id="duration"></label>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit">Confirm</button>
+                    <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Confirm</button>
 
 
                     <button type="button" data-dismiss="modal" style="height: 2rem; padding: 0 1rem; line-height: 0rem">

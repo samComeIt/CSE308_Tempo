@@ -43,7 +43,7 @@ class TimeslotController extends Controller
                 $timeslot_facillity_id = $timeslot->facility_id;
             }
 
-        return view('secondApprovalReservation', compact('timeslot_id', 'timeslot_facillity_id'));
+        return view('approvalMakeReservation', compact('timeslot_id', 'timeslot_facillity_id'));
     }
 
     public function cancel($id)
