@@ -327,9 +327,9 @@
 <!-- Modal -->
 <form action="/open/timeslot" method="POST" style="width: 80%">
     @csrf
-    <div class="modal" style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%); overflow: hidden" id="myModal"
+    <div class="modal fade" style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%); overflow: hidden" id="myModal"
          tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document" style="width: 600px; height: 90%">
+        <div class="modal-dialog modal-dialog-centered" role="document" style="width: 600px; height: 90%">
             <div class="modal-content" style="height: 100%">
                 <div class="modal-header">
                     <h2 class="modal-title" id="myModalLabel">Select Time</h2>
