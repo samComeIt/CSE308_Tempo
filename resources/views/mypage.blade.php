@@ -16,13 +16,24 @@
             <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px">My Page</h2>
             <div class="inner" style="float:left; width:70%;">
                 <table>
-                    <thead>
-                        <td>Date</td>
-                        <td>Location</td>
-                        <td>Purpose</td>
-                    </thead>
-                    
-
+                        <thead>
+                        <td style="font-weight: bold">Date</td>
+                        <td style="font-weight: bold">Location</td>
+                            <td style="font-weight: bold">Purpose</td>
+    
+                        </thead>
+                        <tbody>
+                            {{ Auth::user()->id }}
+                            @foreach ($allReservations as $res)
+                            @if ($res->user_id ==  $findId) 
+                            <tr>
+                                <td class="inner-table">{{ $res->user_id }}</td>
+                                <td class="inner-table">{{ $res->facility_id }}</td>
+                                <td class="inner-table">{{ $res->purpose }}</td>
+                            </tr>
+                            @endif
+                            @endforeach
+                        </tbody>
                 </table>
             </div>
         </article>

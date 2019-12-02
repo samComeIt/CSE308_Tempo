@@ -27,9 +27,9 @@ Route::post('/open/timeslot', 'TimeslotController@openStore')->name('openTimeslo
 Route::post('/approval/timeslot', 'TimeslotController@approvalStore')->name('approvalTimeslot')->middleware('auth');
 
 
-Route::get('/mypage/current', 'TimeslotController@index')->name('index');
+Route::get('/mypage', 'ReservationController@mypageReservation')->name('mypageReservation');
 Route::get('/mypage/penalty', 'PenaltyController@index')->name('index');
-Route::resource('/mypage', 'TimeslotController')->middleware('auth');
+//Route::resource('/mypage', 'TimeslotController')->middleware('auth');
 Route::resource('/approval/reservation', 'ReservationController')->middleware('auth');
 
 
