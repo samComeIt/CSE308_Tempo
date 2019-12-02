@@ -46,12 +46,12 @@ class TimeslotController extends Controller
         return view('approvalMakeReservation', compact('timeslot_id', 'timeslot_facillity_id'));
     }
 
-    public function cancel($id)
+    public function destroy($id)
     {
-        $timeSelect = \App\Timeslot::find($id);
-        $timeSelect -> delete();
-        return redirect('/approval');
+        DB::table('timeslots')->where('timeslot_id', '=', $id)->delete();
+        return redirect('approval');
     }
+
     public function index(){
         return view('mypage');
     }

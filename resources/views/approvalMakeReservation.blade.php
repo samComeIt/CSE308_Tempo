@@ -26,7 +26,13 @@
                 <label style="font-size: 20px; margin-bottom: 10px">Number of Students</label> <input type="number" name="number" required>
             </div>
                 <button type="submit">Complete</button>
-            </form>
+        </form>
+
+        <form action="{{ route('timeslot.destroy', [$timeslot_id, $timeslot_facillity_id]) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit">Cancel</button>
+        </form>
         </div>
 </section>
 
