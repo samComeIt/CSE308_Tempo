@@ -3,7 +3,7 @@
 @section('content')
 <link href="https://fonts.googleapis.com/css?family=Bitter:700|Didact+Gothic|Patua+One&display=swap" rel="stylesheet">
 <section class="wrapper">
-    <div class="inner">
+    <div style="width: 60%" class="inner">
         <header class="special">
 
             <h2 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Open</h2>
@@ -12,12 +12,14 @@
     </div>
 
 
-    <div class="inner" style="margin-bottom: 20px; text-align: right">
+    <div class="inner" style="margin-bottom: 20px; text-align: right; width: 60%">
+        @if($user["role"] == "staff")
         <a href="/open/create" class="button medium">Create Facility</a>
+        @endif
     </div>
 
     @foreach ($allCategories as $category)
-    <div class="inner">
+    <div style="width: 60%" class="inner">
         <h2 style="font-weight:bold">{{ $category->Category }}
 <!--
         <button id="{{ $category->Category }}" href="#"
@@ -28,9 +30,9 @@
         <div>
             <table>
                 <thead>
-                <td>Name</td>
+                <td style="font-weight: bold">Name</td>
                 <td></td>
-
+                <td></td>
                 </thead>
                 <tbody>
                 @foreach ($allFacilities as $facility)
@@ -39,11 +41,14 @@
                     <tr>
                         <td>{{ $facility->Name }}</td>
                         @csrf
-                        <td><a href="{{ route('open.show',$facility->Facility_ID) }}" class="button">Time table</a></td>
-                        <td><a href="{{ route('open.edit',$facility->Facility_ID) }}" class="button">Edit</a>
+                        <td align="right">
+                        @if($user["role"] == "staff")
+                        <a href="{{ route('open.edit',$facility->Facility_ID) }}" class="button">Edit</a>
                         @method('DELETE')
                         <button type="submit">Delete</button>
+                        @endif
                         </td>
+                        <td align="right"><a href="{{ route('open.show',$facility->Facility_ID) }}" class="button">Time table</a></td>
                     </tr>
                 </form>
                 @endif

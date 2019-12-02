@@ -23,9 +23,12 @@ class FacilityController extends Controller
         $facilities = \App\Facility::all();
         $categories = DB::select( DB::raw("SELECT DISTINCT Category FROM facilities WHERE Type = 'Approval'"));
         $id = Auth::user()->id;
-        $role = 
+        $targets = \App\User::where('ID', $id)->get();
+        foreach ($targets as $target) {
+            $user["role"] = $target -> role;
+        }
 
-        return view('approval', ['allFacilities' => $facilities, 'allCategories' => $categories]);
+        return view('approval', ['user' => $user, 'allFacilities' => $facilities, 'allCategories' => $categories]);
     }
 
     /**
