@@ -19,7 +19,7 @@ class ReservationController extends Controller
     {
         $reservations2 = \App\Reservation::all();
         $findId = Auth::user()->id;
-        return view('mypage', [$findId, 'allReservations' => $reservations2]);
+        return view('mypage', ['allReservations' => $reservations2]);
     }
 
     /**
