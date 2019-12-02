@@ -5,7 +5,7 @@
 
 <section class="wrapper">
     <section>
-        <nav style="float:left; width:20%; font-size:20px; margin-right:60px; font-weight:bold; border-right: 3px solid #13136b; height: 500px">
+        <nav style="float:left; width:20%; font-size:20px; margin-right:60px; font-weight:bold; border-right: 3px solid #13136b; height: 70%">
             <ul style="padding: 20px"><a href="/mypage/current">Current Reservation</a></ul>
             <ul style="padding: 20px"><a href="/mypage/past">Past Reservation</a></ul>
             <ul style="padding: 20px"><a href="/mypage/report">Report</a></ul>

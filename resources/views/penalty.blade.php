@@ -34,7 +34,7 @@
 <section class="wrapper">
 
     <section>
-        <nav style="float:left; width:20%; font-size:20px; margin-right:60px; font-weight:bold; border-right: 3px solid #13136b; height: 500px">
+        <nav style="float:left; width:20%; font-size:20px; margin-right:60px; font-weight:bold; border-right: 3px solid #13136b; height: 70%">
             <ul style="padding: 20px"><a href="/mypage/current">Current Reservation</a></ul>
             <ul style="padding: 20px"><a href="/mypage/past">Past Reservation</a></ul>
             <ul style="padding: 20px"><a href="/mypage/report">Report</a></ul>
@@ -50,11 +50,9 @@
                             <input class="form-control" id="search"
                                    value="{{ request('search') }}"
                                    placeholder="Search name" name="email"
-                                   type="text" id="search"/>
+                                   type="text" style="width: 50px" id="search"/>
                             <div class="input-group-btn">
-                                <button type="submit" class="btn btn-warning">
-                                    Search
-                                </button>
+                                <button type="submit" id="searchButton"><i class="fa fa-search"></i></button>
                             </div>
                         </div>
                     </div>
