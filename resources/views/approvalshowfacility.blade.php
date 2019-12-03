@@ -107,8 +107,8 @@
                     <tr id="row1" name="row1">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am</td>
                         <?php
-                        for($i=1; $i<=7; $i++) {
-                            $temp = $row1["$i"];
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[0][$i];
                             echo '<td class=" '. $temp. ' " ></td>';
                         }
                         ?>
@@ -116,8 +116,8 @@
                     <tr id="row2" name="row2">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">9am</td>
                         <?php
-                        for($i=1; $i<=7; $i++) {
-                            $temp = $row2["$i"];
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[1][$i];
                             echo '<td class=" '. $temp. ' " ></td>';
                         }
                         ?>
@@ -125,8 +125,8 @@
                     <tr id="row3" name="row3">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">10am</td>
                         <?php
-                        for($i=1; $i<=7; $i++) {
-                            $temp = $row3["$i"];
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[2][$i];
                             echo '<td class=" '. $temp. ' " ></td>';
                         }
                         ?>
@@ -134,8 +134,8 @@
                     <tr id="row4" name="row4">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">11am</td>
                         <?php
-                        for($i=1; $i<=7; $i++) {
-                            $temp = $row4["$i"];
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[3][$i];
                             echo '<td class=" '. $temp. ' " ></td>';
                         }
                         ?>
@@ -143,8 +143,8 @@
                     <tr id="row5" name="row5">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">12pm</td>
                         <?php
-                        for($i=1; $i<=7; $i++) {
-                            $temp = $row5["$i"];
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[4][$i];
                             echo '<td class=" '. $temp. ' " ></td>';
                         }
                         ?>
@@ -152,8 +152,8 @@
                     <tr id="row6" name="row6">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">1pm</td>
                         <?php
-                        for($i=1; $i<=7; $i++) {
-                            $temp = $row6["$i"];
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[5][$i];
                             echo '<td class=" '. $temp. ' " ></td>';
                         }
                         ?>
@@ -161,8 +161,8 @@
                     <tr id="row7" name="row7">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">2pm</td>
                         <?php
-                        for($i=1; $i<=7; $i++) {
-                            $temp = $row7["$i"];
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[6][$i];
                             echo '<td class=" '. $temp. ' " ></td>';
                         }
                         ?>
@@ -170,8 +170,8 @@
                     <tr id="row8" name="row8">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">3pm</td>
                         <?php
-                        for($i=1; $i<=7; $i++) {
-                            $temp = $row8["$i"];
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[7][$i];
                             echo '<td class=" '. $temp. ' " ></td>';
                         }
                         ?>
@@ -179,8 +179,8 @@
                     <tr id="row9" name="row9">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">4pm</td>
                         <?php
-                        for($i=1; $i<=7; $i++) {
-                            $temp = $row9["$i"];
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[8][$i];
                             echo '<td class=" '. $temp. ' " ></td>';
                         }
                         ?>
@@ -188,8 +188,8 @@
                     <tr id="row10" name="row10">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">5pm</td>
                         <?php
-                        for($i=1; $i<=7; $i++) {
-                            $temp = $row10["$i"];
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[9][$i];
                             echo '<td class=" '. $temp. ' " ></td>';
                         }
                         ?>
@@ -197,8 +197,8 @@
                     <tr id="row11" name="row11">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">6pm</td>
                         <?php
-                        for($i=1; $i<=7; $i++) {
-                            $temp = $row11["$i"];
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[10][$i];
                             echo '<td class=" '. $temp. ' " ></td>';
                         }
                         ?>
@@ -206,8 +206,8 @@
                     <tr id="row12" name="row12">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">7pm</td>
                         <?php
-                        for($i=1; $i<=7; $i++) {
-                            $temp = $row12["$i"];
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[11][$i];
                             echo '<td class=" '. $temp. ' " ></td>';
                         }
                         ?>
@@ -215,8 +215,8 @@
                     <tr id="row13" name="row13">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8pm</td>
                         <?php
-                        for($i=1; $i<=7; $i++) {
-                            $temp = $row13["$i"];
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[12][$i];
                             echo '<td class=" '. $temp. ' " ></td>';
                         }
                         ?>
@@ -224,8 +224,8 @@
                     <tr id="row14" name="row14">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">9pm</td>
                         <?php
-                        for($i=1; $i<=7; $i++) {
-                            $temp = $row14["$i"];
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[13][$i];
                             echo '<td class=" '. $temp. ' " ></td>';
                         }
                         ?>
@@ -233,8 +233,8 @@
                     <tr id="row15" name="row15">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">10pm</td>
                         <?php
-                        for($i=1; $i<=7; $i++) {
-                            $temp = $row15["$i"];
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[14][$i];
                             echo '<td class=" '. $temp. ' " ></td>';
                         }
                         ?>
@@ -242,8 +242,8 @@
                     <tr id="row16" name="row16">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">11pm</td>
                         <?php
-                        for($i=1; $i<=7; $i++) {
-                            $temp = $row16["$i"];
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[15][$i];
                             echo '<td class=" '. $temp. ' " ></td>';
                         }
                         ?>
@@ -300,8 +300,8 @@
         for(i=1;i<tabela.rows.length;i++){
             for(j=1;j<tabela.rows[i].cells.length;j++){
                 tabela.rows[i].cells[j].onclick=function(i,j){
-                    startDate= tabela.rows[0].cells[j].innerText
-                    startTime= tabela.rows[i].cells[0].innerText
+                    startDate = tabela.rows[0].cells[j].innerText
+                    startTime = tabela.rows[i].cells[0].innerText
 
                     document.getElementById("startDate").value = startDate
                     document.getElementById("startTime").value = startTime
@@ -365,40 +365,4 @@
         </div>
     </div>
 </form>
-<!--
-
-<form action="/approval/reservation" method="POST" style="width: 80%">
-    @csrf
-    <div id="submit" class="modal modal-child"
-         style="float: left; left: 50%; top: 50%; transform: translate(-50%, -50%)" data-backdrop-limit="1"
-         tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-modal-parent="#myModal">
-        <div class="modal-dialog">
-            Modal content
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2 class="modal-title">Reservation Form</h2>
-                </div>
-                <div class="modal-body">
-                    <label>Name:</label>
-                    <input type="text" name="name" id="name" required>
-                    <label>Number of Students:</label>
-                    <input type="text" name="number" id="number" required>
-                    <label>Purpose:</label>
-                    <input type="text" name="purpose" id="purpose" required>
-
-
-
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>
-                    <button class="btn btn-default" data-dismiss="modal" data-dismiss="modal" aria-hidden="true"
-                            style="height: 2rem; padding: 0 1rem; line-height: 0rem">Cancel
-                    </button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</form>
--->
 @endsection
