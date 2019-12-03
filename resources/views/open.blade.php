@@ -3,6 +3,7 @@
 @section('content')
 <link href="https://fonts.googleapis.com/css?family=Bitter:700|Didact+Gothic|Patua+One&display=swap" rel="stylesheet">
 <section class="wrapper">
+    @if($user["penalty_status"] == "0" || $user["penalty_status"] == "1" || $user["penalty_status"] == "2")
     <div style="width: 60%" class="inner">
         <header class="special">
 
@@ -26,7 +27,7 @@
            onclick="$('.{{ $category->Category }}').slideToggle(function(){$('#{{ $category->Category }}').html($('.{{ $category->Category }}').is(':visible')?'Fold':'Unfold');});" style="height:2rem; padding: 0 0.5rem; line-height: 2rem; margin-left: 30px; font-size: 15px">Unfold</button>
 -->
         </h2>
-        
+
         <div>
             <table>
                 <thead>
@@ -61,6 +62,14 @@
         </div>
     </div>
     @endforeach
+    @elseif($user["penalty_status"] == "3")
+    <div style="width: 60%" class="inner">
+        <header class="special">
 
+            <h2 style="font-family:'Bitter', serif; text-align:center; font-size:60px">You are not allowed</h2>
+        </header>
+        <a href="/home" class="button"><i class="fa fa-arrow-left"> Back</i></a>
+    </div>
+    @endif
 </section>
 @endsection
