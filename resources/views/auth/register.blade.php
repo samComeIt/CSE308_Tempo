@@ -20,6 +20,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                <input type ="hidden" id ="penalty_status" name="penalty_status" value ="0">
                             </div>
                         </div><br>
 
@@ -34,7 +35,7 @@
                                 @enderror
                             </div>
                         </div><br>
-                        
+
                         <div class="col-12">
                             <label for="role" style="font-size: 120%">Role</label>
                             <div class="col-12">
@@ -65,7 +66,7 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Password">
                             </div>
                         </div><br>
-                        
+
                     <div class=content>
                         <div class="col-12">
                                 <button type="submit" style="width:100%">
