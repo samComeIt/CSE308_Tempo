@@ -337,16 +337,20 @@
                 <div class="modal-body">
 
                     <input type="hidden" name="facility_id" value='{{$facility->Facility_ID}}'>
-                    Start Date: <input type="textarea" name="date" id="startDate" readonly>
-                    <label for="startDate"></label>
-                    Start Time: <input type="textarea" name="start_time" id="startTime" readonly>
-                    <label for="startTime"></label>
-                    <input type="hidden" name="duration" value="1">
-
                     <input type="hidden" name="type" value='{{$facility->Type}}'>
                     <input type="hidden" name="user_id" value='{{ Auth::user()->id}}'>
-
-                    <label id="duration"></label>
+                    Start Date:&nbsp; <input type="textarea" name="date" id="startDate" readonly>
+                    <label for="startDate"></label>
+                    Start Time:&nbsp; <input type="textarea" name="start_time" id="startTime" readonly>
+                    <label for="startTime"></label>
+                    Duration:<br>
+                    <input type="radio" id="1" name="duration" value="1">
+                    <label for="1">1 hour</label><br>
+                    <input type="radio" id="2" name="duration" value="2">
+                    <label for="2">2 hours</label><br>                   
+                    <input type="radio" id="3" name="duration" value="3">
+                    <label for="3">3 hours</label>
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>

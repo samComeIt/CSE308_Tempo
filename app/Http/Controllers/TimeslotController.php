@@ -17,7 +17,20 @@ class TimeslotController extends Controller
             'facility_id' => $request->get('facility_id'),
             ]);
 
-        return redirect('open');
+        $target= DB::table('timeslots')->where([
+            'date' => $request->get('date'),
+            'start_time' => $request->get('start_time'),
+            'duration' => $request->get('duration'),
+            'facility_id' => $request->get('facility_id'),
+
+        ])->get();
+
+        foreach($target as $timeslot){
+                $timeslot_id = $timeslot->timeslot_id;
+                $timeslot_facillity_id = $timeslot->facility_id;
+            }
+
+        return view('openMakeReservation', compact('timeslot_id', 'timeslot_facillity_id'));
     }
 
     public function approvalStore(Request $request)

@@ -9,15 +9,7 @@
             <h1 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Make a Reservation</h1>
         </header>
     </div>
-    
-<!--    <a href="/home" class="button"><i class="fa fa-arrow-left"> Back</i></a>-->
-    <div class="inner" style="width: 50%">
-    <form action="{{ route('timeslot.destroy', [$timeslot_id, $timeslot_facillity_id]) }}" method="POST">
-            @csrf
-            @method('DELETE')
-        <button type="submit" formnovalidate><i class="fa fa-arrow-left"> Back to facility list</i></button>
-        </form>
-    </div>
+
 
     <div class="inner" style="display:flex; justify-content:center; align-items:center">
         <form action="/approval/reservation/" method="POST" style="width: 60%">
@@ -34,9 +26,21 @@
                 <label style="font-size: 20px; margin-bottom: 10px">Number of Students</label> <input type="number" name="number" required>
             </div>
                 <button type="submit">Complete</button>
+            <form action="{{ route('timeslot.destroy', [$timeslot_id, $timeslot_facillity_id]) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" formnovalidate>Cancel</button>
         </form>
-    </div>
-    
+        </form>
+
+<!--
+        <form action="{{ route('timeslot.destroy', [$timeslot_id, $timeslot_facillity_id]) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit">Cancel</button>
+        </form>
+-->
+        </div>
 </section>
 
 @endsection
