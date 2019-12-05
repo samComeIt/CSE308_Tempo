@@ -26,14 +26,14 @@ class ReservationController extends Controller
     {
         $reservations2 = \App\Reservation::where();
         $findId = Auth::user()->id;
-        return view('mypage', ['allReservations' => $reservations2]);
+        return view('mypageCurrent', ['allReservations' => $reservations2]);
     }
 
     public function mypagePast()
     {
         $reservations2 = \App\Reservation::where();
         $findId = Auth::user()->id;
-        return view('mypage', ['allReservations' => $reservations2]);
+        return view('mypagePast', ['allReservations' => $reservations2]);
     }
 
 
