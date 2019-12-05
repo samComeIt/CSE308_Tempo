@@ -72,10 +72,10 @@
                             <td class="inner-table">{{ $user->email }}</td>
                             <td class="inner-table">{{ $user->penalty_status }}</td>
 
-                            @if ($user->penalty_status != "3" )
+                            @if ($user->penalty_status != "3")
                             <td><a href="{{ route('penalty.edit',$user->id) }}" class="button">Give Penalty</a></td>
                             @elseif ($user->penalty_status=="3")
-                            
+                            <td><a onclick="return confirm('Maximum penalty given')" class="button">Give Penalty</a></td>
                             @endif
                             <td><a href="{{ route('penalty.reset',$user->id) }}" class="button">Reset Penalty</a></td>
                         </tr>

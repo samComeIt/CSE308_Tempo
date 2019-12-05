@@ -3,6 +3,7 @@
 @section('content')
 
 <section id="main" class="wrapper">
+    @if($user["penalty_status"] != "3")
     <div class="inner">
         <div class="content">
             <h2 style="font-family:'Bitter', serif; text-align:center; font-size: 60px">TEMPO</h2>
@@ -33,5 +34,14 @@
             </section>
         </div>
     </div>
+    @else
+    <div style="width: 60%" class="inner">
+        <header class="special">
+
+            <h2 style="font-family:'Bitter', serif; text-align:center; font-size:60px">You are not allowed</h2>
+        </header>
+        <a href="/home" class="button"><i class="fa fa-arrow-left"> Back</i></a>
+    </div>
+    @endif
 </section>
 @endsection
