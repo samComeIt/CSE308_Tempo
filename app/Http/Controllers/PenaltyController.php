@@ -56,9 +56,8 @@ class PenaltyController extends Controller
      */
     public function show($id)
     {
-        \App\User::where('id', $id)->update(['penalty_status'=> DB::raw('penalty_status+1')]);
+        \App\User::where('id', $id)->update(['penalty_status'=> 0]);
         $users = \App\User::all();
-
 
         return view('penalty', ['allUsers' => $users]);
     }
@@ -80,11 +79,10 @@ class PenaltyController extends Controller
      */
     public function edit($id)
     {
-        \App\User::where('id', $id)->update(['penalty_status'=> 0]);
+        \App\User::where('id', $id)->update(['penalty_status'=> DB::raw('penalty_status+1')]);
         $users = \App\User::all();
 
-
-        return view('penalty', ['allUsers' => $users]);
+        return view('givePenalty', ['allUsers' => $users]);
     }
 
     /**

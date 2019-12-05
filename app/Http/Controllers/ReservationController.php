@@ -22,6 +22,21 @@ class ReservationController extends Controller
         return view('mypage', ['allReservations' => $reservations2]);
     }
 
+    public function mypageCurrent()
+    {
+        $reservations2 = \App\Reservation::where();
+        $findId = Auth::user()->id;
+        return view('mypage', ['allReservations' => $reservations2]);
+    }
+
+    public function mypagePast()
+    {
+        $reservations2 = \App\Reservation::where();
+        $findId = Auth::user()->id;
+        return view('mypage', ['allReservations' => $reservations2]);
+    }
+
+
     /**
      * Update the specified resource in storage.
      *

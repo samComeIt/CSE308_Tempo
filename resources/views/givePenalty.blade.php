@@ -42,7 +42,7 @@
         </nav>
 
         <article>
-            <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px; margin-bottom:50px">Give Penalty</h2>
+            <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px; margin-bottom:50px">Penalty Form</h2>
             <div class="inner" style="float:left; width:70%;">
                 <form>
                     <div class="col-sm-5 form-group">
@@ -72,12 +72,8 @@
                             <td class="inner-table">{{ $user->email }}</td>
                             <td class="inner-table">{{ $user->penalty_status }}</td>
 
-                            @if ($user->penalty_status != "3" )
                             <td><a href="{{ route('penalty.edit',$user->id) }}" class="button">Give Penalty</a></td>
-                            @elseif ($user->penalty_status=="3")
-                            
-                            @endif
-                            <td><a href="{{ route('penalty.reset',$user->id) }}" class="button">Reset Penalty</a></td>
+                            <td><a href="{{ route('penalty.show',$user->id) }}" class="button">Reset Penalty</a></td>
                         </tr>
                         @endif
                         @endforeach
