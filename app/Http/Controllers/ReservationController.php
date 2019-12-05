@@ -24,18 +24,26 @@ class ReservationController extends Controller
 
     public function mypageCurrent()
     {
-        $reservations2 = \App\Reservation::where();
-        $findId = Auth::user()->id;
-        return view('mypageCurrent', ['allReservations' => $reservations2]);
+        $reservations3 = \App\Reservation::all();
+        $timeslots3 = \App\Timeslot::all();
+        return view('mypageCurrent', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3]);
     }
 
     public function mypagePast()
     {
-        $reservations2 = \App\Reservation::where();
-        $findId = Auth::user()->id;
-        return view('mypagePast', ['allReservations' => $reservations2]);
+        $reservations3 = \App\Reservation::all();
+        $timeslots3 = \App\Timeslot::all();
+        return view('mypagePast', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3]);
     }
 
+    public function mypageCurrentCancel($id){
+        \App\Reservation::where('timeslot_id', $id)->update(['reservation_status'=> 'Cancel']);
+        $reservations3 = \App\Reservation::all();
+        $timeslots3 = \App\Timeslot::all();
+
+        return view('mypageCurrent', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3]);
+
+    }
 
     /**
      * Update the specified resource in storage.
