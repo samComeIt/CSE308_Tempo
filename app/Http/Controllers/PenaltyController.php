@@ -17,10 +17,14 @@ class PenaltyController extends Controller
         $search = $request->get('search');
         $users = \App\User::all();
 
-        $student = \App\User::all();
-        $student = $student->where('email','like','%' . $search .'%');
+        $finduser = $request->get('email');
 
-        return view('penalty', [$student,'allUsers' => $users]);
+        $find = \App\User::where([
+            ['email','LIKE','%' . $finduser . '%'],
+        ])->get();
+
+
+        return view('penalty', [$find,'allUsers' => $users]);
     }
 
     /**
@@ -28,9 +32,9 @@ class PenaltyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
     }
 
     /**
@@ -52,7 +56,19 @@ class PenaltyController extends Controller
      */
     public function show($id)
     {
+        \App\User::where('id', $id)->update(['penalty_status'=> 0]);
+        $users = \App\User::all();
 
+        return view('penalty', ['allUsers' => $users]);
+    }
+
+    public function reset($id)
+    {
+        \App\User::where('id', $id)->update(['penalty_status'=> 0]);
+        $users = \App\User::all();
+
+
+        return view('penalty', ['allUsers' => $users]);
     }
 
     /**
@@ -63,7 +79,10 @@ class PenaltyController extends Controller
      */
     public function edit($id)
     {
-        //
+        \App\User::where('id', $id)->update(['penalty_status'=> DB::raw('penalty_status+1')]);
+        $users = \App\User::all();
+
+        return view('givePenalty', ['allUsers' => $users]);
     }
 
     /**
@@ -75,7 +94,6 @@ class PenaltyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
     }
 
     /**

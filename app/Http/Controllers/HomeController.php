@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $id = Auth::user()->id;
+
+        $targets = \App\User::where('ID', $id)->get();
+        foreach ($targets as $target) {
+            $user["role"] = $target -> role;
+            $user["penalty_status"] = $target -> penalty_status;
+        }
+
+        return view('home', ['user' => $user]);
     }
 }

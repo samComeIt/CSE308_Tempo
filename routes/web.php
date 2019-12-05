@@ -28,7 +28,11 @@ Route::post('/approval/timeslot', 'TimeslotController@approvalStore')->name('app
 
 
 Route::get('/mypage', 'ReservationController@mypageReservation')->name('mypageReservation');
-Route::get('/mypage/penalty', 'PenaltyController@index')->name('index');
+Route::get('/mypage/current', 'ReservationController@mypageCurrent')->name('mypageCurrent');
+Route::get('/mypage/past', 'ReservationController@mypagePast')->name('mypagePast');
+Route::resource('/mypage/penalty', 'PenaltyController');
+Route::post('/mypage/penalty/', 'PenaltyController@reset')->name('penalty.reset');
+
 //Route::resource('/mypage', 'TimeslotController')->middleware('auth');
 Route::resource('/approval/reservation', 'ReservationController')->middleware('auth');
 

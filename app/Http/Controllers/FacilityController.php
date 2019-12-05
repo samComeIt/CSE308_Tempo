@@ -26,6 +26,7 @@ class FacilityController extends Controller
         $targets = \App\User::where('ID', $id)->get();
         foreach ($targets as $target) {
             $user["role"] = $target -> role;
+            $user["penalty_status"] = $target -> penalty_status;
         }
 
         return view('approval', ['user' => $user, 'allFacilities' => $facilities, 'allCategories' => $categories]);
@@ -54,7 +55,7 @@ class FacilityController extends Controller
         $image_filename = NULL;
         $image_mime = NULL;
         $image_original_filename = NULL;
-        
+
         if($request->file('Picture') != NULL) {
             $image = $request->file('Picture');
             $extension = $image->getClientOriginalExtension();
@@ -63,7 +64,7 @@ class FacilityController extends Controller
             $image_mime = $image->getClientMimeType();
             $image_original_filename = $image->getClientOriginalName();
         }
-        
+
         \App\Facility::create([
             'Name' => $request->get('Name'),
             'Category' => $request->get('Category'),
@@ -743,7 +744,7 @@ class FacilityController extends Controller
             $image_filename = NULL;
             $image_mime = NULL;
             $image_original_filename = NULL;
-        
+
             if($request->file('Picture') != NULL) {
                 $image = $request->file('Picture');
                 $extension = $image->getClientOriginalExtension();
