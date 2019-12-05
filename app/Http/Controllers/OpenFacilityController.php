@@ -87,23 +87,24 @@ class OpenFacilityController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-     {
-        $row1 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
-        $row2 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
-        $row3 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
-        $row4 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
-        $row5 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
-        $row6 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
-        $row7 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
-        $row8 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
-        $row9 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
-        $row10 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
-        $row11 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
-        $row12 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
-        $row13 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
-        $row14 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
-        $row15 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
-        $row16 = array('1'=>"no", '2'=>"no", '3'=>"no", '4'=>"no", '5'=>"no", '6'=>"no", '7'=>"no");
+    {
+        $table = array(
+            array("no","no","no","no","no","no","no"),
+            array("no","no","no","no","no","no","no"),
+            array("no","no","no","no","no","no","no"),
+            array("no","no","no","no","no","no","no"),
+            array("no","no","no","no","no","no","no"),
+            array("no","no","no","no","no","no","no"),
+            array("no","no","no","no","no","no","no"),
+            array("no","no","no","no","no","no","no"),
+            array("no","no","no","no","no","no","no"),
+            array("no","no","no","no","no","no","no"),
+            array("no","no","no","no","no","no","no"),
+            array("no","no","no","no","no","no","no"),
+            array("no","no","no","no","no","no","no"),
+            array("no","no","no","no","no","no","no"),
+            array("no","no","no","no","no","no","no"),
+            array("no","no","no","no","no","no","no"));
 
         $timezone = new DateTimeZone('Asia/Seoul');
         $today = new DateTime('now', $timezone);
@@ -123,373 +124,598 @@ class OpenFacilityController extends Controller
         $todaystr7 = $today->format('m/d');
 
         $facilities = \App\Facility::where('Facility_ID', $id)->get();
-        $timeslots1 = \App\Timeslot::where('date', $todaystr1)->get();
-        $timeslots2 = \App\Timeslot::where('date', $todaystr2)->get();
-        $timeslots3 = \App\Timeslot::where('date', $todaystr3)->get();
-        $timeslots4 = \App\Timeslot::where('date', $todaystr4)->get();
-        $timeslots5 = \App\Timeslot::where('date', $todaystr5)->get();
-        $timeslots6 = \App\Timeslot::where('date', $todaystr6)->get();
-        $timeslots7 = \App\Timeslot::where('date', $todaystr7)->get();
+        $timeslots1 = \App\Timeslot::where('date', $todaystr1)->where('facility_id',$id)->get();
+        $timeslots2 = \App\Timeslot::where('date', $todaystr2)->where('facility_id',$id)->get();
+        $timeslots3 = \App\Timeslot::where('date', $todaystr3)->where('facility_id',$id)->get();
+        $timeslots4 = \App\Timeslot::where('date', $todaystr4)->where('facility_id',$id)->get();
+        $timeslots5 = \App\Timeslot::where('date', $todaystr5)->where('facility_id',$id)->get();
+        $timeslots6 = \App\Timeslot::where('date', $todaystr6)->where('facility_id',$id)->get();
+        $timeslots7 = \App\Timeslot::where('date', $todaystr7)->where('facility_id',$id)->get();
 
         foreach ($timeslots1 as $timeslot){
             if ($timeslot->start_time == '8am') {
-                $row1['1'] = "fill";
+                for ($i=0; $i<($timeslot->duration); $i++) {
+                    $table[$i][0] = "fill";
+                }
             }
             if ($timeslot->start_time == '9am') {
-                $row2['1'] = "fill";
+                for ($i=1; $i<($timeslot->duration); $i++) {
+                    $table[$i][0] = "fill";
+                }
             }
             if ($timeslot->start_time == '10am') {
-                $row3['1'] = "fill";
+                for ($i=2; $i<($timeslot->duration); $i++) {
+                    $table[$i][0] = "fill";
+                }
             }
             if ($timeslot->start_time == '11am') {
-                $row4['1'] = "fill";
+                for ($i=3; $i<($timeslot->duration); $i++) {
+                    $table[$i][0] = "fill";
+                }
             }
             if ($timeslot->start_time == '12pm') {
-                $row5['1'] = "fill";
+                for ($i=4; $i<($timeslot->duration); $i++) {
+                    $table[$i][0] = "fill";
+                }
             }
             if ($timeslot->start_time == '1pm') {
-                $row6['1'] = "fill";
+                for ($i=5; $i<($timeslot->duration); $i++) {
+                    $table[$i][0] = "fill";
+                }
             }
             if ($timeslot->start_time == '2pm') {
-                $row7['1'] = "fill";
+                for ($i=6; $i<($timeslot->duration); $i++) {
+                    $table[$i][0] = "fill";
+                }
             }
             if ($timeslot->start_time == '3pm') {
-                $row8['1'] = "fill";
+                for ($i=7; $i<($timeslot->duration); $i++) {
+                    $table[$i][0] = "fill";
+                }
             }
             if ($timeslot->start_time == '4pm') {
-                $row9['1'] = "fill";
+                for ($i=8; $i<($timeslot->duration); $i++) {
+                    $table[$i][0] = "fill";
+                }
             }
             if ($timeslot->start_time == '5pm') {
-                $row10['1'] = "fill";
+                for ($i=9; $i<($timeslot->duration); $i++) {
+                    $table[$i][0] = "fill";
+                }
             }
             if ($timeslot->start_time == '6pm') {
-                $row11['1'] = "fill";
+                for ($i=10; $i<($timeslot->duration); $i++) {
+                    $table[$i][0] = "fill";
+                }
             }
             if ($timeslot->start_time == '7pm') {
-                $row12['1'] = "fill";
+                for ($i=11; $i<($timeslot->duration); $i++) {
+                    $table[$i][0] = "fill";
+                }
             }
             if ($timeslot->start_time == '8pm') {
-                $row13['1'] = "fill";
+                for ($i=12; $i<($timeslot->duration); $i++) {
+                    $table[$i][0] = "fill";
+                }
             }
             if ($timeslot->start_time == '9pm') {
-                $row14['1'] = "fill";
+                for ($i=13; $i<($timeslot->duration); $i++) {
+                    $table[$i][0] = "fill";
+                }
             }
             if ($timeslot->start_time == '10pm') {
-                $row15['1'] = "fill";
+                for ($i=14; $i<($timeslot->duration); $i++) {
+                    $table[$i][0] = "fill";
+                }
             }
             if ($timeslot->start_time == '11pm') {
-                $row16['1'] = "fill";
+                for ($i=15; $i<($timeslot->duration); $i++) {
+                    $table[$i][0] = "fill";
+                }
             }
         }
 
         foreach ($timeslots2 as $timeslot){
             if ($timeslot->start_time == '8am') {
-                $row1['2'] = "fill";
+                for ($i=0; $i<($timeslot->duration); $i++) {
+                    $table[$i][1] = "fill";
+                }
             }
             if ($timeslot->start_time == '9am') {
-                $row2['2'] = "fill";
+                for ($i=1; $i<($timeslot->duration); $i++) {
+                    $table[$i][1] = "fill";
+                }
             }
             if ($timeslot->start_time == '10am') {
-                $row3['2'] = "fill";
+                for ($i=2; $i<($timeslot->duration); $i++) {
+                    $table[$i][1] = "fill";
+                }
             }
             if ($timeslot->start_time == '11am') {
-                $row4['2'] = "fill";
+                for ($i=3; $i<($timeslot->duration); $i++) {
+                    $table[$i][1] = "fill";
+                }
             }
             if ($timeslot->start_time == '12pm') {
-                $row5['2'] = "fill";
+                for ($i=4; $i<($timeslot->duration); $i++) {
+                    $table[$i][1] = "fill";
+                }
             }
             if ($timeslot->start_time == '1pm') {
-                $row6['2'] = "fill";
+                for ($i=5; $i<($timeslot->duration); $i++) {
+                    $table[$i][1] = "fill";
+                }
             }
             if ($timeslot->start_time == '2pm') {
-                $row7['2'] = "fill";
+                for ($i=6; $i<($timeslot->duration); $i++) {
+                    $table[$i][1] = "fill";
+                }
             }
             if ($timeslot->start_time == '3pm') {
-                $row8['2'] = "fill";
+                for ($i=7; $i<($timeslot->duration); $i++) {
+                    $table[$i][1] = "fill";
+                }
             }
             if ($timeslot->start_time == '4pm') {
-                $row9['2'] = "fill";
+                for ($i=8; $i<($timeslot->duration); $i++) {
+                    $table[$i][1] = "fill";
+                }
             }
             if ($timeslot->start_time == '5pm') {
-                $row10['2'] = "fill";
+                for ($i=9; $i<($timeslot->duration); $i++) {
+                    $table[$i][1] = "fill";
+                }
             }
             if ($timeslot->start_time == '6pm') {
-                $row11['2'] = "fill";
+                for ($i=10; $i<($timeslot->duration); $i++) {
+                    $table[$i][1] = "fill";
+                }
             }
             if ($timeslot->start_time == '7pm') {
-                $row12['2'] = "fill";
+                for ($i=11; $i<($timeslot->duration); $i++) {
+                    $table[$i][1] = "fill";
+                }
             }
             if ($timeslot->start_time == '8pm') {
-                $row13['2'] = "fill";
+                for ($i=12; $i<($timeslot->duration); $i++) {
+                    $table[$i][1] = "fill";
+                }
             }
             if ($timeslot->start_time == '9pm') {
-                $row14['2'] = "fill";
+                for ($i=13; $i<($timeslot->duration); $i++) {
+                    $table[$i][1] = "fill";
+                }
             }
             if ($timeslot->start_time == '10pm') {
-                $row15['2'] = "fill";
+                for ($i=14; $i<($timeslot->duration); $i++) {
+                    $table[$i][1] = "fill";
+                }
             }
             if ($timeslot->start_time == '11pm') {
-                $row16['2'] = "fill";
+                for ($i=15; $i<($timeslot->duration); $i++) {
+                    $table[$i][1] = "fill";
+                }
             }
         }
 
         foreach ($timeslots3 as $timeslot){
             if ($timeslot->start_time == '8am') {
-                $row1['3'] = "fill";
+                for ($i=0; $i<($timeslot->duration); $i++) {
+                    $table[$i][2] = "fill";
+                }
             }
             if ($timeslot->start_time == '9am') {
-                $row2['3'] = "fill";
+                for ($i=1; $i<($timeslot->duration); $i++) {
+                    $table[$i][2] = "fill";
+                }
             }
             if ($timeslot->start_time == '10am') {
-                $row3['3'] = "fill";
+                for ($i=2; $i<($timeslot->duration); $i++) {
+                    $table[$i][2] = "fill";
+                }
             }
             if ($timeslot->start_time == '11am') {
-                $row4['3'] = "fill";
+                for ($i=3; $i<($timeslot->duration); $i++) {
+                    $table[$i][2] = "fill";
+                }
             }
             if ($timeslot->start_time == '12pm') {
-                $row5['3'] = "fill";
+                for ($i=4; $i<($timeslot->duration); $i++) {
+                    $table[$i][2] = "fill";
+                }
             }
             if ($timeslot->start_time == '1pm') {
-                $row6['3'] = "fill";
+                for ($i=5; $i<($timeslot->duration); $i++) {
+                    $table[$i][2] = "fill";
+                }
             }
             if ($timeslot->start_time == '2pm') {
-                $row7['3'] = "fill";
+                for ($i=6; $i<($timeslot->duration); $i++) {
+                    $table[$i][2] = "fill";
+                }
             }
             if ($timeslot->start_time == '3pm') {
-                $row8['3'] = "fill";
+                for ($i=7; $i<($timeslot->duration); $i++) {
+                    $table[$i][2] = "fill";
+                }
             }
             if ($timeslot->start_time == '4pm') {
-                $row9['3'] = "fill";
+                for ($i=8; $i<($timeslot->duration); $i++) {
+                    $table[$i][2] = "fill";
+                }
             }
             if ($timeslot->start_time == '5pm') {
-                $row10['3'] = "fill";
+                for ($i=9; $i<($timeslot->duration); $i++) {
+                    $table[$i][2] = "fill";
+                }
             }
             if ($timeslot->start_time == '6pm') {
-                $row11['3'] = "fill";
+                for ($i=10; $i<($timeslot->duration); $i++) {
+                    $table[$i][2] = "fill";
+                }
             }
             if ($timeslot->start_time == '7pm') {
-                $row12['3'] = "fill";
+                for ($i=11; $i<($timeslot->duration); $i++) {
+                    $table[$i][2] = "fill";
+                }
             }
             if ($timeslot->start_time == '8pm') {
-                $row13['3'] = "fill";
+                for ($i=12; $i<($timeslot->duration); $i++) {
+                    $table[$i][2] = "fill";
+                }
             }
             if ($timeslot->start_time == '9pm') {
-                $row14['3'] = "fill";
+                for ($i=13; $i<($timeslot->duration); $i++) {
+                    $table[$i][2] = "fill";
+                }
             }
             if ($timeslot->start_time == '10pm') {
-                $row15['3'] = "fill";
+                for ($i=14; $i<($timeslot->duration); $i++) {
+                    $table[$i][2] = "fill";
+                }
             }
             if ($timeslot->start_time == '11pm') {
-                $row16['3'] = "fill";
+                for ($i=15; $i<($timeslot->duration); $i++) {
+                    $table[$i][2] = "fill";
+                }
             }
         }
 
         foreach ($timeslots4 as $timeslot){
             if ($timeslot->start_time == '8am') {
-                $row1['4'] = "fill";
+                for ($i=0; $i<($timeslot->duration); $i++) {
+                    $table[$i][3] = "fill";
+                }
             }
             if ($timeslot->start_time == '9am') {
-                $row2['4'] = "fill";
+                for ($i=1; $i<($timeslot->duration); $i++) {
+                    $table[$i][3] = "fill";
+                }
             }
             if ($timeslot->start_time == '10am') {
-                $row3['4'] = "fill";
+                for ($i=2; $i<($timeslot->duration); $i++) {
+                    $table[$i][3] = "fill";
+                }
             }
             if ($timeslot->start_time == '11am') {
-                $row4['4'] = "fill";
+                for ($i=3; $i<($timeslot->duration); $i++) {
+                    $table[$i][3] = "fill";
+                }
             }
             if ($timeslot->start_time == '12pm') {
-                $row5['4'] = "fill";
+                for ($i=4; $i<($timeslot->duration); $i++) {
+                    $table[$i][3] = "fill";
+                }
             }
             if ($timeslot->start_time == '1pm') {
-                $row6['4'] = "fill";
+                for ($i=5; $i<($timeslot->duration); $i++) {
+                    $table[$i][3] = "fill";
+                }
             }
             if ($timeslot->start_time == '2pm') {
-                $row7['4'] = "fill";
+                for ($i=6; $i<($timeslot->duration); $i++) {
+                    $table[$i][3] = "fill";
+                }
             }
             if ($timeslot->start_time == '3pm') {
-                $row8['4'] = "fill";
+                for ($i=7; $i<($timeslot->duration); $i++) {
+                    $table[$i][3] = "fill";
+                }
             }
             if ($timeslot->start_time == '4pm') {
-                $row9['4'] = "fill";
+                for ($i=8; $i<($timeslot->duration); $i++) {
+                    $table[$i][3] = "fill";
+                }
             }
             if ($timeslot->start_time == '5pm') {
-                $row10['4'] = "fill";
+                for ($i=9; $i<($timeslot->duration); $i++) {
+                    $table[$i][3] = "fill";
+                }
             }
             if ($timeslot->start_time == '6pm') {
-                $row11['4'] = "fill";
+                for ($i=10; $i<($timeslot->duration); $i++) {
+                    $table[$i][3] = "fill";
+                }
             }
             if ($timeslot->start_time == '7pm') {
-                $row12['4'] = "fill";
+                for ($i=11; $i<($timeslot->duration); $i++) {
+                    $table[$i][3] = "fill";
+                }
             }
             if ($timeslot->start_time == '8pm') {
-                $row13['4'] = "fill";
+                for ($i=12; $i<($timeslot->duration); $i++) {
+                    $table[$i][3] = "fill";
+                }
             }
             if ($timeslot->start_time == '9pm') {
-                $row14['4'] = "fill";
+                for ($i=13; $i<($timeslot->duration); $i++) {
+                    $table[$i][3] = "fill";
+                }
             }
             if ($timeslot->start_time == '10pm') {
-                $row15['4'] = "fill";
+                for ($i=14; $i<($timeslot->duration); $i++) {
+                    $table[$i][3] = "fill";
+                }
             }
             if ($timeslot->start_time == '11pm') {
-                $row16['4'] = "fill";
+                for ($i=15; $i<($timeslot->duration); $i++) {
+                    $table[$i][3] = "fill";
+                }
             }
         }
 
         foreach ($timeslots5 as $timeslot){
             if ($timeslot->start_time == '8am') {
-                $row1['5'] = "fill";
+                for ($i=0; $i<($timeslot->duration); $i++) {
+                    $table[$i][4] = "fill";
+                }
             }
             if ($timeslot->start_time == '9am') {
-                $row2['5'] = "fill";
+                for ($i=1; $i<($timeslot->duration); $i++) {
+                    $table[$i][4] = "fill";
+                }
             }
             if ($timeslot->start_time == '10am') {
-                $row3['5'] = "fill";
+                for ($i=2; $i<($timeslot->duration); $i++) {
+                    $table[$i][4] = "fill";
+                }
             }
             if ($timeslot->start_time == '11am') {
-                $row4['5'] = "fill";
+                for ($i=3; $i<($timeslot->duration); $i++) {
+                    $table[$i][4] = "fill";
+                }
             }
             if ($timeslot->start_time == '12pm') {
-                $row5['5'] = "fill";
+                for ($i=4; $i<($timeslot->duration); $i++) {
+                    $table[$i][4] = "fill";
+                }
             }
             if ($timeslot->start_time == '1pm') {
-                $row6['5'] = "fill";
+                for ($i=5; $i<($timeslot->duration); $i++) {
+                    $table[$i][4] = "fill";
+                }
             }
             if ($timeslot->start_time == '2pm') {
-                $row7['5'] = "fill";
+                for ($i=6; $i<($timeslot->duration); $i++) {
+                    $table[$i][4] = "fill";
+                }
             }
             if ($timeslot->start_time == '3pm') {
-                $row8['5'] = "fill";
+                for ($i=7; $i<($timeslot->duration); $i++) {
+                    $table[$i][4] = "fill";
+                }
             }
             if ($timeslot->start_time == '4pm') {
-                $row9['5'] = "fill";
+                for ($i=8; $i<($timeslot->duration); $i++) {
+                    $table[$i][4] = "fill";
+                }
             }
             if ($timeslot->start_time == '5pm') {
-                $row10['5'] = "fill";
+                for ($i=9; $i<($timeslot->duration); $i++) {
+                    $table[$i][4] = "fill";
+                }
             }
             if ($timeslot->start_time == '6pm') {
-                $row11['5'] = "fill";
+                for ($i=10; $i<($timeslot->duration); $i++) {
+                    $table[$i][4] = "fill";
+                }
             }
             if ($timeslot->start_time == '7pm') {
-                $row12['5'] = "fill";
+                for ($i=11; $i<($timeslot->duration); $i++) {
+                    $table[$i][4] = "fill";
+                }
             }
             if ($timeslot->start_time == '8pm') {
-                $row13['5'] = "fill";
+                for ($i=12; $i<($timeslot->duration); $i++) {
+                    $table[$i][4] = "fill";
+                }
             }
             if ($timeslot->start_time == '9pm') {
-                $row14['5'] = "fill";
+                for ($i=13; $i<($timeslot->duration); $i++) {
+                    $table[$i][4] = "fill";
+                }
             }
             if ($timeslot->start_time == '10pm') {
-                $row15['5'] = "fill";
+                for ($i=14; $i<($timeslot->duration); $i++) {
+                    $table[$i][4] = "fill";
+                }
             }
             if ($timeslot->start_time == '11pm') {
-                $row16['5'] = "fill";
+                for ($i=15; $i<($timeslot->duration); $i++) {
+                    $table[$i][4] = "fill";
+                }
             }
         }
 
         foreach ($timeslots6 as $timeslot){
             if ($timeslot->start_time == '8am') {
-                $row1['6'] = "fill";
+                for ($i=0; $i<($timeslot->duration); $i++) {
+                    $table[$i][5] = "fill";
+                }
             }
             if ($timeslot->start_time == '9am') {
-                $row2['6'] = "fill";
+                for ($i=1; $i<($timeslot->duration); $i++) {
+                    $table[$i][5] = "fill";
+                }
             }
             if ($timeslot->start_time == '10am') {
-                $row3['6'] = "fill";
+                for ($i=2; $i<($timeslot->duration); $i++) {
+                    $table[$i][5] = "fill";
+                }
             }
             if ($timeslot->start_time == '11am') {
-                $row4['6'] = "fill";
+                for ($i=3; $i<($timeslot->duration); $i++) {
+                    $table[$i][5] = "fill";
+                }
             }
             if ($timeslot->start_time == '12pm') {
-                $row5['6'] = "fill";
+                for ($i=4; $i<($timeslot->duration); $i++) {
+                    $table[$i][5] = "fill";
+                }
             }
             if ($timeslot->start_time == '1pm') {
-                $row6['6'] = "fill";
+                for ($i=5; $i<($timeslot->duration); $i++) {
+                    $table[$i][5] = "fill";
+                }
             }
             if ($timeslot->start_time == '2pm') {
-                $row7['6'] = "fill";
+                for ($i=6; $i<($timeslot->duration); $i++) {
+                    $table[$i][5] = "fill";
+                }
             }
             if ($timeslot->start_time == '3pm') {
-                $row8['6'] = "fill";
+                for ($i=7; $i<($timeslot->duration); $i++) {
+                    $table[$i][5] = "fill";
+                }
             }
             if ($timeslot->start_time == '4pm') {
-                $row9['6'] = "fill";
+                for ($i=8; $i<($timeslot->duration); $i++) {
+                    $table[$i][5] = "fill";
+                }
             }
             if ($timeslot->start_time == '5pm') {
-                $row10['6'] = "fill";
+                for ($i=9; $i<($timeslot->duration); $i++) {
+                    $table[$i][5] = "fill";
+                }
             }
             if ($timeslot->start_time == '6pm') {
-                $row11['6'] = "fill";
+                for ($i=10; $i<($timeslot->duration); $i++) {
+                    $table[$i][5] = "fill";
+                }
             }
             if ($timeslot->start_time == '7pm') {
-                $row12['6'] = "fill";
+                for ($i=11; $i<($timeslot->duration); $i++) {
+                    $table[$i][5] = "fill";
+                }
             }
             if ($timeslot->start_time == '8pm') {
-                $row13['6'] = "fill";
+                for ($i=12; $i<($timeslot->duration); $i++) {
+                    $table[$i][5] = "fill";
+                }
             }
             if ($timeslot->start_time == '9pm') {
-                $row14['6'] = "fill";
+                for ($i=13; $i<($timeslot->duration); $i++) {
+                    $table[$i][5] = "fill";
+                }
             }
             if ($timeslot->start_time == '10pm') {
-                $row15['6'] = "fill";
+                for ($i=14; $i<($timeslot->duration); $i++) {
+                    $table[$i][5] = "fill";
+                }
             }
             if ($timeslot->start_time == '11pm') {
-                $row16['6'] = "fill";
+                for ($i=15; $i<($timeslot->duration); $i++) {
+                    $table[$i][5] = "fill";
+                }
             }
         }
 
         foreach ($timeslots7 as $timeslot){
             if ($timeslot->start_time == '8am') {
-                $row1['7'] = "fill";
+                for ($i=0; $i<($timeslot->duration); $i++) {
+                    $table[$i][6] = "fill";
+                }
             }
             if ($timeslot->start_time == '9am') {
-                $row2['7'] = "fill";
+                for ($i=1; $i<($timeslot->duration); $i++) {
+                    $table[$i][6] = "fill";
+                }
             }
             if ($timeslot->start_time == '10am') {
-                $row3['7'] = "fill";
+                for ($i=2; $i<($timeslot->duration); $i++) {
+                    $table[$i][6] = "fill";
+                }
             }
             if ($timeslot->start_time == '11am') {
-                $row4['7'] = "fill";
+                for ($i=3; $i<($timeslot->duration); $i++) {
+                    $table[$i][6] = "fill";
+                }
             }
             if ($timeslot->start_time == '12pm') {
-                $row5['7'] = "fill";
+                for ($i=4; $i<($timeslot->duration); $i++) {
+                    $table[$i][6] = "fill";
+                }
             }
             if ($timeslot->start_time == '1pm') {
-                $row6['7'] = "fill";
+                for ($i=5; $i<($timeslot->duration); $i++) {
+                    $table[$i][6] = "fill";
+                }
             }
             if ($timeslot->start_time == '2pm') {
-                $row7['7'] = "fill";
+                for ($i=6; $i<($timeslot->duration); $i++) {
+                    $table[$i][6] = "fill";
+                }
             }
             if ($timeslot->start_time == '3pm') {
-                $row8['7'] = "fill";
+                for ($i=7; $i<($timeslot->duration); $i++) {
+                    $table[$i][6] = "fill";
+                }
             }
             if ($timeslot->start_time == '4pm') {
-                $row9['7'] = "fill";
+                for ($i=8; $i<($timeslot->duration); $i++) {
+                    $table[$i][6] = "fill";
+                }
             }
             if ($timeslot->start_time == '5pm') {
-                $row10['7'] = "fill";
+                for ($i=9; $i<($timeslot->duration); $i++) {
+                    $table[$i][6] = "fill";
+                }
             }
             if ($timeslot->start_time == '6pm') {
-                $row11['7'] = "fill";
+                for ($i=10; $i<($timeslot->duration); $i++) {
+                    $table[$i][6] = "fill";
+                }
             }
             if ($timeslot->start_time == '7pm') {
-                $row12['7'] = "fill";
+                for ($i=11; $i<($timeslot->duration); $i++) {
+                    $table[$i][6] = "fill";
+                }
             }
             if ($timeslot->start_time == '8pm') {
-                $row13['7'] = "fill";
+                for ($i=12; $i<($timeslot->duration); $i++) {
+                    $table[$i][6] = "fill";
+                }
             }
             if ($timeslot->start_time == '9pm') {
-                $row14['7'] = "fill";
+                for ($i=13; $i<($timeslot->duration); $i++) {
+                    $table[$i][6] = "fill";
+                }
             }
             if ($timeslot->start_time == '10pm') {
-                $row15['7'] = "fill";
+                for ($i=14; $i<($timeslot->duration); $i++) {
+                    $table[$i][6] = "fill";
+                }
             }
             if ($timeslot->start_time == '11pm') {
-                $row16['7'] = "fill";
+                for ($i=15; $i<($timeslot->duration); $i++) {
+                    $table[$i][6] = "fill";
+                }
             }
         }
 
-        return view('openshowfacility',compact('facilities', 'row1', 'row2', 'row3', 'row4', 'row5', 'row6', 'row7', 'row8', 'row9', 'row10', 'row11', 'row12', 'row13', 'row14', 'row15', 'row16'));
+        return view('openshowfacility',compact('facilities', 'table'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

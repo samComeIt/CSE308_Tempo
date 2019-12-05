@@ -106,145 +106,145 @@
                     <tr id="row1" name="row1">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8am</td>
                         <?php
-                            for($i=1; $i<=7; $i++) {
-                                $temp = $row1["$i"];
-                                echo '<td class=" '. $temp. ' " ></td>';
-                            }
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[0][$i];
+                            echo '<td class=" '. $temp. ' " ></td>';
+                        }
                         ?>
                     </tr>
                     <tr id="row2" name="row2">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">9am</td>
                         <?php
-                            for($i=1; $i<=7; $i++) {
-                                $temp = $row2["$i"];
-                                echo '<td class=" '. $temp. ' " ></td>';
-                            }
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[1][$i];
+                            echo '<td class=" '. $temp. ' " ></td>';
+                        }
                         ?>
                     </tr>
                     <tr id="row3" name="row3">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">10am</td>
                         <?php
-                            for($i=1; $i<=7; $i++) {
-                                $temp = $row3["$i"];
-                                echo '<td class=" '. $temp. ' " ></td>';
-                            }
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[2][$i];
+                            echo '<td class=" '. $temp. ' " ></td>';
+                        }
                         ?>
                     </tr>
                     <tr id="row4" name="row4">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">11am</td>
                         <?php
-                            for($i=1; $i<=7; $i++) {
-                                $temp = $row4["$i"];
-                                echo '<td class=" '. $temp. ' " ></td>';
-                            }
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[3][$i];
+                            echo '<td class=" '. $temp. ' " ></td>';
+                        }
                         ?>
                     </tr>
                     <tr id="row5" name="row5">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">12pm</td>
                         <?php
-                            for($i=1; $i<=7; $i++) {
-                                $temp = $row5["$i"];
-                                echo '<td class=" '. $temp. ' " ></td>';
-                            }
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[4][$i];
+                            echo '<td class=" '. $temp. ' " ></td>';
+                        }
                         ?>
                     </tr>
                     <tr id="row6" name="row6">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">1pm</td>
                         <?php
-                            for($i=1; $i<=7; $i++) {
-                                $temp = $row6["$i"];
-                                echo '<td class=" '. $temp. ' " ></td>';
-                            }
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[5][$i];
+                            echo '<td class=" '. $temp. ' " ></td>';
+                        }
                         ?>
                     </tr>
                     <tr id="row7" name="row7">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">2pm</td>
                         <?php
-                            for($i=1; $i<=7; $i++) {
-                                $temp = $row7["$i"];
-                                echo '<td class=" '. $temp. ' " ></td>';
-                            }
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[6][$i];
+                            echo '<td class=" '. $temp. ' " ></td>';
+                        }
                         ?>
                     </tr>
                     <tr id="row8" name="row8">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">3pm</td>
                         <?php
-                            for($i=1; $i<=7; $i++) {
-                                $temp = $row8["$i"];
-                                echo '<td class=" '. $temp. ' " ></td>';
-                            }
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[7][$i];
+                            echo '<td class=" '. $temp. ' " ></td>';
+                        }
                         ?>
                     </tr>
                     <tr id="row9" name="row9">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">4pm</td>
                         <?php
-                            for($i=1; $i<=7; $i++) {
-                                $temp = $row9["$i"];
-                                echo '<td class=" '. $temp. ' " ></td>';
-                            }
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[8][$i];
+                            echo '<td class=" '. $temp. ' " ></td>';
+                        }
                         ?>
                     </tr>
                     <tr id="row10" name="row10">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">5pm</td>
                         <?php
-                            for($i=1; $i<=7; $i++) {
-                                $temp = $row10["$i"];
-                                echo '<td class=" '. $temp. ' " ></td>';
-                            }
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[9][$i];
+                            echo '<td class=" '. $temp. ' " ></td>';
+                        }
                         ?>
                     </tr>
                     <tr id="row11" name="row11">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">6pm</td>
                         <?php
-                            for($i=1; $i<=7; $i++) {
-                                $temp = $row11["$i"];
-                                echo '<td class=" '. $temp. ' " ></td>';
-                            }
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[10][$i];
+                            echo '<td class=" '. $temp. ' " ></td>';
+                        }
                         ?>
                     </tr>
                     <tr id="row12" name="row12">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">7pm</td>
                         <?php
-                            for($i=1; $i<=7; $i++) {
-                                $temp = $row12["$i"];
-                                echo '<td class=" '. $temp. ' " ></td>';
-                            }
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[11][$i];
+                            echo '<td class=" '. $temp. ' " ></td>';
+                        }
                         ?>
                     </tr>
                     <tr id="row13" name="row13">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">8pm</td>
                         <?php
-                            for($i=1; $i<=7; $i++) {
-                                $temp = $row13["$i"];
-                                echo '<td class=" '. $temp. ' " ></td>';
-                            }
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[12][$i];
+                            echo '<td class=" '. $temp. ' " ></td>';
+                        }
                         ?>
                     </tr>
                     <tr id="row14" name="row14">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">9pm</td>
                         <?php
-                            for($i=1; $i<=7; $i++) {
-                                $temp = $row14["$i"];
-                                echo '<td class=" '. $temp. ' " ></td>';
-                            }
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[13][$i];
+                            echo '<td class=" '. $temp. ' " ></td>';
+                        }
                         ?>
                     </tr>
                     <tr id="row15" name="row15">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">10pm</td>
                         <?php
-                            for($i=1; $i<=7; $i++) {
-                                $temp = $row15["$i"];
-                                echo '<td class=" '. $temp. ' " ></td>';
-                            }
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[14][$i];
+                            echo '<td class=" '. $temp. ' " ></td>';
+                        }
                         ?>
                     </tr>
                     <tr id="row16" name="row16">
                         <td style="background-color: #97c1e8; color:#13136b; font-weight:bold; font-size:18px">11pm</td>
                         <?php
-                            for($i=1; $i<=7; $i++) {
-                                $temp = $row16["$i"];
-                                echo '<td class=" '. $temp. ' " ></td>';
-                            }
+                        for($i=0; $i<7; $i++) {
+                            $temp = $table[15][$i];
+                            echo '<td class=" '. $temp. ' " ></td>';
+                        }
                         ?>
                     </tr>
                     </tbody>
