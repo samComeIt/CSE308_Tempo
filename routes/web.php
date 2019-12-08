@@ -39,6 +39,5 @@ Route::resource('/mypage/penalty', 'PenaltyController');
 Route::post('/mypage/penalty/', 'PenaltyController@reset')->name('penalty.reset');
 
 //Route::resource('/mypage', 'TimeslotController')->middleware('auth');
-Route::resource('/approval/reservation', 'ReservationController')->middleware('auth');
-
-
+Route::post('/approval/reservation', 'ReservationController@approvalstore')->name('approvalstore')->middleware('auth');
+Route::post('/open/reservation', 'ReservationController@openstore')->name('approvalstore')->middleware('auth');

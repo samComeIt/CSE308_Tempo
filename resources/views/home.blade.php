@@ -22,7 +22,7 @@
             <div class="division">
                 <ul class="actions" style="justify-content: center">
                     <li>
-                        <a href="/approval" class="button primary"
+                        <a href="/open" class="button primary"
                         style="background-color: white; text-align: center; color: #13136b; font-size: 30px">Open</a>
                     </li>
                 </ul>
