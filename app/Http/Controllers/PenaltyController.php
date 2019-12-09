@@ -35,6 +35,7 @@ class PenaltyController extends Controller
     public function create(Request $request)
     {
 
+
     }
 
     /**
@@ -45,7 +46,15 @@ class PenaltyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        \App\Penalty::create([
+            'reservation_id' => $request->get('reservation_id'),
+            'reason' => $request->get('reason'),
+        ]);
+        $student_id = $request->get('user_id');
+        \App\User::where('id', $student_id)->update(['penalty_status'=> DB::raw('penalty_status+1')]);
+        $users = \App\User::all();
+
+        return view('penalty', ['allUsers' => $users]);
     }
 
     /**
@@ -62,14 +71,12 @@ class PenaltyController extends Controller
         return view('penalty', ['allUsers' => $users]);
     }
 
-    public function reset($id)
+/*    public function reset($id)
     {
         \App\User::where('id', $id)->update(['penalty_status'=> 0]);
-        $users = \App\User::all();
 
-
-        return view('penalty', ['allUsers' => $users]);
-    }
+        return redirect('penalty');
+    }*/
 
     /**
      * Show the form for editing the specified resource.
@@ -79,10 +86,11 @@ class PenaltyController extends Controller
      */
     public function edit($id)
     {
-        \App\User::where('id', $id)->update(['penalty_status'=> DB::raw('penalty_status+1')]);
-        $users = \App\User::all();
+        $selectStudent=\App\User::where('id', $id)->get();
+      //  \App\User::where('id', $id)->update(['penalty_status'=> DB::raw('penalty_status+1')]);
+        //$users = \App\User::all();
 
-        return view('givePenalty', ['allUsers' => $users]);
+        return view('givePenalty', ['selectStu' => $selectStudent]);
     }
 
     /**

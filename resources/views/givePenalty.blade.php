@@ -44,18 +44,8 @@
         <article>
             <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px; margin-bottom:50px">Penalty Form</h2>
             <div class="inner" style="float:left; width:70%;">
-                <form>
+
                     <div class="col-sm-5 form-group">
-                        <div class="input-group">
-                            <input class="form-control" id="search"
-                                   value="{{ request('search') }}"
-                                   placeholder="Search name" name="email"
-                                   type="text" style="width: 50px" id="search"/>
-                            <div class="input-group-btn">
-                                <button type="submit" id="searchButton"><i class="fa fa-search"></i></button>
-                            </div>
-                        </div>
-                    </div>
                     <table>
                         <thead>
                         <td style="font-weight: bold">Name</td>
@@ -65,24 +55,32 @@
                         </thead>
                         <tbody>
 
-                        @foreach ($allUsers as $user)
+                        @foreach ($selectStu as $user)
                         @if ($user->role=="student" )
                         <tr>
                             <td class="inner-table">{{ $user->name }}</td>
                             <td class="inner-table">{{ $user->email }}</td>
                             <td class="inner-table">{{ $user->penalty_status }}</td>
 
-                            <td><a href="{{ route('penalty.edit',$user->id) }}" class="button">Give Penalty</a></td>
-                            <td><a href="{{ route('penalty.show',$user->id) }}" class="button">Reset Penalty</a></td>
+                            <!--<td><a href="{{ route('penalty.edit',$user->id) }}" class="button">Give Penalty</a></td>--!>
+                            <!--<td><a href="{{ route('penalty.show',$user->id) }}" class="button">Reset Penalty</a></td> --!>
+
                         </tr>
                         @endif
                         @endforeach
 
                         </tbody>
                     </table>
-                </form>
-            </div>
-
+                        <form action="/mypage/penalty" method="POST" style="width: 60%">
+                            @csrf
+                            <div class="form-input" style="margin-bottom: 30px;">
+                                <label style="font-size: 20px; margin-bottom: 10px">Reason</label> <textarea name="reason" style="rows:7; cols: 40; height: 150px" required></textarea>
+                            </div>
+                            <input type="hidden" name="reservation_id" value="0" readonly>
+                            <input type="hidden" name="user_id" value= '{{ $user->id }}' readonly>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
 
         </article>
 

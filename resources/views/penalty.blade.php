@@ -81,7 +81,7 @@
                             @elseif ($find->penalty_status=="3")
                             <td><a onclick="return confirm('Maximum penalty given')" class="button">Give Penalty</a></td>
                             @endif
-                            <td><a href="{{ route('penalty.reset',$find->id) }}" class="button">Reset Penalty</a></td>
+                            <td><a href="{{ route('penalty.show',$find->id) }}" class="button">Reset Penalty</a></td>
                         </tr>
                         @endif
                         @endforeach

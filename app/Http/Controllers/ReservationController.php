@@ -25,8 +25,12 @@ class ReservationController extends Controller
 
     public function mypageReservation()
     {
-        $reservations2 = \App\Reservation::all();
-        return view('mypage', ['allReservations' => $reservations2]);
+       // $reservations2 = \App\Reservation::all();
+      //  return view('mypage', ['allReservations' => $reservations2]);
+        $reservations3 = \App\Reservation::all();
+        $timeslots3 = \App\Timeslot::all();
+        return view('mypageCurrent', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3]);
+
     }
 
     public function mypageCurrent()

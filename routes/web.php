@@ -36,7 +36,7 @@ Route::get('/mypage/past', 'ReservationController@mypagePast')->name('mypagePast
 
 
 Route::resource('/mypage/penalty', 'PenaltyController');
-Route::post('/mypage/penalty/', 'PenaltyController@reset')->name('penalty.reset');
+
 
 Route::get('/message', 'ReservationController@message')->name('message.index');
 Route::get('/messageSelectUpdate/{id}', 'TimeslotController@messageSelectUpdate')->name('messageSelectUpdate');

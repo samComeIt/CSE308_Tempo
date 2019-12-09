@@ -16,7 +16,7 @@ class CreatePenaltyTable extends Migration
         Schema::create('penalty', function (Blueprint $table) {
             $table->bigIncrements('penalty_id');
             $table->integer('reservation_id');
-            $table->integer('reason');
+            $table->string('reason');
             $table->timestamps();
         });
     }
