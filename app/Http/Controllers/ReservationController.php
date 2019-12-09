@@ -14,11 +14,18 @@ class ReservationController extends Controller
         return view('approval', ['allReservations' => $reservations]);
 
     }
+    public function message()
+    {
+        $reservations3 = \App\Reservation::all();
+        $timeslots3 = \App\Timeslot::all();
+        return view('message', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3]);
+
+    }
+
 
     public function mypageReservation()
     {
         $reservations2 = \App\Reservation::all();
-        $findId = Auth::user()->id;
         return view('mypage', ['allReservations' => $reservations2]);
     }
 
@@ -38,6 +45,7 @@ class ReservationController extends Controller
 
     public function mypageCurrentCancel($id){
         \App\Reservation::where('timeslot_id', $id)->update(['reservation_status'=> 'Cancel']);
+        \App\Timeslot::where('timeslot_id', $id)->update(['duration'=> 'null']);
         $reservations3 = \App\Reservation::all();
         $timeslots3 = \App\Timeslot::all();
 

@@ -56,6 +56,8 @@
                             </div>
                         </div>
                     </div>
+
+
                     <table>
                         <thead>
                         <td style="font-weight: bold">Name</td>
@@ -65,19 +67,21 @@
                         </thead>
                         <tbody>
 
-                        @foreach ($allUsers as $user)
-                        @if ($user->role=="student" )
-                        <tr>
-                            <td class="inner-table">{{ $user->name }}</td>
-                            <td class="inner-table">{{ $user->email }}</td>
-                            <td class="inner-table">{{ $user->penalty_status }}</td>
 
-                            @if ($user->penalty_status != "3")
-                            <td><a href="{{ route('penalty.edit',$user->id) }}" class="button">Give Penalty</a></td>
-                            @elseif ($user->penalty_status=="3")
+
+                        @foreach ($allUsers as $find)
+                        @if ($find->role=="student" )
+                        <tr>
+                            <td class="inner-table">{{ $find->name }}</td>
+                            <td class="inner-table">{{ $find->email }}</td>
+                            <td class="inner-table">{{ $find->penalty_status }}</td>
+
+                            @if ($find->penalty_status != "3")
+                            <td><a href="{{ route('penalty.edit',$find->id) }}" class="button">Give Penalty</a></td>
+                            @elseif ($find->penalty_status=="3")
                             <td><a onclick="return confirm('Maximum penalty given')" class="button">Give Penalty</a></td>
                             @endif
-                            <td><a href="{{ route('penalty.reset',$user->id) }}" class="button">Reset Penalty</a></td>
+                            <td><a href="{{ route('penalty.reset',$find->id) }}" class="button">Reset Penalty</a></td>
                         </tr>
                         @endif
                         @endforeach

@@ -68,4 +68,26 @@ class TimeslotController extends Controller
     public function index(){
         return view('mypage');
     }
+
+    public function update(Request $request, $id)
+    {
+
+        $update = [
+            'reservation_status'=>$request->reservation_status,
+        ];
+        \App\Reservation::where('timeslot_id',$id)->update($update);
+
+        $updateReservation = \App\Reservation::where('timeslot_id', $id)->get();
+        $updateTimeslot = \App\Timeslot::where('timeslot_id', $id)->get();
+        return view('messageUpdate', ['oneUpdateReservation'=>$updateReservation, 'oneTimeRes'=>$updateTimeslot]);
+    }
+
+    public function messageSelectUpdate($id)
+    {
+        $updateReservation = \App\Reservation::where('timeslot_id', $id)->get();
+        $updateTimeslot = \App\Timeslot::where('timeslot_id', $id)->get();
+
+        return view('messageUpdate', ['oneUpdateReservation'=>$updateReservation, 'oneTimeRes'=>$updateTimeslot]);
+
+    }
 }

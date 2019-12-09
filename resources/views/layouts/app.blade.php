@@ -57,6 +57,9 @@ ul {
         <nav>
             <a href="/home" style="color:white">Home</a>
             <a href="/mypage" style="color:white">My Page</a>
+            @if(Auth::user()->role == "staff")
+            <a href="/message" style="color:white">Message</a>
+            @endif
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color:white">Logout</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
         </nav>

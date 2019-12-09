@@ -24,7 +24,7 @@ class PenaltyController extends Controller
         ])->get();
 
 
-        return view('penalty', [$find,'allUsers' => $users]);
+        return view('penalty', ['allUsers' => $find]);
     }
 
     /**
