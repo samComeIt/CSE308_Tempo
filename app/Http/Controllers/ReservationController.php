@@ -86,7 +86,7 @@ class ReservationController extends Controller
         return redirect('/approval/timeslot')->with('success', 'Reservation has been updated!!');
     }
 
-    public function store(Request $request)
+    public function approvalstore(Request $request)
     {
         \App\Reservation::create([
             'type' => $request->get('type'),
@@ -99,6 +99,21 @@ class ReservationController extends Controller
         ]);
 
         return redirect('/approval');
+    }
+
+    public function openstore(Request $request)
+    {
+        \App\Reservation::create([
+            'type' => $request->get('type'),
+            'user_id' => $request->get('user_id'),
+            'timeslot_id' => $request->get('timeslot_id'),
+            'facility_id' => $request->get('facility_id'),
+            'reservation_status' => $request->get('reservation_status'),
+            'purpose' => $request->get('purpose'),
+            'number' => $request->get('number'),
+        ]);
+
+        return redirect('/open');
     }
 
 }

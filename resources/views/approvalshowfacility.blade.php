@@ -343,13 +343,9 @@
                     <label for="startDate"></label>
                     Start Time: <input type="textarea" name="start_time" id="startTime" readonly>
                     <label for="startTime"></label>
-                    Duration:<br>
-                    <input type="radio" id="1" name="duration" value="1">
-                    <label for="1">1 hour</label><br>
-                    <input type="radio" id="2" name="duration" value="2">
-                    <label for="2">2 hours</label><br>                   
-                    <input type="radio" id="3" name="duration" value="3">
-                    <label for="3">3 hours</label>
+                    Duration (Maximum 12 hours):<br>
+                    <input type="number" name="duration" style="width:20%" min="1" max="12" required>
+                    <label for="duration"></label>
                     <input type="hidden" name="type" value='{{$facility->Type}}'>
                     <input type="hidden" name="user_id" value='{{ Auth::user()->id}}'>
 

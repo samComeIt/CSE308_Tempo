@@ -42,6 +42,5 @@ Route::get('/message', 'ReservationController@message')->name('message.index');
 Route::get('/messageSelectUpdate/{id}', 'TimeslotController@messageSelectUpdate')->name('messageSelectUpdate');
 
 //Route::resource('/mypage', 'TimeslotController')->middleware('auth');
-Route::resource('/approval/reservation', 'ReservationController')->middleware('auth');
-
-
+Route::post('/approval/reservation', 'ReservationController@approvalstore')->name('approvalstore')->middleware('auth');
+Route::post('/open/reservation', 'ReservationController@openstore')->name('approvalstore')->middleware('auth');
