@@ -37,7 +37,7 @@
                 <tbody>
                 @foreach ($allFacilities as $facility)
                 @if ($facility->Category == $category->Category && $facility->Type == "Approval")
-                <form action="{{ route('approval.destroy',$facility->Facility_ID) }}" method="POST">
+                <form class="delete" action="{{ route('approval.destroy',$facility->Facility_ID) }}" method="POST">
                     <tr>
                         <td>{{ $facility->Name }}</td>
                         @csrf
@@ -60,6 +60,11 @@
 
         </div>
     </div>
+    <script>
+        $(".delete").on("submit", function(){
+            return confirm("Are you sure?");
+        });
+    </script>
     @endforeach
     @elseif($user["penalty_status"] == "3")
     <div style="width: 60%" class="inner">
