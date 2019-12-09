@@ -49,7 +49,24 @@ class ReservationController extends Controller
 
     public function mypageCurrentCancel($id){
         \App\Reservation::where('timeslot_id', $id)->update(['reservation_status'=> 'Cancel']);
-        \App\Timeslot::where('timeslot_id', $id)->update(['duration'=> 'null']);
+        $select_reservation = \App\Reservation::where('timeslot_id', $id)->first();
+        $select_timeslot = \App\Timeslot::where('timeslot_id', $id)->first();
+        //\App\Timeslot::where('timeslot_id', $id)->update(['duration'=> 'null']);
+
+        \App\Cancel::create([
+            'timeslot_id' => $select_reservation->timeslot_id,
+            'purpose' => $select_reservation->purpose,
+            'type'=> $select_reservation->type,
+            'user_id'=>$select_reservation->user_id,
+            'date'=> $select_timeslot->date,
+            'start_time'=> $select_timeslot->start_time,
+            'duration'=> $select_timeslot->duration,
+            'facility_id'=> $select_reservation->facility_id,
+            'reservation_status'=> $select_reservation->reservation_status,
+            'number'=> $select_reservation->number,
+        ]);
+        \App\Timeslot::where('timeslot_id', $id)->delete();
+
         $reservations3 = \App\Reservation::all();
         $timeslots3 = \App\Timeslot::all();
 
