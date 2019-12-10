@@ -27,8 +27,19 @@
                     @foreach ($allReservations as $res)
                     @foreach ($allTimeslots as $tim)
                     @foreach ($allStuFac as $stuFac)
-                    @if ($res->user_id == Auth::user()->id && $res->timeslot_id == $tim->timeslot_id &&
+                    @if (Auth::user()->role =="student" && $res->user_id == Auth::user()->id && $res->timeslot_id == $tim->timeslot_id &&
                     $tim->date >= date('m/d') && $stuFac->Facility_ID ==$res->facility_id )
+                    <tr style="background-color: white; height:60px">
+                        <td style="vertical-align: middle">{{ $stuFac->Name }}</td>
+                        <td style="vertical-align: middle">{{ $tim->date }}</td>
+                        <td style="vertical-align: middle">{{ $tim->start_time}}</td>
+                        <td style="vertical-align: middle">{{ $tim->duration }}</td>
+                        <td style="vertical-align: middle">{{ $res->reservation_status }}</td>
+                        <td><a href="{{ route('mypage.cancel',$tim->timeslot_id) }}" class="button">Cancel Reservation</a></td>
+                    </tr>
+
+                    @elseif (Auth::user()->role =="staff" && $res->user_id == Auth::user()->id && $res->timeslot_id == $tim->timeslot_id &&
+                    $tim->date >= date('m/d') && $stuFac->Facility_ID ==$res->facility_id && $res->reservation_status =="Pending")
                     <tr style="background-color: white; height:60px">
                         <td style="vertical-align: middle">{{ $stuFac->Name }}</td>
                         <td style="vertical-align: middle">{{ $tim->date }}</td>

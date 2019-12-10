@@ -8,11 +8,12 @@
 
         <article>
             <h2 style="font-family:'Bitter', serif; text-align:center; margin-bottom: 50px; font-size:60px">Message Page</h2>
-            
+
             <div class="inner">
                 <a href="/mypage/cancel" class="button" style="margin-bottom:30px; float:right"> Show cancelled reservations</a>
                 <table>
                     <thead>
+                    <td style="font-weight: bold">Facility Name</td>
                     <td style="font-weight: bold">Date</td>
                     <td style="font-weight: bold">Start Time</td>
                     <td style="font-weight: bold">Duration</td>
@@ -22,9 +23,11 @@
                     <tbody>
                     @foreach ($allReservations as $res)
                     @foreach ($allTimeslots as $tim)
+                    @foreach ($allStuFac as $stuFac)
                     @if ($res->user_id == Auth::user()->id && $res->timeslot_id == $tim->timeslot_id &&
-                    $tim->date >= date('m/d') && $res->reservation_status != "Cancel")
+                    $tim->date >= date('m/d') && $res->reservation_status == "Pending" && $stuFac->Facility_ID ==$res->facility_id)
                     <tr style="background-color: white; height:60px">
+                        <td style="vertical-align: middle">{{ $stuFac->Name }}</td>
                         <td style="vertical-align: middle">{{ $tim->date }}</td>
                         <td style="vertical-align: middle">{{ $tim->start_time}}</td>
                         <td style="vertical-align: middle">{{ $tim->duration }}</td>
@@ -33,6 +36,7 @@
                         <a href="{{ route('message.approve',$tim->timeslot_id) }}" class="button">Accpet</a></td>
                     </tr>
                     @endif
+                    @endforeach
                     @endforeach
                     @endforeach
                     </tbody>
