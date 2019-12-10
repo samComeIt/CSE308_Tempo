@@ -8,7 +8,9 @@
 
         <article>
             <h2 style="font-family:'Bitter', serif; text-align:center; margin-bottom: 50px; font-size:60px">Message Page</h2>
+            
             <div class="inner">
+                <a href="/mypage/cancel" class="button" style="margin-bottom:30px; float:right"> Show cancelled reservations</a>
                 <table>
                     <thead>
                     <td style="font-weight: bold">Date</td>
