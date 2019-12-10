@@ -13,31 +13,28 @@
         </nav>
 
         <article>
-            <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px">Current Page</h2>
+            <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px">View Cancel Page</h2>
             <div class="inner" style="float:left; width:70%;">
                 <table>
                     <thead>
-                    <td style="font-weight: bold">Facility ID</td>
                     <td style="font-weight: bold">Date</td>
                     <td style="font-weight: bold">Start Time</td>
                     <td style="font-weight: bold">Duration</td>
-                    <td style="font-weight: bold">Reservation Status</td>
+                    <td style="font-weight: bold">Number</td>
+                    <td style="font-weight: bold">Cancel Time</td>
                     </thead>
                     <tbody>
-                    @foreach ($allReservations as $res)
-                    @foreach ($allTimeslots as $tim)
-                    @if ($res->user_id == Auth::user()->id && $res->timeslot_id == $tim->timeslot_id &&
-                    $tim->date >= date('m/d'))
+                    @foreach ($allUsers as $can)
+
                     <tr style="background-color: white; height:60px">
-                        <td style="vertical-align: middle">{{ $res->facility_id }}</td>
-                        <td style="vertical-align: middle">{{ $tim->date }}</td>
-                        <td style="vertical-align: middle">{{ $tim->start_time}}</td>
-                        <td style="vertical-align: middle">{{ $tim->duration }}</td>
-                        <td style="vertical-align: middle">{{ $res->reservation_status }}</td>
-                        <td><a href="{{ route('mypage.cancel',$tim->timeslot_id) }}" class="button">Cancel Reservation</a></td>
+                        <td style="vertical-align: middle">{{ $can->date }}</td>
+                        <td style="vertical-align: middle">{{ $can->start_time}}</td>
+                        <td style="vertical-align: middle">{{ $can->duration }}</td>
+                        <td style="vertical-align: middle">{{ $can->number }}</td>
+                        <td style="vertical-align: middle">{{ $can->created_at }}</td>
+
                     </tr>
-                    @endif
-                    @endforeach
+
                     @endforeach
                     </tbody>
                 </table>

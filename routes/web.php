@@ -26,6 +26,7 @@ Route::resource('/timeslot', 'TimeslotController')->middleware('auth');
 Route::post('/open/timeslot', 'TimeslotController@openStore')->name('openTimeslot')->middleware('auth');
 Route::post('/approval/timeslot', 'TimeslotController@approvalStore')->name('approvalTimeslot')->middleware('auth');
 
+Route::resource('/mypage/cancel', 'CancelController');
 
 Route::get('/mypage', 'ReservationController@mypageReservation')->name('mypageReservation');
 Route::get('/mypage/current', 'ReservationController@mypageCurrent')->name('mypage.current');

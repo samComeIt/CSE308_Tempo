@@ -8,7 +8,7 @@
         <nav style="float:left; width:20%; font-size:20px; margin-right:60px; font-weight:bold; border-right: 3px solid #13136b; height: 70%">
             <ul style="padding: 20px"><a href="/mypage/current">Current Reservation</a></ul>
             <ul style="padding: 20px"><a href="/mypage/past">Past Reservation</a></ul>
-            <ul style="padding: 20px"><a href="/mypage/report">View Cancel</a></ul>
+            <ul style="padding: 20px"><a href="/mypage/cancel">View Cancel</a></ul>
             <ul style="padding: 20px"><a href="/mypage/penalty">Penalty</a></ul>
         </nav>
 
@@ -23,19 +23,18 @@
                     <td style="font-weight: bold">Reservation Status</td>
                     </thead>
                     <tbody>
-                    @foreach ($allReservations as $res)
-                    @foreach ($allTimeslots as $tim)
-                    @if ($res->user_id == Auth::user()->id && $res->timeslot_id == $tim->timeslot_id &&
-                    $tim->date >= date('m/d'))
+                    @foreach (allUsers as $user)
+
+                    @if ($user->user_id == Auth::user()->id && $user->reservation_status =="Cancel" &&
+                    $user->date >= date('m/d'))
                     <tr style="background-color: white; height:60px">
-                        <td style="vertical-align: middle">{{ $tim->date }}</td>
-                        <td style="vertical-align: middle">{{ $tim->start_time}}</td>
-                        <td style="vertical-align: middle">{{ $tim->duration }}</td>
-                        <td style="vertical-align: middle">{{ $res->reservation_status }}</td>
-                        <td><a href="{{ route('mypage.cancel',$tim->timeslot_id) }}" class="button">Cancel Reservation</a></td>
+                        <td style="vertical-align: middle">{{ $user->date }}</td>
+                        <td style="vertical-align: middle">{{ $user->start_time}}</td>
+                        <td style="vertical-align: middle">{{ $user->duration }}</td>
+                        <td style="vertical-align: middle">{{ $user->reservation_status }}</td>
                     </tr>
                     @endif
-                    @endforeach
+
                     @endforeach
                     </tbody>
                 </table>
