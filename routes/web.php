@@ -39,6 +39,9 @@ Route::get('/mypage/past', 'ReservationController@mypagePast')->name('mypagePast
 Route::resource('/mypage/penalty', 'PenaltyController');
 
 Route::get('/message', 'ReservationController@message')->name('message.index');
+
+Route::get('/message/{id}', 'CancelController@messageApprove')->name('message.approve');
+
 Route::get('/messageSelectUpdate/{id}', 'TimeslotController@messageSelectUpdate')->name('messageSelectUpdate');
 
 Route::post('/approval/reservation', 'ReservationController@approvalstore')->name('approvalstore')->middleware('auth');

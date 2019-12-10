@@ -27,7 +27,8 @@
                         <td style="vertical-align: middle">{{ $tim->start_time}}</td>
                         <td style="vertical-align: middle">{{ $tim->duration }}</td>
                         <td style="vertical-align: middle">{{ $res->reservation_status }}</td>
-                        <td><a href="{{ route('messageSelectUpdate',$tim->timeslot_id) }}" class="button">Update Reservation</a></td>
+                        <td><a href="{{ route('cancel.show',$tim->timeslot_id) }}" class="button">Cancel</a>
+                        <a href="{{ route('message.approve',$tim->timeslot_id) }}" class="button">Accpet</a></td>
                     </tr>
                     @endif
                     @endforeach

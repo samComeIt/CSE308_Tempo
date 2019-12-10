@@ -65,9 +65,39 @@ class CancelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id){
+        \App\Reservation::where('timeslot_id', $id)->update(['reservation_status'=> 'Cancel']);
+        $select_reservation = \App\Reservation::where('timeslot_id', $id)->first();
+        $select_timeslot = \App\Timeslot::where('timeslot_id', $id)->first();
 
+        \App\Cancel::create([
+            'timeslot_id' => $select_reservation->timeslot_id,
+            'purpose' => $select_reservation->purpose,
+            'type'=> $select_reservation->type,
+            'user_id'=>$select_reservation->user_id,
+            'date'=> $select_timeslot->date,
+            'start_time'=> $select_timeslot->start_time,
+            'duration'=> $select_timeslot->duration,
+            'facility_id'=> $select_reservation->facility_id,
+            'reservation_status'=> $select_reservation->reservation_status,
+            'number'=> $select_reservation->number,
+        ]);
+        \App\Timeslot::where('timeslot_id', $id)->delete();
+
+        $reservations3 = \App\Reservation::all();
+        $timeslots3 = \App\Timeslot::all();
+
+        return view('message', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3]);
+
+    }
+
+    public function messageApprove($id)
+    {
+        \App\Reservation::where('timeslot_id', $id)->update(['reservation_status'=> 'Accepted']);
+
+        $reservations3 = \App\Reservation::all();
+        $timeslots3 = \App\Timeslot::all();
+        return view('message', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3]);
     }
 
     /**
@@ -90,7 +120,7 @@ class CancelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
