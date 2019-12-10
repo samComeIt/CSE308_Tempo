@@ -18,6 +18,7 @@
             <div class="inner" style="float:left; width:70%;">
                 <table>
                     <thead>
+                    <td style="font-weight: bold">Facility Name</td>
                     <td style="font-weight: bold">Date</td>
                     <td style="font-weight: bold">Start Time</td>
                     <td style="font-weight: bold">Duration</td>
@@ -26,8 +27,10 @@
                     </thead>
                     <tbody>
                     @foreach ($allUsers as $can)
-                        @if(Auth::user()->role == "student" && Auth::user()->role==$can->user_id)
+                    @foreach ($allFacilities as $fac)
+                        @if(Auth::user()->role == "student" && Auth::user()->id==$can->user_id && $fac->Facility_ID == $can->facility_id)
                     <tr style="background-color: white; height:60px">
+                                    <td style="vertical-align: middle">{{ $fac->Name }}</td>
                         <td style="vertical-align: middle">{{ $can->date }}</td>
                         <td style="vertical-align: middle">{{ $can->start_time}}</td>
                         <td style="vertical-align: middle">{{ $can->duration }}</td>
@@ -35,8 +38,9 @@
                         <td style="vertical-align: middle">{{ $can->created_at }}</td>
 
                     </tr>
-                        @elseif(Auth::user()->role == "staff")
+                        @elseif(Auth::user()->role == "staff" && $fac->Facility_ID == $can->facility_id)
                     <tr style="background-color: white; height:60px">
+                        <td style="vertical-align: middle">{{ $fac->Name }}</td>
                         <td style="vertical-align: middle">{{ $can->date }}</td>
                         <td style="vertical-align: middle">{{ $can->start_time}}</td>
                         <td style="vertical-align: middle">{{ $can->duration }}</td>
@@ -45,6 +49,7 @@
 
                     </tr>
                     @endif
+                    @endforeach
                     @endforeach
                     </tbody>
                 </table>

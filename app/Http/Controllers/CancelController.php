@@ -16,7 +16,8 @@ class CancelController extends Controller
     {
         //shows only data with reservation_statuc ="Cancel"
         $users = \App\Cancel::all();
-        return view('mypageViewCancel', ['allUsers'=>$users]);
+        $selectFac = \App\Facility::all();
+        return view('mypageViewCancel', ['allUsers'=>$users, 'allFacilities'=>$selectFac]);
     }
 
     /**
