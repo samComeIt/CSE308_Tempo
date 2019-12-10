@@ -37,13 +37,13 @@
         <nav style="float:left; width:20%; font-size:20px; margin-right:60px; font-weight:bold; border-right: 3px solid #13136b; height: 70%">
             <ul style="padding: 20px"><a href="/mypage/current">Current Reservation</a></ul>
             <ul style="padding: 20px"><a href="/mypage/past">Past Reservation</a></ul>
-            <ul style="padding: 20px"><a href="/mypage/report">Report</a></ul>
+            <ul style="padding: 20px"><a href="/mypage/cancel">View Cancel</a></ul>
             <ul style="padding: 20px"><a href="/mypage/penalty">Penalty</a></ul>
         </nav>
 
         <article>
             <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px; margin-bottom:50px">Penalty Form</h2>
-            <div class="inner" style="float:left; width:70%;">
+            <div class="inner" style="float:left; width:50%;">
 
                     <table>
                         <thead>
