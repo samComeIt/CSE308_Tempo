@@ -45,23 +45,21 @@
 
         <article>
             @if(Auth::user()->role == "student")
-            <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px; margin-bottom:50px">Show Penalty</h2>
+            <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px; margin-bottom:50px">Show My Penalty</h2>
             <div class="inner" style="float:left; width:70%;">
                 <table>
                     <thead>
-                    <td style="font-weight: bold">Name</td>
-                    <td style="font-weight: bold">Email</td>
+
                     <td style="font-weight: bold">Reason</td>
                     <td style="font-weight: bold">Created</td>
                     </thead>
                     <tbody>
-                    @foreach ($allUsers as $find)
-                    @if (Auth::user()->id == $find->user_id )
+                    @foreach ($allPenalties as $user)
+                    @if (Auth::user()->id == $user->user_id )
                     <tr style="background-color: white; height:60px">
-                        <td class="inner-table" style="vertical-align: middle">{{ $find->name }}</td>
-                        <td class="inner-table" style="vertical-align: middle">{{ $find->email }}</td>
-                        <td class="inner-table" style="vertical-align: middle">{{ $find->reason }}</td>
-                        <td class="inner-table" style="vertical-align: middle">{{ $find->created_at }}</td>
+
+                        <td class="inner-table" style="vertical-align: middle">{{ $user->reason }}</td>
+                        <td class="inner-table" style="vertical-align: middle">{{ $user->created_at }}</td>
 
                     </tr>
                     @endif

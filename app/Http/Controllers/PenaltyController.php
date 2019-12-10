@@ -15,7 +15,7 @@ class PenaltyController extends Controller
     public function index(Request $request)
     {
         $search = $request->get('search');
-        $users = \App\User::all();
+        $penalty = \App\Penalty::all();
 
         $finduser = $request->get('email');
 
@@ -24,7 +24,7 @@ class PenaltyController extends Controller
         ])->get();
 
 
-        return view('penalty', ['allUsers' => $find]);
+        return view('penalty', ['allUsers' => $find, 'allPenalties'=>$penalty]);
     }
 
     /**
@@ -46,8 +46,9 @@ class PenaltyController extends Controller
      */
     public function store(Request $request)
     {
+
         \App\Penalty::create([
-            'reservation_id' => $request->get('reservation_id'),
+            'user_id' => $request->get('user_id'),
             'reason' => $request->get('reason'),
         ]);
         $student_id = $request->get('user_id');
