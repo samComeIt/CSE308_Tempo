@@ -34,6 +34,8 @@
 <section class="wrapper">
 
     <section>
+
+
         <nav style="float:left; width:20%; font-size:20px; margin-right:60px; font-weight:bold; border-right: 3px solid #13136b; height: 70%">
             <ul style="padding: 20px"><a href="/mypage/current">Current Reservation</a></ul>
             <ul style="padding: 20px"><a href="/mypage/past">Past Reservation</a></ul>
@@ -42,6 +44,24 @@
         </nav>
 
         <article>
+            @if(Auth::user()->role == "student")
+            <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px; margin-bottom:50px">Show Penalty</h2>
+            <div class="inner" style="float:left; width:70%;">
+                <table>
+                    <thead>
+                    <td style="font-weight: bold">Name</td>
+                    <td style="font-weight: bold">Facility Name</td>
+                    <td style="font-weight: bold">Created Time</td>
+                    <td style="font-weight: bold">Reason</td>
+                    </thead>
+                    <tbody>
+
+
+                    </tbody>
+                </table>
+            </div>
+
+            @elseif(Auth::user()->role == "staff")
             <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px; margin-bottom:50px">Give Penalty</h2>
             <div class="inner" style="float:left; width:70%;">
                 <form>
@@ -90,6 +110,7 @@
                     </table>
                 </form>
             </div>
+            @endif
 
 
         </article>
