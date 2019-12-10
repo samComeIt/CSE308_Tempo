@@ -50,12 +50,22 @@
                 <table>
                     <thead>
                     <td style="font-weight: bold">Name</td>
-                    <td style="font-weight: bold">Facility Name</td>
-                    <td style="font-weight: bold">Created Time</td>
+                    <td style="font-weight: bold">Email</td>
                     <td style="font-weight: bold">Reason</td>
+                    <td style="font-weight: bold">Created</td>
                     </thead>
                     <tbody>
+                    @foreach ($allUsers as $find)
+                    @if (Auth::user()->id == $find->user_id )
+                    <tr style="background-color: white; height:60px">
+                        <td class="inner-table" style="vertical-align: middle">{{ $find->name }}</td>
+                        <td class="inner-table" style="vertical-align: middle">{{ $find->email }}</td>
+                        <td class="inner-table" style="vertical-align: middle">{{ $find->reason }}</td>
+                        <td class="inner-table" style="vertical-align: middle">{{ $find->created_at }}</td>
 
+                    </tr>
+                    @endif
+                    @endforeach
 
                     </tbody>
                 </table>
