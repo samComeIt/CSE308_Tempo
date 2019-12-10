@@ -5,18 +5,17 @@
 
 <section class="wrapper">
     <section>
-        <nav style="float:left; width:20%; font-size:20px; margin-right:60px; font-weight:bold; border-right: 3px solid #13136b; height: 70%">
-        </nav>
 
         <article>
-            <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px">Message Page</h2>
-            <div class="inner" style="float:left; width:70%;">
+            <h2 style="font-family:'Bitter', serif; text-align:center; margin-bottom: 50px; font-size:60px">Message Page</h2>
+            <div class="inner">
                 <table>
                     <thead>
                     <td style="font-weight: bold">Date</td>
                     <td style="font-weight: bold">Start Time</td>
                     <td style="font-weight: bold">Duration</td>
                     <td style="font-weight: bold">Reservation Status</td>
+                    <td style="font-weight: bold">Update Reservation</td>
                     </thead>
                     <tbody>
                     @foreach ($allReservations as $res)
