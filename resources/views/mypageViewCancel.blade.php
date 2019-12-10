@@ -13,6 +13,7 @@
         </nav>
 
         <article>
+
             <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px">View Cancel Page</h2>
             <div class="inner" style="float:left; width:70%;">
                 <table>
@@ -25,7 +26,7 @@
                     </thead>
                     <tbody>
                     @foreach ($allUsers as $can)
-
+                        @if(Auth::user()->role == "student" && Auth::user()->role==$can->user_id)
                     <tr style="background-color: white; height:60px">
                         <td style="vertical-align: middle">{{ $can->date }}</td>
                         <td style="vertical-align: middle">{{ $can->start_time}}</td>
@@ -34,11 +35,21 @@
                         <td style="vertical-align: middle">{{ $can->created_at }}</td>
 
                     </tr>
+                        @elseif(Auth::user()->role == "staff")
+                    <tr style="background-color: white; height:60px">
+                        <td style="vertical-align: middle">{{ $can->date }}</td>
+                        <td style="vertical-align: middle">{{ $can->start_time}}</td>
+                        <td style="vertical-align: middle">{{ $can->duration }}</td>
+                        <td style="vertical-align: middle">{{ $can->number }}</td>
+                        <td style="vertical-align: middle">{{ $can->created_at }}</td>
 
+                    </tr>
+                    @endif
                     @endforeach
                     </tbody>
                 </table>
             </div>
+
         </article>
     </section>
 </section>
