@@ -136,5 +136,4 @@ class ReservationController extends Controller
 
         return redirect('/open');
     }
-
 }

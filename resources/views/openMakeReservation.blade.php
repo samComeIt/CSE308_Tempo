@@ -34,6 +34,7 @@
             </div>
                 <button type="submit">Complete</button>
         </form>
+
     </div>
 </section>
 
