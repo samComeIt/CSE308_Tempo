@@ -45,65 +45,38 @@
             <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px; margin-bottom:50px">Penalty Form</h2>
             <div class="inner" style="float:left; width:70%;">
 
-                    <div class="col-sm-5 form-group">
                     <table>
                         <thead>
                         <td style="font-weight: bold">Name</td>
                         <td style="font-weight: bold">Email</td>
                         <td style="font-weight: bold">Penalty Status</td>
-                        <td style="font-weight: bold"></td>
                         </thead>
                         <tbody>
 
                         @foreach ($selectStu as $user)
                         @if ($user->role=="student" )
-                        <tr>
-                            <td class="inner-table">{{ $user->name }}</td>
-                            <td class="inner-table">{{ $user->email }}</td>
-                            <td class="inner-table">{{ $user->penalty_status }}</td>
-
-                            <!--<td><a href="{{ route('penalty.edit',$user->id) }}" class="button">Give Penalty</a></td>--!>
-                            <!--<td><a href="{{ route('penalty.show',$user->id) }}" class="button">Reset Penalty</a></td> --!>
-
+                        <tr style="background-color: white; height:60px">
+                            <td class="inner-table" style="vertical-align: middle">{{ $user->name }}</td>
+                            <td class="inner-table" style="vertical-align: middle">{{ $user->email }}</td>
+                            <td class="inner-table" style="vertical-align: middle">{{ $user->penalty_status }}</td>
                         </tr>
                         @endif
                         @endforeach
-
                         </tbody>
+                        
                     </table>
-                        <form action="/mypage/penalty" method="POST" style="width: 60%">
-                            @csrf
-                            <div class="form-input" style="margin-bottom: 30px;">
-                                <label style="font-size: 20px; margin-bottom: 10px">Reason</label> <textarea name="reason" style="rows:7; cols: 40; height: 150px" required></textarea>
-                            </div>
-                            <input type="hidden" name="reservation_id" value="0" readonly>
-                            <input type="hidden" name="user_id" value= '{{ $user->id }}' readonly>
-                            <button type="submit">Submit</button>
-                        </form>
-                    </div>
-
+                
+                    <form action="/mypage/penalty" method="POST" style="width: 60%">
+                        @csrf
+                        <div class="form-input" style="margin-bottom: 30px;">
+                            <label style="font-size: 20px; margin-bottom: 10px">Reason</label> <textarea name="reason" style="rows:7; cols: 40; height: 150px" required></textarea>
+                        </div>
+                        <input type="hidden" name="reservation_id" value="0" readonly>
+                        <input type="hidden" name="user_id" value= '{{ $user->id }}' readonly>
+                        <button type="submit">Submit</button>
+                    </form>
+            </div>
         </article>
-
-
     </section>
-
-<!--
-    <script>
-        function search_email() {
-            let input = document.getElementById('searchEmail').value
-            input=input.toLowerCase();
-            let x = document.getElementsByClassName('animals');
-
-            for (i = 0; i < x.length; i++) {
-                if (!x[i].innerHTML.toLowerCase().includes(input)) {
-                    x[i].style.display="none";
-                }
-                else {
-                    x[i].style.display="list-item";
-                }
-            }
-        }
-    </script>
--->
 
 </section>

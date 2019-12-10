@@ -65,12 +65,12 @@
             <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px; margin-bottom:50px">Give Penalty</h2>
             <div class="inner" style="float:left; width:70%;">
                 <form>
-                    <div class="col-sm-5 form-group">
+                    <div class="col-sm-5 form-group" style="margin-bottom: 50px">
                         <div class="input-group">
                             <input class="form-control" id="search"
                                    value="{{ request('search') }}"
                                    placeholder="Search name" name="email"
-                                   type="text" style="width: 50px" id="search"/>
+                                   type="text" id="search" style="border-radius:6px"/>
                             <div class="input-group-btn">
                                 <button type="submit" id="searchButton"><i class="fa fa-search"></i></button>
                             </div>
@@ -91,10 +91,10 @@
 
                         @foreach ($allUsers as $find)
                         @if ($find->role=="student" )
-                        <tr>
-                            <td class="inner-table">{{ $find->name }}</td>
-                            <td class="inner-table">{{ $find->email }}</td>
-                            <td class="inner-table">{{ $find->penalty_status }}</td>
+                        <tr style="background-color: white; height:60px">
+                            <td class="inner-table" style="vertical-align: middle">{{ $find->name }}</td>
+                            <td class="inner-table" style="vertical-align: middle">{{ $find->email }}</td>
+                            <td class="inner-table" style="vertical-align: middle">{{ $find->penalty_status }}</td>
 
                             @if ($find->penalty_status != "3")
                             <td><a href="{{ route('penalty.edit',$find->id) }}" class="button">Give Penalty</a></td>

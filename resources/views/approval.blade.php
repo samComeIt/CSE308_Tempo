@@ -62,7 +62,7 @@
     </div>
     <script>
         $(".delete").on("submit", function(){
-            return confirm("Are you sure?");
+            return confirm("Do you really want to delete this facility?");
         });
     </script>
     @endforeach
