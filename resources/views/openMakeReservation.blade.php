@@ -9,7 +9,7 @@
             <h1 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Make a Reservation</h1>
         </header>
     </div>
-
+    
     <div class="inner" style="width: 50%">
         <form action="{{ route('timeslot.destroy', [$timeslot_id, $timeslot_facillity_id]) }}" method="POST">
                 @csrf
@@ -22,7 +22,7 @@
         <form action="/open/reservation/" method="POST" style="width: 60%">
             @csrf
             <input type="hidden" name="timeslot_id" value='{{ $timeslot_id }}' readonly>
-            <input type="hidden" name="type" value="Approval" readonly>
+            <input type="hidden" name="type" value="Open" readonly>
             <input type="hidden" name="user_id" value='{{ Auth::user()->id }}' readonly>
             <input type="hidden" name="facility_id" value='{{ $timeslot_facillity_id }}' readonly>
             <input type="hidden" name="reservation_status" value="Pending" readonly>
@@ -35,7 +35,7 @@
                 <button type="submit">Complete</button>
         </form>
 
-    </div>
+        </div>
 </section>
 
 @endsection
