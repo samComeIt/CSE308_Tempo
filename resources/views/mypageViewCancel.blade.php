@@ -14,7 +14,7 @@
 
         <article>
 
-            <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px">View Cancel Page</h2>
+            <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px; margin-bottom: 50px">View Cancel</h2>
             <div class="inner" style="float:left; width:70%;">
                 <table>
                     <thead>
