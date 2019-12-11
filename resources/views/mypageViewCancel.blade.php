@@ -20,7 +20,7 @@
                     <tbody>
                     <thead>
                     <td style="font-weight: bold">Facility Name</td>
-                    @if(Auth::user()->role=="staff")
+                    @if(Auth::user()->role == "staff")
                     <td style="font-weight: bold">Name</td>
                     <td style="font-weight: bold">Email</td>
                     @endif
@@ -34,7 +34,7 @@
                     @foreach ($allUsers as $can)
                     @foreach ($allFacilities as $fac)
                     @foreach ($allCanUsers as $canusers)
-                    @if(Auth::user()->role == "student" && Auth::user()->id==$can->user_id && $fac->Facility_ID == $can->facility_id)
+                    @if(Auth::user()->role == "student" &&Auth::user()->id == $can->user_id && $fac->Facility_ID == $can->facility_id && $canusers->id==$can->user_id)
                     <tr style="background-color: white; height:60px">
                         <td style="vertical-align: middle">{{ $fac->Name }}</td>
                         <td style="vertical-align: middle">{{ $can->date }}</td>
@@ -44,7 +44,7 @@
                         <td style="vertical-align: middle">{{ $can->created_at }}</td>
 
                     </tr>
-                    @elseif(Auth::user()->role == "staff" && $fac->Facility_ID == $can->facility_id && $can->user_id && $canusers->id==$can->user_id)
+                    @elseif(Auth::user()->role == "staff" && $fac->Facility_ID == $can->facility_id && $canusers->id==$can->user_id)
 
                     <tr style="background-color: white; height:60px">
                         <td style="vertical-align: middle">{{ $fac->Name }}</td>
