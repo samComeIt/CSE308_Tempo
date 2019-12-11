@@ -27,7 +27,7 @@
             <input type="hidden" name="facility_id" value='{{ $timeslot_facillity_id }}' readonly>
             <input type="hidden" name="reservation_status" value="Accept" readonly>
             <div class="form-input" style="margin-bottom: 30px;">
-                <label style="font-size: 20px; margin-bottom: 10px">Purpose</label> <textarea name="purpose" style="rows:7; cols: 40; height: 150px" required></textarea>
+                <label style="font-size: 20px; margin-bottom: 10px">Purpose</label> <textarea name="purpose"  maxlength="500" style="rows:7; cols: 40; height: 150px" required></textarea>
             </div>
             <div class="form-input" style="margin-bottom: 30px;">
                 <label style="font-size: 20px; margin-bottom: 10px">Number of Students</label> <input type="number" name="number" required>
