@@ -28,7 +28,7 @@
         </h2>
 
         <div>
-            <table>
+            <table style="margin-bottom:50px">
                 <thead>
                 <td style="font-weight: bold">Name</td>
                 <td></td>

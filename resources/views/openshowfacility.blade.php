@@ -11,7 +11,7 @@
         </header>
     </div>
     <div class="inner">
-        <div class="content">
+        <div class="content" style="margin-bottom:40px">
             <table>
                 <thead>
                 <td style="font-weight: bold">Room Name</td>
@@ -44,7 +44,7 @@
         <br>
         <div class="content">
             <div class="form-popup" id="myForm">
-                <table class="hoverTable" id="tabela">
+                <table class="hoverTable" id="tabela" style="margin-top:50px">
                     <h1 style="font-family:'Bitter', serif; text-align:center; font-size:50px">Timetable</h1>
 
                     <thead style="text-align: center; color:#13136b; font-weight:bold; font-size:20px">

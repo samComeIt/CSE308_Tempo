@@ -61,7 +61,7 @@
                 <label>Picture</label> <input type="file" name="Picture">
             </div>
 
-            <button type="submit">Create</button>
+            <button type="submit" style="margin-top:10px">Create</button>
         </form>
     </div>
 </section>

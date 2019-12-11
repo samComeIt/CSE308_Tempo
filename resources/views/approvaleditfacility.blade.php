@@ -63,9 +63,9 @@
                 <label>Picture</label> <input type="file" name="Picture" value={{ $facility->Picture }}>
             </div>
 
-            <a class="button" href="{{ route('approval.index')}}">Cancel</a>
+            <a class="button" href="{{ route('approval.index')}}" style="margin-top:10px">Cancel</a>
 
-            <button type="submit">Update</button>
+            <button type="submit" style="margin-top:10px">Update</button>
 
 
             @endforeach
