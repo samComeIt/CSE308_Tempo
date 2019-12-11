@@ -7,13 +7,13 @@
 <div class="inner">
         <div class="content">
             <h1 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Register</h1>
-            <div class="row" style="align:center; margin-top:50px; display:flex; justify-content:center; align-items:center">
-                <form method="POST" action="{{ route('register') }}" style="width:50%">
+            <div class="inner" style="align:center; display:flex; margin-top:50px; justify-content:center; align-items:center">
+                <form method="POST" action="{{ route('register') }}" style="width:60%">
                         @csrf
 
-                        <div class="col-12">
+                        <div class="form-input" style="margin-bottom: 10px;">
                             <label for="name" style="font-size: 120%">{{ __('Name') }}</label>
-                            <div class="col-12">
+                            <div class="form-input" style="margin-bottom: 10px;">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name">
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -22,11 +22,11 @@
                                 @enderror
                                 <input type ="hidden" id ="penalty_status" name="penalty_status" value ="0">
                             </div>
-                        </div><br>
+                        </div>
 
-                        <div class="col-12">
+                        <div class="form-input" style="margin-bottom: 10px;">
                             <label for="email" style="font-size: 120%">{{ __('E-Mail Address') }}</label>
-                            <div class="col-12">
+                            <div class="form-input" style="margin-bottom: 10px;">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="E-mail">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -34,23 +34,23 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div><br>
+                        </div>
 
-                        <div class="col-12">
+                        <div class="form-input" style="margin-bottom: 10px;">
                             <label for="role" style="font-size: 120%">Role</label>
-                            <div class="col-12">
-                                <input type="radio" name="role" id="student" value="student">
+                            <div class="form-input" style="margin-bottom: 10px;">
+                                <input type="radio" name="role" id="student" value="student" required>
                                 <label for="student">Student</label>
                             </div>
-                            <div class="col-12" style="margin-bottom:15px">
+                            <div class="form-input" style="margin-bottom: 10px;">
                                 <input type="radio" name="role" id="staff" value="staff">
                                 <label for="staff">Staff</label>
                             </div>
                         </div>
 
-                        <div class="col-12">
+                        <div class="form-input" style="margin-bottom: 10px;">
                             <label for="password" style="font-size: 120%">{{ __('Password') }}</label>
-                            <div class="col-12">
+                            <div class="form-input" style="margin-bottom: 10px;">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -58,17 +58,17 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div><br>
+                        </div>
 
-                        <div class="col-12">
+                        <div class="form-input" style="margin-bottom: 10px;">
                             <label for="password-confirm" style="font-size: 120%">{{ __('Confirm Password') }}</label>
-                            <div class="col-12">
+                            <div class="form-input" style="margin-bottom: 10px;">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Password">
                             </div>
-                        </div><br>
+                        </div>
 
-                    <div class=content>
-                        <div class="col-12">
+                    <div class="form-input">
+                        <div class="content">
                                 <button type="submit" style="width:100%">
                                     {{ __('Register') }}
                                 </button>

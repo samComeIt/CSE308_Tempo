@@ -18,36 +18,36 @@
             @csrf
             @method('PUT')
             <div class="form-input" style="margin-bottom: 10px">
-                <label>Room Name</label> <input type="text" name="Name" value="{{ $facility->Name }}">
+                <label>Room Name</label> <input type="text" name="Name" value="{{ $facility->Name }}" required>
             </div>
 
             <div class="form-input" style="margin-bottom: 10px">
                 <label>Room Number</label>
-                <input type="text" name="Location" value="{{ $facility->Location }}">
+                <input type="text" name="Location" value="{{ $facility->Location }}" required>
             </div>
 
             <div class="form-input" style="margin-bottom: 10px">
                 <label>Building</label>
                 @foreach ($categories as $category)
-                <input type="radio" id="{{ $category->Category }}" name="Category" value="{{ $category->Category }}">
+                <input type="radio" id="{{ $category->Category }}" name="Category" value="{{ $category->Category }}" required>
                 <label for="{{ $category->Category }}">{{ $category->Category }}</label>
                 @endforeach
                 <input type="radio" id="categoryOther" name="Category" value="">
                 
                 <label for="categoryOther">Other (Type in the new category below)</label>
-                <textarea name="Category" rows="1" disabled id="otherField"></textarea>
+                <textarea name="Category" rows="1" disabled id="otherField" required></textarea>
             </div>
 
             <div class="form-input" style="margin-bottom: 10px">
                 <label>Type</label>
-                <input type="radio" id="Open" name="Type" value="Open" checked readonly
+                <input type="radio" id="Open" name="Type" value="Open" required checked readonly
                        {{$facility->Type == 'Open' ? 'checked' : ''}}>
                 <label for="Open">Open</label>
             </div>
 
             <div class="form-input" style="margin-bottom: 10px">
                 <label>Status</label>
-                <input type="radio" id="Available" name="Status" value="Available"
+                <input type="radio" id="Available" name="Status" value="Available" required
                        {{$facility->Status == 'Available' ? 'checked' : ''}}>
                 <label for="Available">Available</label>
                 <input type="radio" id="OutOfOrder" name="Status" value="OutOfOrder"
@@ -56,7 +56,7 @@
             </div>
 
             <div class="form-input" style="margin-bottom: 10px">
-                <label>Capacity</label> <input type="number" name="Capacity" value={{ $facility->Capacity }}>
+                <label>Capacity</label> <input type="number" name="Capacity" required value={{ $facility->Capacity }}>
             </div>
 
             <div class="form-group" style="margin-bottom: 10px">
