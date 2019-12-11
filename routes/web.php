@@ -17,25 +17,32 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
-Route::get('/home', 'HomeController@index')->name('home');
-//Route::resource('/approval/facility', 'FacilityController');
-//Route::resource('/open/facility', 'OpenFacilityController');
+Route::resource('/approval', 'FacilityController')->middleware('auth');
+Route::resource('/open', 'OpenFacilityController')->middleware('auth');
 
-//Route::get('/approval', 'FacilityController@approval')->name('approval');
-//Route::get('/open', 'FacilityController@open')->name('open');
-Route::resource('/approval', 'FacilityController');
-Route::resource('/open', 'OpenFacilityController');
+Route::resource('/timeslot', 'TimeslotController')->middleware('auth');
+Route::post('/open/timeslot', 'TimeslotController@openStore')->name('openTimeslot')->middleware('auth');
+Route::post('/approval/timeslot', 'TimeslotController@approvalStore')->name('approvalTimeslot')->middleware('auth');
 
-Route::resource('/timeslot', 'TimeslotController');
-Route::post('/open/timeslot', 'TimeslotController@openStore')->name('openTimeslot');
-Route::post('/approval/timeslot', 'TimeslotController@approvalStore')->name('approvalTimeslot');
+Route::resource('/mypage/cancel', 'CancelController');
+
+Route::get('/mypage', 'ReservationController@mypageReservation')->name('mypageReservation');
+Route::get('/mypage/current', 'ReservationController@mypageCurrent')->name('mypage.current');
+Route::get('/mypage/current/{id}', 'ReservationController@mypageCurrentCancel')->name('mypage.cancel');
 
 
-Route::get('/mypage/current', 'TimeslotController@index')->name('index');
-Route::get('/mypage/penalty', 'PenaltyController@index')->name('index');
-Route::resource('/mypage', 'TimeslotController');
-Route::resource('/approval/reservation', 'ReservationController');
+Route::get('/mypage/past', 'ReservationController@mypagePast')->name('mypagePast');
 
-Route::resource('/approval/reservation', 'ReservationController@approvalReservation');
 
+Route::resource('/mypage/penalty', 'PenaltyController');
+
+Route::get('/message', 'ReservationController@message')->name('message.index');
+
+Route::get('/message/{id}', 'CancelController@messageApprove')->name('message.approve');
+
+Route::get('/messageSelectUpdate/{id}', 'TimeslotController@messageSelectUpdate')->name('messageSelectUpdate');
+
+Route::post('/approval/reservation', 'ReservationController@approvalstore')->name('approvalstore')->middleware('auth');
+Route::post('/open/reservation', 'ReservationController@openstore')->name('openstore')->middleware('auth');

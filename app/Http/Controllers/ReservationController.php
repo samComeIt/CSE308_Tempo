@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
@@ -13,20 +14,72 @@ class ReservationController extends Controller
         return view('approval', ['allReservations' => $reservations]);
 
     }
-    public function approvalReservation(Request $request)
+    public function message()
     {
-        \App\Reservation::create([
-            'type' => $request->get('type'),
-            'user_id' => $request->get('user_id'),
-            'timeslot_id' => $request->get('$timeslot_id'),
-            'facility_id' => $request->get('facility_id'),
-            'reservation_status' => $request->get('reservation_status'),
-            'purpose' => $request->get('purpose'),
-            'number' => $request->get('number'),
-        ]);
+        $reservations3 = \App\Reservation::all();
+        $timeslots3 = \App\Timeslot::all();
+        $stu_facility = \App\Facility::all();
+        return view('message', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
 
-        return redirect('secondApprovalReservation');
     }
+
+
+    public function mypageReservation()
+    {
+        $reservations3 = \App\Reservation::all();
+        $timeslots3 = \App\Timeslot::all();
+        $stu_facility = \App\Facility::all();
+
+        return view('mypageCurrent', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
+
+    }
+
+    public function mypageCurrent()
+    {
+        $reservations3 = \App\Reservation::all();
+        $timeslots3 = \App\Timeslot::all();
+        $stu_facility = \App\Facility::all();
+
+        return view('mypageCurrent', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
+    }
+
+    public function mypagePast()
+    {
+        $reservations3 = \App\Reservation::all();
+        $timeslots3 = \App\Timeslot::all();
+        $stu_facility = \App\Facility::all();
+        return view('mypagePast', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
+    }
+
+    public function mypageCurrentCancel($id){
+        \App\Reservation::where('timeslot_id', $id)->update(['reservation_status'=> 'Cancel']);
+        $select_reservation = \App\Reservation::where('timeslot_id', $id)->first();
+        $select_timeslot = \App\Timeslot::where('timeslot_id', $id)->first();
+        //\App\Timeslot::where('timeslot_id', $id)->update(['duration'=> 'null']);
+
+        \App\Cancel::create([
+            'timeslot_id' => $select_reservation->timeslot_id,
+            'purpose' => $select_reservation->purpose,
+            'type'=> $select_reservation->type,
+            'user_id'=>$select_reservation->user_id,
+            'date'=> $select_timeslot->date,
+            'start_time'=> $select_timeslot->start_time,
+            'duration'=> $select_timeslot->duration,
+            'facility_id'=> $select_reservation->facility_id,
+            'reservation_status'=> $select_reservation->reservation_status,
+            'number'=> $select_reservation->number,
+        ]);
+        \App\Timeslot::where('timeslot_id', $id)->delete();
+
+        $reservations3 = \App\Reservation::all();
+        $timeslots3 = \App\Timeslot::all();
+        $stu_facility = \App\Facility::all();
+
+        return view('mypageCurrent', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
+
+    }
+
+
 
 
     /**
@@ -62,10 +115,9 @@ class ReservationController extends Controller
         return redirect('/approval/timeslot')->with('success', 'Reservation has been updated!!');
     }
 
-    public function store(Request $request)
+    public function approvalstore(Request $request)
     {
-        //
-        \App\Reservation::updated([
+        \App\Reservation::create([
             'type' => $request->get('type'),
             'user_id' => $request->get('user_id'),
             'timeslot_id' => $request->get('timeslot_id'),
@@ -74,14 +126,22 @@ class ReservationController extends Controller
             'purpose' => $request->get('purpose'),
             'number' => $request->get('number'),
         ]);
-
-        return redirect('approval');
+        $id = $request->get('facility_id');
+        return redirect('/approval/'.$id);
     }
-    public function destroy($id)
-    {
-        $facilities = \App\Reservation::find($id);
 
-        //change it to cancel for 'resevation' and change the status to 'no' for timeslot
-        return redirect('/approval/timeslot');
+    public function openstore(Request $request)
+    {
+        \App\Reservation::create([
+            'type' => $request->get('type'),
+            'user_id' => $request->get('user_id'),
+            'timeslot_id' => $request->get('timeslot_id'),
+            'facility_id' => $request->get('facility_id'),
+            'reservation_status' => $request->get('reservation_status'),
+            'purpose' => $request->get('purpose'),
+            'number' => $request->get('number'),
+        ]);
+        $id = $request->get('facility_id');
+        return redirect('/open/'.$id);
     }
 }

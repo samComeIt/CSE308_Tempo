@@ -21,9 +21,9 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bitter:700|Didact+Gothic|Patua+One&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <!-- Styles -->
 	<style>
@@ -34,41 +34,6 @@ ul {
   overflow: hidden;
 /*  background-color: #13136b;*/
 }
-
-/*
-li {
-  float: right;
-}
-
-ri {
-  float: left;
-}
-
-ri a {
-
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 20px;
-}
-
-ri a:hover:not(.active) {
-  background-color: #3346b0;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover:not(.active) {
-  background-color: #3346b0;
-}
-*/
 
 .active {
   background-color: #4CAF50;
@@ -88,10 +53,13 @@ li a:hover:not(.active) {
         </nav>
         @else
         @csrf
-        <a class="logo" href="/home">TEMPO</a>
+        <a class="logo" href="/home" style="font-family:'Bitter', serif">TEMPO</a>
         <nav>
             <a href="/home" style="color:white">Home</a>
             <a href="/mypage" style="color:white">My Page</a>
+            @if(Auth::user()->role == "staff")
+            <a href="/message" style="color:white">Request Box</a>
+            @endif
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color:white">Logout</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
         </nav>

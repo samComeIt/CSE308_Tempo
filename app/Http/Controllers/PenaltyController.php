@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PenaltyController extends Controller
 {
@@ -11,10 +12,19 @@ class PenaltyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        return view('penalty');
+        $search = $request->get('search');
+        $penalty = \App\Penalty::all();
+
+        $finduser = $request->get('email');
+
+        $find = \App\User::where([
+            ['email','LIKE','%' . $finduser . '%'],
+        ])->get();
+
+
+        return view('penalty', ['allUsers' => $find, 'allPenalties'=>$penalty]);
     }
 
     /**
@@ -22,9 +32,10 @@ class PenaltyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+
     }
 
     /**
@@ -35,7 +46,16 @@ class PenaltyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        \App\Penalty::create([
+            'user_id' => $request->get('user_id'),
+            'reason' => $request->get('reason'),
+        ]);
+        $student_id = $request->get('user_id');
+        \App\User::where('id', $student_id)->update(['penalty_status'=> DB::raw('penalty_status+1')]);
+        $users = \App\User::all();
+
+        return view('penalty', ['allUsers' => $users]);
     }
 
     /**
@@ -46,8 +66,18 @@ class PenaltyController extends Controller
      */
     public function show($id)
     {
-        //
+        \App\User::where('id', $id)->update(['penalty_status'=> 0]);
+        $users = \App\User::all();
+
+        return view('penalty', ['allUsers' => $users]);
     }
+
+/*    public function reset($id)
+    {
+        \App\User::where('id', $id)->update(['penalty_status'=> 0]);
+
+        return redirect('penalty');
+    }*/
 
     /**
      * Show the form for editing the specified resource.
@@ -57,7 +87,11 @@ class PenaltyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $selectStudent=\App\User::where('id', $id)->get();
+      //  \App\User::where('id', $id)->update(['penalty_status'=> DB::raw('penalty_status+1')]);
+        //$users = \App\User::all();
+
+        return view('givePenalty', ['selectStu' => $selectStudent]);
     }
 
     /**
@@ -69,7 +103,6 @@ class PenaltyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
     }
 
     /**

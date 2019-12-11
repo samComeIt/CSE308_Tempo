@@ -1,37 +1,60 @@
+
+
 @extends('layouts.app')
-
 @section('content')
-
 <section id="main" class="wrapper">
+    @if($user["penalty_status"] != "3")
     <div class="inner">
         <div class="content">
-            <h2 style="font-family:'Bitter', serif; text-align:center; font-size: 50px; margin-top:25px">TEMPO</h2>
+            <h2 style="font-family:'Bitter', serif; text-align:center; font-size: 60px">TEMPO</h2>
+            <h2 style="font-family:'Bitter', serif; text-align:center; font-size: 40px">Online Room Reservation</h2>
             @csrf
-            <section>
-                <div class="content"
-                     style="float: left; padding: 70px; margin-top: 90px; text-align: center; border-style: solid; color: #13136b; border-width: 5px; border-radius: 15px; font-family:'Didact Gothic', sans-serif;">
-                    <ul class="actions">
-                        <li>
-                            <a href="/approval" class="button primary"
-                               style="background-color: white; text-align: center; color: #13136b; font-size: 30px">Approval</a>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <section>
-                <div class="content"
-                     style="float: right; padding: 70px; border-radius: 15px; margin-top: 90px; margin-right: 50px; text-align: center; color: #13136b; border-style: solid; border-width: 5px; font-family:'Didact Gothic', sans-serif;">
-                    <!-- padding-right: 90px; padding-left: 90px; -->
-                    <ul class="actions">
-                        <li>
-                            <a href="/open" class="button primary"
-                               style="background-color: white; text-align: center; display: inline; color: #13136b; font-size: 30px">Open</a>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+            <div class="division">
+                <ul class="actions" style="justify-content: center">
+                    <li>
+                        <a href="/approval" class="button primary"
+                        style="background-color: white; text-align: center; color: #13136b; font-size: 30px">Approval</a> 
+                    </li>
+                </ul>
+                <p style="font-size: 18px">Click this button to make a reservation for facilities that need an approval from the staff (Ex. Music Room, Movie Room)</p>
+            </div>
+            
+            <div class="division">
+                <ul class="actions" style="justify-content: center">
+                    <li>
+                        <a href="/open" class="button primary"
+                        style="background-color: white; text-align: center; color: #13136b; font-size: 30px">Open</a>
+                    </li>
+                </ul>
+                <p style="font-size: 18px">Click this button to make a reservation for facilities that do not need an approval from the staff (Ex. Study Room)</p>
+            </div>
         </div>
     </div>
+    @else
+    <div style="width: 60%" class="inner">
+        <header class="special">
+
+            <h2 style="font-family:'Bitter', serif; text-align:center; font-size:60px">You are not allowed</h2>
+        </header>
+        <a href="/home" class="button"><i class="fa fa-arrow-left"> Back</i></a>
+    </div>
+    @endif
 </section>
+
+
+<style>
+    .division{
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 70px; 
+        margin-top: 90px; 
+        border-style: solid; 
+        color: #13136b; 
+        border-width: 5px; 
+        border-radius: 15px; 
+        font-family:'Didact Gothic', sans-serif;
+    }
+</style>
 @endsection
