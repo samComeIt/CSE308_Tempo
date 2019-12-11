@@ -24,7 +24,7 @@
                     @foreach ($allReservations as $res)
                     @foreach ($allTimeslots as $tim)
                     @foreach ($allStuFac as $stuFac)
-                    @if ($res->user_id == Auth::user()->id && $tim->date >= date('m/d') && $res->timeslot_id == $tim->timeslot_id &&
+                    @if ($tim->date >= date('m/d') && $res->timeslot_id == $tim->timeslot_id &&
                      $res->reservation_status == "Pending" && $stuFac->Facility_ID ==$res->facility_id)
                     <tr style="background-color: white; height:60px">
                         <td style="vertical-align: middle">{{ $stuFac->Name }}</td>
@@ -32,8 +32,8 @@
                         <td style="vertical-align: middle">{{ $tim->start_time}}</td>
                         <td style="vertical-align: middle">{{ $tim->duration }}</td>
                         <td style="vertical-align: middle">{{ $res->reservation_status }}</td>
-                        <td><a href="{{ route('cancel.show',$tim->timeslot_id) }}" class="button">Cancel</a>
-                        <a href="{{ route('message.approve',$tim->timeslot_id) }}" class="button">Accpet</a></td>
+                        <td><a href="{{ route('cancel.edit',$tim->timeslot_id) }}" class="button">Details</a>
+
                     </tr>
                     @endif
                     @endforeach
