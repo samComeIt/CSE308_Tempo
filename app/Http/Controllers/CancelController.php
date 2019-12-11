@@ -29,7 +29,8 @@ class CancelController extends Controller
      */
     public function create()
     {
-        //
+
+
     }
 
     /**
@@ -90,18 +91,19 @@ class CancelController extends Controller
 
         $reservations3 = \App\Reservation::all();
         $timeslots3 = \App\Timeslot::all();
-
-        return view('message', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3]);
+        $stu_facility = \App\Facility::all();
+        return view('message', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
 
     }
 
     public function messageApprove($id)
     {
-        \App\Reservation::where('timeslot_id', $id)->update(['reservation_status'=> 'Accepted']);
+        \App\Reservation::where('timeslot_id', $id)->update(['reservation_status'=> 'Accept']);
 
         $reservations3 = \App\Reservation::all();
         $timeslots3 = \App\Timeslot::all();
-        return view('message', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3]);
+        $stu_facility = \App\Facility::all();
+        return view('message', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
     }
 
     /**
@@ -112,7 +114,10 @@ class CancelController extends Controller
      */
     public function edit($id)
     {
-        //
+        $res = \App\Reservation::where('timeslot_id', $id)->get();
+
+
+        return view('messageDetails', compact('res'));
     }
 
     /**
