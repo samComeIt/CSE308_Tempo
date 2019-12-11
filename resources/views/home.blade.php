@@ -16,7 +16,7 @@
                         style="background-color: white; text-align: center; color: #13136b; font-size: 30px">Approval</a> 
                     </li>
                 </ul>
-                <li>Library Study Rooms</li>
+                <p style="font-size: 18px">Click this button to make a reservation for facilities that need an approval from the staff (Ex. Music Room, Movie Room)</p>
             </div>
             
             <div class="division">
@@ -26,7 +26,7 @@
                         style="background-color: white; text-align: center; color: #13136b; font-size: 30px">Open</a>
                     </li>
                 </ul>
-                <li>Study Rooms</li>
+                <p style="font-size: 18px">Click this button to make a reservation for facilities that do not need an approval from the staff (Ex. Study Room)</p>
             </div>
         </div>
     </div>

@@ -1010,6 +1010,8 @@ class OpenFacilityController extends Controller
      }
     public function destroy($id)
     {
+        \App\Timeslot::where('facility_id',$id)->delete();
+        \App\Reservation::where('facility_id',$id)->delete();
         $facilities = \App\Facility::find($id);
         $facilities -> delete();
        return redirect('/open');
