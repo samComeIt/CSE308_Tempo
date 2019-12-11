@@ -16,7 +16,10 @@ class CancelController extends Controller
     {
         //shows only data with reservation_statuc ="Cancel"
         $users = \App\Cancel::all();
-        return view('mypageViewCancel', ['allUsers'=>$users]);
+        $selectFac = \App\Facility::all();
+        $canusers = \App\User::all();
+
+        return view('mypageViewCancel', ['allUsers'=>$users, 'allFacilities'=>$selectFac, 'allCanUsers'=>$canusers]);
     }
 
     /**
@@ -54,6 +57,7 @@ class CancelController extends Controller
         $timeslot_id = $request->get('timeslot_id');
         \App\Reservation::where('id', $timeslot_id)->update(['reservation_status'=> DB::raw('Cancel')]);
         $users = \App\User::all();
+
 
         return view('mypageViewCancel', ['allUsers' => $users]);
 

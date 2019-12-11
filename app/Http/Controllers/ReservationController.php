@@ -18,18 +18,19 @@ class ReservationController extends Controller
     {
         $reservations3 = \App\Reservation::all();
         $timeslots3 = \App\Timeslot::all();
-        return view('message', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3]);
+        $stu_facility = \App\Facility::all();
+        return view('message', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
 
     }
 
 
     public function mypageReservation()
     {
-       // $reservations2 = \App\Reservation::all();
-      //  return view('mypage', ['allReservations' => $reservations2]);
         $reservations3 = \App\Reservation::all();
         $timeslots3 = \App\Timeslot::all();
-        return view('mypageCurrent', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3]);
+        $stu_facility = \App\Facility::all();
+
+        return view('mypageCurrent', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
 
     }
 
@@ -37,14 +38,17 @@ class ReservationController extends Controller
     {
         $reservations3 = \App\Reservation::all();
         $timeslots3 = \App\Timeslot::all();
-        return view('mypageCurrent', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3]);
+        $stu_facility = \App\Facility::all();
+
+        return view('mypageCurrent', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
     }
 
     public function mypagePast()
     {
         $reservations3 = \App\Reservation::all();
         $timeslots3 = \App\Timeslot::all();
-        return view('mypagePast', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3]);
+        $stu_facility = \App\Facility::all();
+        return view('mypagePast', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
     }
 
     public function mypageCurrentCancel($id){
@@ -69,8 +73,9 @@ class ReservationController extends Controller
 
         $reservations3 = \App\Reservation::all();
         $timeslots3 = \App\Timeslot::all();
+        $stu_facility = \App\Facility::all();
 
-        return view('mypageCurrent', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3]);
+        return view('mypageCurrent', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
 
     }
 

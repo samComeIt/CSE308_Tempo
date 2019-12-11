@@ -9,7 +9,7 @@
             <h1 style="font-family:'Bitter', serif; text-align:center; font-size:60px">Make a Reservation</h1>
         </header>
     </div>
-    
+
 <!--    <a href="/home" class="button"><i class="fa fa-arrow-left"> Back</i></a>-->
     <div class="inner" style="width: 50%">
     <form action="{{ route('timeslot.destroy', [$timeslot_id, $timeslot_facillity_id]) }}" method="POST">
@@ -36,7 +36,7 @@
                 <button type="submit">Complete</button>
         </form>
     </div>
-    
+
 </section>
 
 @endsection

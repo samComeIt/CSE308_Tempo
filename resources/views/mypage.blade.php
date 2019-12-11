@@ -17,6 +17,8 @@
             <div class="inner" style="float:left; width:70%;">
                 <table>
                         <thead>
+                        <td style="font-weight: bold">Facility ID</td>
+                        <td style="font-weight: bold">Facility Name</td>
                             <td style="font-weight: bold">Date</td>
                             <td style="font-weight: bold">Location</td>
                             <td style="font-weight: bold">Purpose</td>
