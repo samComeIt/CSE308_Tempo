@@ -24,8 +24,8 @@
                     @foreach ($allReservations as $res)
                     @foreach ($allTimeslots as $tim)
                     @foreach ($allStuFac as $stuFac)
-                    @if ($res->user_id == Auth::user()->id && $res->timeslot_id == $tim->timeslot_id &&
-                    $tim->date >= date('m/d') && $res->reservation_status == "Pending" && $stuFac->Facility_ID ==$res->facility_id)
+                    @if ($res->user_id == Auth::user()->id && $tim->date >= date('m/d') && $res->timeslot_id == $tim->timeslot_id &&
+                     $res->reservation_status == "Pending" && $stuFac->Facility_ID ==$res->facility_id)
                     <tr style="background-color: white; height:60px">
                         <td style="vertical-align: middle">{{ $stuFac->Name }}</td>
                         <td style="vertical-align: middle">{{ $tim->date }}</td>

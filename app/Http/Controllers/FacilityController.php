@@ -1024,8 +1024,30 @@ class FacilityController extends Controller
      }
     public function destroy($id)
     {
+
+        //reservation status will change to 'no longer exist'
+        \App\Reservation::where('facility_id',$id)->update(['reservation_status'=> 'No longer exist']);
+        //facility gets deleted
         $facilities = \App\Facility::find($id);
         $facilities -> delete();
+        //Create cancel table
+       /* $sel_res = \App\Reservation::where($id);
+        $sel_tim = \App\Timeslot::where($id);
+
+        \App\Cancel::create([
+            'timeslot_id' => $sel_res->timeslot_id,
+            'purpose' => $sel_res->purpose,
+            'type'=> $sel_res->type,
+            'user_id'=>$sel_res->user_id,
+            'date'=> $sel_res->date,
+            'start_time'=> $sel_tim->start_time,
+            'duration'=> $sel_tim->duration,
+            'facility_id'=> $sel_res->facility_id,
+            'reservation_status'=> $sel_res->reservation_status,
+            'number'=> $sel_res->number,
+        ]);*/
+        \App\Timeslot::where($id)->delete();
+
        return redirect('/approval');
     }
 }
