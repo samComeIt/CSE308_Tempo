@@ -935,7 +935,7 @@ class FacilityController extends Controller
                     $table[$k][6] = "fill";
                 }
             }
-        }
+        }   
 
         return view('approvalshowfacility',compact('facilities', 'table'));
     }
@@ -1025,7 +1025,7 @@ class FacilityController extends Controller
     public function destroy($id)
     {
         //Timeslot and Reservation deletes
-        \App\Timeslot::where($id)->delete();
+        \App\Timeslot::where('facility_id',$id)->delete();
         \App\Reservation::where('facility_id',$id)->delete();
         //facility gets deleted
         $facilities = \App\Facility::find($id);

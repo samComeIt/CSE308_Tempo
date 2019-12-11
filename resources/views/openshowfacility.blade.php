@@ -39,7 +39,7 @@
                 </form>
                 </tbody>
             </table>
-            <img style="display: block; margin-left: auto; margin-right: auto" src="{{url('image/'.$facility->filename)}}" alt="{{$facility->filename}}" height=300 width=500>
+            <img style="display: block; margin-left: auto; margin-right: auto" src="{{url('image/'.$facility->filename)}}" alt="{{$facility->filename}}" height=20% width=40%>
         </div>
         <br>
         <div class="content">

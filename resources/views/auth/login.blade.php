@@ -17,7 +17,7 @@
                             {{ __('EMAIL') }}
                             </label>
                             <div class="content" style="padding:0px">
-                                <input type="email" name="email" id="email" value="" placeholder="Email" />
+                                <input type="email" name="email" id="email" value="" required placeholder="Email" />
                             </div>
                         </div>
                         <div class="content" style="padding:0px">
@@ -25,7 +25,7 @@
                             {{ __('PASSWORD') }}
                             </label>
                             <div class="content" style="padding:0px">
-                                <input type="password" name="password" id="password" value="" placeholder="Password" />
+                                <input type="password" name="password" id="password" value="" required placeholder="Password" />
                             </div>
                         </div>
                         <div class="content">
