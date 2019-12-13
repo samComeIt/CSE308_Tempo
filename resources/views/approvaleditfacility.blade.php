@@ -38,12 +38,14 @@
                 <textarea name="Category" rows="1" disabled id="otherField" required></textarea>
             </div>
 
+<!--
             <div class="form-input" style="margin-bottom: 10px">
                 <label>Type</label>
-                <input type="radio" id="Approval" name="Type" value="Approval" required checked readonly
+                <input type="hidden" id="Approval" name="Type" value="Approval" required checked readonly
                        {{$facility->Type == 'Approval' ? 'checked' : ''}}>
                 <label for="Approval">Approval</label>
             </div>
+-->
 
             <div class="form-input" style="margin-bottom: 10px">
                 <label>Status</label>
