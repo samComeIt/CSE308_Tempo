@@ -57,8 +57,11 @@ ul {
         <a style="float:right; color:white">Hello, {{Auth::user()->name}}</a>
         <nav>
             <a href="/home" style="color:white">Home</a>
+            @if(Auth::user()->role =="student")
             <a href="/mypage" style="color:white">My Page</a>
+            @endif
             @if(Auth::user()->role == "staff")
+            <a href="/mypage" style="color:white">Management</a>
             <a href="/message" style="color:white">Request Box</a>
             @endif
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color:white">Logout</a>
