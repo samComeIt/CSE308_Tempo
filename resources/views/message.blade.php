@@ -20,6 +20,7 @@
                     <td style="font-weight: bold">Reservation Status</td>
                     <td style="font-weight: bold">Name</td>
                     <td style="font-weight: bold">Email</td>
+                    <td style="font-weight: bold">Penalty Status</td>
                     <td style="font-weight: bold">Update Reservation</td>
                     </thead>
                     <tbody>
@@ -29,7 +30,7 @@
                     @foreach ($allTimeslots as $tim)
                     @foreach ($allStuFac as $stuFac)
                     @foreach ($allUsers as $user)
-                    @if ($res->user_id == $user->id && $tim->date >= date('m/d') && $res->timeslot_id == $tim->timeslot_id &&
+                    @if ($user->role == "student" && $res->user_id == $user->id && $tim->date >= date('m/d') && $res->timeslot_id == $tim->timeslot_id &&
                      $res->reservation_status == "Pending" && $stuFac->Facility_ID ==$res->facility_id)
                     <tr style="background-color: white; height:60px">
                         <td style="vertical-align: middle">{{ $stuFac->Name }}</td>
@@ -39,12 +40,11 @@
                         <td style="vertical-align: middle">{{ $res->reservation_status }}</td>
                         <td style="vertical-align: middle">{{ $user->name }}</td>
                         <td style="vertical-align: middle">{{ $user->email }}</td>
+                        <td style="vertical-align: middle">{{ $user->penalty_status }}</td>
 
-                        <td><button id='{{$tim->timeslot_id}}' href="#"
-                                    onclick="$('.details').slideToggle(function(){$('#{{$tim->timeslot_id}}').html($('.details').is(':visible')?'Fold':'Unfold');});"
-                                    style="height:2rem; padding: 0 0.5rem; line-height: 2rem; margin-left: 30px; font-size: 15px">Unfold</button></td>
-
-                        <td><a href="{{ route('cancel.edit',$tim->timeslot_id) }}" class="button">Details</a>
+                     <!--   <td><a href="{{ route('cancel.edit',$tim->timeslot_id) }}" class="button">Details</a></td>-->
+                        <td><a href="{{ route('cancel.show',$tim->timeslot_id) }}" class="button">Cancel</a></td>
+                        <td><a href="{{ route('message.approve',$tim->timeslot_id) }}" class="button">Accept</a></td>
 
                     </tr>
                     @endif
@@ -55,22 +55,12 @@
                     </tbody>
                 </table>
 
-                <div class="details" style="display:none">
-                    <table>
-                        <thead>
-                        <td>Name</td>
-                        <td>Action</td>
-
-
-                        </thead>
-                        <tbody>
-
-                        </tbody>
-                    </table>
-                </div>
+            </div>
 
             </div>
+
         </article>
+
     </section>
 </section>
 
