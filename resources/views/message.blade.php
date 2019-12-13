@@ -33,7 +33,7 @@
                     @foreach ($allTimeslots as $tim)
                     @foreach ($allStuFac as $stuFac)
                     @foreach ($allUsers as $user)
-                    @if ($user->role == "student" && $res->user_id == $user->id && $tim->date >= date('m/d') && $res->timeslot_id == $tim->timeslot_id &&
+                    @if ($res->user_id == $user->id && $tim->date >= date('m/d') && $res->timeslot_id == $tim->timeslot_id &&
                      $res->reservation_status == "Pending" && $stuFac->Facility_ID ==$res->facility_id)
                     <tr style="background-color: white; height:60px">
                         <td style="vertical-align: middle">{{ $stuFac->Name }}</td>
