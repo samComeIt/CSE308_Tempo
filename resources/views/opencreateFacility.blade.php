@@ -38,6 +38,7 @@
                 <textarea name="Category" rows="1" disabled id="otherField" placeholder="Check 'Other' to type something here"></textarea>
             </div>
             
+<!--
             <div class="form-input" style="margin-bottom: 10px">
                 <label>Type</label>
                 <input type="radio" id="Open" name="Type" value="Open" checked readonly>
@@ -51,6 +52,7 @@
                 <input type="radio" id="OutofOrder" name="Status" value="OutofOrder">
                 <label for="OutofOrder">Out of Order</label>
             </div>
+-->
 
 
             <div class="form-input" style="margin-bottom: 10px">
