@@ -50,6 +50,7 @@
 
                         <div class="form-input" style="margin-bottom: 10px;">
                             <label for="password" style="font-size: 120%">{{ __('Password') }}</label>
+                            <label for="password" style="font-size: 100%; color: #9796A6">(at least 8 characters)</label>
                             <div class="form-input" style="margin-bottom: 10px;">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
                                 @error('password')
