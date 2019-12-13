@@ -126,7 +126,8 @@ class ReservationController extends Controller
             'purpose' => $request->get('purpose'),
             'number' => $request->get('number'),
         ]);
-        $id = $request->get('facility_id');
+        $facility= \App\Facility::all();
+        $id = $request->get('facility_id', ['facilities'=>$facility]);
         return redirect('/approval/'.$id);
     }
 
