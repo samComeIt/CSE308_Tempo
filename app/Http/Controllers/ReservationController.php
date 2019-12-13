@@ -16,10 +16,11 @@ class ReservationController extends Controller
     }
     public function message()
     {
+        $users = \App\User::all();
         $reservations3 = \App\Reservation::all();
         $timeslots3 = \App\Timeslot::all();
         $stu_facility = \App\Facility::all();
-        return view('message', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
+        return view('message', ['allUsers'=>$users,'allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
 
     }
 
