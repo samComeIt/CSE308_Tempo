@@ -127,8 +127,8 @@ class ReservationController extends Controller
             'number' => $request->get('number'),
         ]);
         $facility= \App\Facility::all();
-        $id = $request->get('facility_id', ['facilities'=>$facility]);
-        return redirect('/approval/'.$id);
+        $id = $request->get('facility_id');
+        return redirect('/approval/');
     }
 
     public function openstore(Request $request)
@@ -143,6 +143,6 @@ class ReservationController extends Controller
             'number' => $request->get('number'),
         ]);
         $id = $request->get('facility_id');
-        return redirect('/open/'.$id);
+        return redirect('/open/');
     }
 }

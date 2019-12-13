@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Tempo') }}</title>
+    <title>{{ config('TEMPO', 'TEMPO') }}</title>
     <!-- Scripts -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
@@ -54,6 +54,7 @@ ul {
         @else
         @csrf
         <a class="logo" href="/home" style="font-family:'Bitter', serif">TEMPO</a>
+        <a style="float:right; color:white">Hello, {{Auth::user()->name}}</a>
         <nav>
             <a href="/home" style="color:white">Home</a>
             <a href="/mypage" style="color:white">My Page</a>

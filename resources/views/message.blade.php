@@ -7,7 +7,7 @@
     <section>
 
         <article>
-            <h2 style="font-family:'Bitter', serif; text-align:center; margin-bottom: 50px; font-size:60px">Message Page</h2>
+            <h2 style="font-family:'Bitter', serif; text-align:center; margin-bottom: 50px; font-size:60px">Request Box</h2>
 
             <div class="inner">
                 <a href="/mypage/cancel" class="button" style="margin-bottom:30px; float:right"> Show cancelled reservations</a>
