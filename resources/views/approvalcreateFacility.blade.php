@@ -34,8 +34,8 @@
                 @endforeach
                 <input type="radio" id="categoryOther" name="Category" value="">
                 
-                <label for="categoryOther">Other (Type in the new building below)</label>
-                <textarea name="Category" rows="1" disabled id="otherField" placeholder="Check 'Other' to type something here" required></textarea>
+                <label for="categoryOther">Other</label>
+                <textarea style="display:none" name="Category" rows="1" disabled id="otherField" placeholder="Type in the new building" required></textarea>
             </div>
             
 <!--
@@ -56,7 +56,7 @@
 
 
             <div class="form-input" style="margin-bottom: 10px">
-                <label>Capacity</label> <input type="number" min="1" max="1000" name="Capacity" required>
+                <label>Capacity</label> <input type="number" min="1" max="1000" width="100%" name="Capacity" required>
             </div>
             
             <div class="form-input" style="margin-bottom: 10px">
@@ -87,12 +87,12 @@
 
     function categoryHandler() {
         if(this.id == "categoryOther") {
-        otherField.disabled = false;
+        otherField.style.display = "";
         otherField.value = tempCategory;
       } else {
         tempCategory = otherField.value;
         otherField.value = "";
-        otherField.disabled = true;
+        otherField.style.display = "none";
       }
 }
 </script>
