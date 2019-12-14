@@ -24,6 +24,7 @@ class CreateFacilityTable extends Migration
             $table->string('mime')->nullable();
             $table->string('original_filename')->nullable();
             $table->string('Status');
+            $table->string('Description');
             $table->timestamps();
         });
     }
