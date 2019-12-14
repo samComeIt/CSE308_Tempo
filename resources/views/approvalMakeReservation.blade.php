@@ -20,7 +20,7 @@
     </div>
 
     <div class="inner" style="display:flex; justify-content:center; align-items:center">
-        <form action="/approval/reservation/" method="POST" style="width: 60%">
+        <form action="/approval/reservation" method="POST" style="width: 60%">
             @csrf
             <input type="hidden" name="timeslot_id" value='{{ $timeslot_id }}' readonly>
             <input type="hidden" name="type" value="Approval" readonly>
