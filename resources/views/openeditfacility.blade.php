@@ -60,6 +60,11 @@
             <div class="form-input" style="margin-bottom: 10px">
                 <label>Capacity</label> <input type="number" name="Capacity" required value={{ $facility->Capacity }}>
             </div>
+            
+            <div class="form-input" style="margin-bottom: 10px">
+                <label>Description</label>
+                <input type="textarea" maxlength="300" name="Description" value={{ $facility->Description }}>
+            </div>
 
             <div class="form-group" style="margin-bottom: 10px">
                 <label>Picture</label> <input type="file" name="Picture" value={{ $facility->Picture }}>

@@ -58,6 +58,11 @@
             <div class="form-input" style="margin-bottom: 10px">
                 <label>Capacity</label> <input type="number" name="Capacity" required>
             </div>
+            
+            <div class="form-input" style="margin-bottom: 10px">
+                <label>Description</label>
+                <input type="textarea" maxlength="300" name="Description">
+            </div>
 
             <div class="form-group" style="margin-bottom: 10px">
                 <label>Picture</label> <input type="file" name="Picture">

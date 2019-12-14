@@ -75,6 +75,7 @@ class OpenFacilityController extends Controller
             'mime' => $image_mime,
             'original_filename' => $image_original_filename,
             'Status' => $request->get('Status'),
+            'Description' => $request->get('Description'),
         ]);
 
         return redirect('open');
@@ -984,6 +985,7 @@ class OpenFacilityController extends Controller
                'Capacity' => $request->Capacity,
                'Picture' => $request->Picture,
                'Status' => $request->Status,
+                'Description' => $request->Description,
                ];
                \App\Facility::where('Facility_ID',$id)->update($update);
 
@@ -1005,6 +1007,7 @@ class OpenFacilityController extends Controller
              $facility->Capacity = $data['Capacity'];
              $facility->Picture = $data['Picture'];
              $facility->Status = $data['Status'];
+            $facility->Description = $data['Description'];
              $facility->save();
              return 1;
      }

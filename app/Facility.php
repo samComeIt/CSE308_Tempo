@@ -9,7 +9,7 @@ class Facility extends Model
 
     //Attributes of Facility model
     protected $fillable = [
-        'Facility_ID', 'Name', 'Location', 'Category', 'Type', 'Capacity', 'filename', 'mime', 'original_filename', 'Status',
+        'Facility_ID', 'Name', 'Location', 'Category', 'Type', 'Capacity', 'filename', 'mime', 'original_filename', 'Status', 'Description'
     ];
     protected $primaryKey ='Facility_ID';
 }

@@ -26,11 +26,19 @@ class TimeslotController extends Controller
         ])->get();
 
         foreach($target as $timeslot){
-                $timeslot_id = $timeslot->timeslot_id;
-                $timeslot_facillity_id = $timeslot->facility_id;
-            }
+            $timeslot_id = $timeslot->timeslot_id;
+            $timeslot_facillity_id = $timeslot->facility_id;
+        }
+        
+        $target = DB::table('facilities')->where([
+            'Facility_ID' => $request->get('facility_id'),
+        ])->get();
+        
+        foreach($target as $facility) {
+            $facility_capacity = $facility->Capacity;
+        }
 
-        return view('openMakeReservation', compact('timeslot_id', 'timeslot_facillity_id'));
+        return view('openMakeReservation', compact('timeslot_id', 'timeslot_facillity_id', 'facility_capacity'));
     }
 
     public function approvalStore(Request $request)
@@ -43,7 +51,7 @@ class TimeslotController extends Controller
             'facility_id' => $request->get('facility_id'),
             ]);
 
-        $target= DB::table('timeslots')->where([
+        $target = DB::table('timeslots')->where([
             'date' => $request->get('date'),
             'start_time' => $request->get('start_time'),
             'duration' => $request->get('duration'),
@@ -52,11 +60,19 @@ class TimeslotController extends Controller
         ])->get();
 
         foreach($target as $timeslot){
-                $timeslot_id = $timeslot->timeslot_id;
-                $timeslot_facillity_id = $timeslot->facility_id;
-            }
+            $timeslot_id = $timeslot->timeslot_id;
+            $timeslot_facillity_id = $timeslot->facility_id;
+        }
+        
+        $target = DB::table('facilities')->where([
+            'Facility_ID' => $request->get('facility_id'),
+        ])->get();
+        
+        foreach($target as $facility) {
+            $facility_capacity = $facility->Capacity;
+        }
 
-        return view('approvalMakeReservation', compact('timeslot_id', 'timeslot_facillity_id'));
+        return view('approvalMakeReservation', compact('timeslot_id', 'timeslot_facillity_id', 'facility_capacity'));
     }
 
     public function destroy($id)

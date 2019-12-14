@@ -75,6 +75,7 @@ class FacilityController extends Controller
             'mime' => $image_mime,
             'original_filename' => $image_original_filename,
             'Status' => $request->get('Status'),
+            'Description' => $request->get('Description'),
         ]);
 
         return redirect('approval');
@@ -996,6 +997,7 @@ class FacilityController extends Controller
                 'mime' => $image_mime,
                 'original_filename' => $image_original_filename,
                'Status' => $request->Status,
+                'Description' => $request->get('Description'),
                ];
                \App\Facility::where('Facility_ID',$id)->update($update);
 
@@ -1019,6 +1021,7 @@ class FacilityController extends Controller
          $facility->mime = $data['mime'];
          $facility->original_filename = $data['original_filename'];
          $facility->Status = $data['Status'];
+         $facility->Description = $data['Description'];
          $facility->save();
          return 1;
      }
