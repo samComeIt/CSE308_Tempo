@@ -54,8 +54,9 @@ ul {
         @else
         @csrf
         <a class="logo" href="/home" style="font-family:'Bitter', serif">TEMPO</a>
-        <a style="float:right; color:white">Hello, {{Auth::user()->name}}</a>
+        
         <nav>
+            <a style="color:white; pointer-events:none">Hello, {{Auth::user()->name}}</a>
             <a href="/home" style="color:white">Home</a>
             <a href="/mypage" style="color:white">My Page</a>
             @if(Auth::user()->role == "staff")
