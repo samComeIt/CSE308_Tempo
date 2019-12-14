@@ -31,7 +31,6 @@
                         <td style="vertical-align: middle; white-space: normal">{{ $res1->purpose }}</td>
                         <td><a href="{{ route('cancel.show',$res1->timeslot_id) }}" class="button">Cancel</a>
                             <a href="{{ route('message.approve',$res1->timeslot_id) }}" class="button">Accept</a></td>
-
                     </tr>
                     @endforeach
 
