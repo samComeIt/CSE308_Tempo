@@ -30,7 +30,7 @@
                 <label style="font-size: 20px; margin-bottom: 10px">Purpose</label> <textarea name="purpose"  maxlength="500" style="rows:7; cols: 40; height: 150px" required></textarea>
             </div>
             <div class="form-input" style="margin-bottom: 30px;">
-                <label style="font-size: 20px; margin-bottom: 10px">Number of People</label> <input type="number" name="number" max="{{ $facility_capacity }}" required>
+                <label style="font-size: 20px; margin-bottom: 10px">Number of People</label> <input type="number" name="number" min="1" max="{{ $facility_capacity }}" required>
             </div>
                 <button type="submit">Complete</button>
         </form>

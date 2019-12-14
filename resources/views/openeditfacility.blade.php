@@ -58,12 +58,12 @@
             </div>
 
             <div class="form-input" style="margin-bottom: 10px">
-                <label>Capacity</label> <input type="number" name="Capacity" required value={{ $facility->Capacity }}>
+                <label>Capacity</label> <input type="number" name="Capacity" min="1" max="1000" required value={{ $facility->Capacity }}>
             </div>
             
             <div class="form-input" style="margin-bottom: 10px">
                 <label>Description</label>
-                <input type="textarea" maxlength="300" name="Description" value={{ $facility->Description }}>
+                <textarea maxlength="300" name="Description" style="rows:7; cols: 40; height: 150px" value={{ $facility->Description }}></textarea>
             </div>
 
             <div class="form-group" style="margin-bottom: 10px">

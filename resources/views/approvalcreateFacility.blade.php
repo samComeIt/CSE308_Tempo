@@ -56,17 +56,20 @@
 
 
             <div class="form-input" style="margin-bottom: 10px">
-                <label>Capacity</label> <input type="number" name="Capacity" required>
+                <label>Capacity</label> <input type="number" min="1" max="1000" name="Capacity" required>
             </div>
             
             <div class="form-input" style="margin-bottom: 10px">
                 <label>Description</label>
-                <input type="textarea" maxlength="300" name="Description">
+                <textarea maxlength="300" name="Description" style="rows:7; cols: 40; height: 150px"></textarea>
             </div>
 
             <div class="form-group" style="margin-bottom: 10px">
                 <label>Picture</label> <input type="file" name="Picture">
             </div>
+            
+            <input type="hidden" id="Approval" name="Type" value="Approval">
+            <input type="hidden" id="Available" name="Status" value="Available">
 
             <button type="submit" style="margin-top:10px">Create</button>
         </form>
