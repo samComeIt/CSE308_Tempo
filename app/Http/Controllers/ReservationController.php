@@ -129,7 +129,7 @@ class ReservationController extends Controller
         ]);
         $facilities= \App\Facility::all();
         $id = $request->get('facility_id');
-        return view('approval', ['$allFacilities'=>$facilities]);
+        return redirect('approval'.$id);
     }
 
     public function openstore(Request $request)
