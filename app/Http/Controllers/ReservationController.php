@@ -145,6 +145,6 @@ class ReservationController extends Controller
         ]);
         $facilities= \App\Facility::all();
         $id = $request->get('facility_id');
-        return view('open',['$allFacilities'=>$facilities]);
+        return redirect('/open/'.$id);
     }
 }
