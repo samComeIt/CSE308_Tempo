@@ -35,7 +35,7 @@
                         @csrf
                     </tr>
                 </form>
-                    @endforeach
+                @endforeach
                 </tbody>
             </table>
             <p><b>Description</b>: {{ $facility->Description }}</p>

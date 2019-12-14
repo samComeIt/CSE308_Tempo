@@ -127,9 +127,9 @@ class ReservationController extends Controller
             'purpose' => $request->get('purpose'),
             'number' => $request->get('number'),
         ]);
-        $facility= \App\Facility::all();
+        $facilities= \App\Facility::all();
         $id = $request->get('facility_id');
-        return redirect('/approval/');
+        return view('approval', ['facilities'=>$facilities]);
     }
 
     public function openstore(Request $request)
@@ -143,7 +143,8 @@ class ReservationController extends Controller
             'purpose' => $request->get('purpose'),
             'number' => $request->get('number'),
         ]);
+        $facilities= \App\Facility::all();
         $id = $request->get('facility_id');
-        return redirect('/open/');
+        return view('open',['facilities'=>$facilities]);
     }
 }
