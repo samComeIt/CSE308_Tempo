@@ -13,7 +13,7 @@
                 <ul class="actions" style="justify-content: center">
                     <li>
                         <a href="/approval" class="button" id="open" style="font-size:30px">Approval<br>
-                            <p style="font-size:15px; margin-top:20px">Click this button to make a reservation for facilities that need an approval from the staff (Ex. Music Room, Movie Room)</p></a>
+                            <p style="font-size:17px; margin-top:20px">Click this button to make a reservation for facilities that need an approval from the staff (Ex. Music Room, Movie Room)</p></a>
                     </li>
                 </ul>
             </div>
@@ -22,7 +22,7 @@
                 <ul class="actions" style="justify-content: center">
                     <li>
                         <a href="/open" id="open" class="button" style="font-size:30px">Open <br>
-                            <p style="font-size:15px; margin-top:20px">Click this button to make a reservation for facilities that do not need an approval from the staff (Ex. Study Room)</p>
+                            <p style="font-size:17px; margin-top:20px">Click this button to make a reservation for facilities that do not need an approval from the staff (Ex. Study Room)</p>
                         </a>
                     </li>
                 </ul>
