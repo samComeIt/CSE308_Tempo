@@ -263,7 +263,7 @@
         .hoverTable tr, th {
             position: relative;
         }
-        
+
         .hoverTable td {
 /*            padding: 7px;*/
             border: #13136b 2px solid;
@@ -290,6 +290,8 @@
 
         .fill {
             background-color: #4b93d6;
+            pointer-events: none;
+
         }
     </style>
 
@@ -348,10 +350,10 @@
                     <input type="radio" id="1" name="duration" value="1">
                     <label for="1">1 hour</label><br>
                     <input type="radio" id="2" name="duration" value="2">
-                    <label for="2">2 hours</label><br>                   
+                    <label for="2">2 hours</label><br>
                     <input type="radio" id="3" name="duration" value="3">
                     <label for="3">3 hours</label>
-                    
+
                 </div>
                 <div class="modal-footer">
                     <button type="submit" style="height: 2rem; padding: 0 1rem; line-height: 0rem">Submit</button>

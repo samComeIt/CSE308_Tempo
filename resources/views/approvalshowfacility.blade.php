@@ -290,6 +290,8 @@
 
         .fill {
             background-color: #4b93d6;
+            pointer-events: none;
+
         }
     </style>
 
