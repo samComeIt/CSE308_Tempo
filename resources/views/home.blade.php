@@ -12,8 +12,8 @@
             <div>
                 <ul class="actions" style="justify-content: center">
                     <li>
-                        <a href="/approval" class="button" id="open" style="color: #13136b; font-size: 30px;">Approval<br>
-                            <p>Click this button to make a reservation for facilities that need an approval from the staff (Ex. Music Room, Movie Room)</p></a>
+                        <a href="/approval" class="button" id="open" style="font-size:30px">Approval<br>
+                            <p style="font-size:15px; margin-top:20px">Click this button to make a reservation for facilities that need an approval from the staff (Ex. Music Room, Movie Room)</p></a>
                     </li>
                 </ul>
             </div>
@@ -21,8 +21,8 @@
             <div>
                 <ul class="actions" style="justify-content: center">
                     <li>
-                        <a href="/open" id="open" class="button" style="color:#13136b; font-size: 30px;">Open <br>
-                            <p>Click this button to make a reservation for facilities that do not need an approval from the staff (Ex. Study Room)</p>
+                        <a href="/open" id="open" class="button" style="font-size:30px">Open <br>
+                            <p style="font-size:15px; margin-top:20px">Click this button to make a reservation for facilities that do not need an approval from the staff (Ex. Study Room)</p>
                         </a>
                     </li>
                 </ul>
@@ -60,6 +60,13 @@
         height: auto;
         border: 4px solid #13136b;
         border-radius: 15px;
+        font-family:'Didact Gothic', sans-serif;
+        padding: 40px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+        cursor: pointer;
+        width: 950px;
     }
 </style>
 @endsection
