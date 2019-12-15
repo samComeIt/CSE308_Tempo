@@ -35,7 +35,6 @@
 
             <h2 style="font-family:'Bitter', serif; text-align:center; font-size:60px">You are not allowed</h2>
         </header>
-        <a href="/home" class="button"><i class="fa fa-arrow-left"> Back</i></a>
     </div>
     @endif
 </section>
