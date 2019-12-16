@@ -35,7 +35,7 @@
                 <input type="radio" id="categoryOther" name="Category" value="">
                 
                 <label for="categoryOther">Other (Type in the new building below)</label>
-                <textarea name="Category" rows="1" id="otherField" placeholder="Check 'Other' to type something here"></textarea>
+                <textarea style="display:none" name="Category" rows="1" id="otherField" placeholder="Check 'Other' to type something here"></textarea>
             </div>
             
 <!--
