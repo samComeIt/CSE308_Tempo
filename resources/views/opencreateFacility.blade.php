@@ -64,9 +64,11 @@
                 <textarea maxlength="300" name="Description" style="rows:7; cols: 40; height: 150px"></textarea>
             </div>
 
+<!--
             <div class="form-group" style="margin-bottom: 10px">
                 <label>Picture</label> <input type="file" name="Picture">
             </div>
+-->
             
             <input type="hidden" id="Open" name="Type" value="Open">
             <input type="hidden" id="Available" name="Status" value="Available">

@@ -35,7 +35,7 @@
                 <input type="radio" id="categoryOther" name="Category" value="">
                 
                 <label for="categoryOther">Other</label>
-                <textarea style="display:none" name="Category" rows="1" disabled id="otherField" placeholder="Type in the new building" required></textarea>
+                <textarea style="display:none" name="Category" rows="1" id="otherField" placeholder="Type in the new building" required></textarea>
             </div>
             
 <!--
@@ -64,9 +64,11 @@
                 <textarea maxlength="300" name="Description" style="rows:7; cols: 40; height: 150px"></textarea>
             </div>
 
+<!--
             <div class="form-group" style="margin-bottom: 10px">
                 <label>Picture</label> <input type="file" name="Picture">
             </div>
+-->
             
             <input type="hidden" id="Approval" name="Type" value="Approval">
             <input type="hidden" id="Available" name="Status" value="Available">
