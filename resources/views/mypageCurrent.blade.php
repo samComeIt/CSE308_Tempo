@@ -32,8 +32,11 @@
                     @foreach ($allTimeslots as $tim)
                     @foreach ($allStuFac as $stuFac)
                     @foreach ($allUsers as $user)
-                    @if (Auth::user()->role =="student" && $res->user_id == Auth::user()->id && $res->timeslot_id == $tim->timeslot_id &&
-                    $tim->date >= date('m/d') && $stuFac->Facility_ID ==$res->facility_id && $res->reservation_status !="Cancel")
+
+                    @if (Auth::user()->role =="student" && $res->timeslot_id == $tim->timeslot_id &&
+                    $tim->date >= date('m/d') && $stuFac->Facility_ID ==$res->facility_id && $res->reservation_status !="Cancel"
+                    && $res->user_id == $user->id && Auth::user()->id == $user->id)
+
                     <tr style="background-color: white; height:60px">
                         <td style="vertical-align: middle">{{ $stuFac->Name }}</td>
                         <td style="vertical-align: middle">{{ $tim->date }}</td>
