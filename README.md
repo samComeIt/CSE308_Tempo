@@ -15,7 +15,7 @@ Kyu Hee is a designer and a product owner.
 
 Website Link
 -------------
-https://tempo-igc.herokuapp.com/
+http://tempo-igc.herokuapp.com/
 
 Operating System
 ------------------
