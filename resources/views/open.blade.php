@@ -49,7 +49,7 @@
                         <button type="submit">Delete</button>
                         @endif
                         </td>
-                        <td align="right"><a href="{{ route('open.show',$facility->Facility_ID) }}" class="button">Time table</a></td>
+                        <td align="right"><a href="{{ route('open.show',$facility->Facility_ID) }}" class="button">Time Table</a></td>
                     </tr>
                 </form>
                 @endif

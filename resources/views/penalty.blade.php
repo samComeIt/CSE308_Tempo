@@ -45,8 +45,27 @@
 
         <article>
             @if(Auth::user()->role == "student")
-            <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px; margin-bottom:50px">Show My Penalty</h2>
-            <div class="inner" style="float:left; width:70%;">
+            <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px; margin-bottom:40px">Show My Penalty</h2>
+            <div class="inner" style="float:left; width:70%; font-style: italic">
+                This page is for students checking their penalty status if they have misused the facilities.<br>
+                Students can see why they got penalty from the staff.<br>
+                The maximum Penalty that students will get is 3 penalties. Students who get 3 penalties will be on the blacklist of this website and not able to make a reservation until their penalty status is reset by staff.
+            </div>
+            <div class="inner" style="float:left; width:70%; margin-top:40px">
+                <tr style="background-color: white; height:60px">
+                    <table>
+                        <thead>
+
+                        <td style="font-weight: bold"></td>
+                        <td style="font-weight: bold"></td>
+                        </thead>
+                        <tbody>
+                        <td class="inner-table" style="vertical-align: middle">Current Penalty Status</td>
+                        <td class="inner-table" style="vertical-align: middle">{{ Auth::user()->penalty_status }}</td>
+                        </tbody>
+                    </table>
+
+                </tr>
                 <table>
                     <thead>
 
@@ -54,8 +73,11 @@
                     <td style="font-weight: bold">Created</td>
                     </thead>
                     <tbody>
+
+
                     @foreach ($allPenalties as $user)
                     @if (Auth::user()->id == $user->user_id )
+
                     <tr style="background-color: white; height:60px">
 
                         <td class="inner-table" style="vertical-align: middle">{{ $user->reason }}</td>
@@ -70,8 +92,15 @@
             </div>
 
             @elseif(Auth::user()->role == "staff")
-            <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px; margin-bottom:50px">Give Penalty</h2>
-            <div class="inner" style="float:left; width:70%;">
+            <h2 style="font-family:'Bitter', serif; text-align:left; font-size:60px; margin-bottom:40px">Give Penalty</h2>
+            <div class="inner" style="float:left; width:70%; font-style: italic">
+                This page is for staff giving penalties to students who misused the facilities.
+                For example, breaking properties or not cleaning rooms.<br>
+                By clicking the 'Give Penalty' button, staff can fill in the reason why the student is getting penalty, and the Penalty Status will increase by 1 after submission.<br>
+                The maximum Penalty that student will get is 3 penalties. Students who get 3 penalties will be on the blacklist of this website and not able to make a reservation until their penalty status is reset by staff.
+            </div>
+
+            <div class="inner" style="float:left; width:70%; margin-top:50px">
                 <form>
                     <div class="col-sm-5 form-group" style="margin-bottom: 50px">
                         <div class="input-group">
@@ -107,7 +136,7 @@
                             @if ($find->penalty_status != "3")
                             <td><a href="{{ route('penalty.edit',$find->id) }}" class="button">Give Penalty</a></td>
                             @elseif ($find->penalty_status=="3")
-                            <td><a onclick="return confirm('Maximum penalty given')" class="button">Give Penalty</a></td>
+                            <td></td>
                             @endif
                             <td><a href="{{ route('penalty.show',$find->id) }}" class="button">Reset Penalty</a></td>
                         </tr>

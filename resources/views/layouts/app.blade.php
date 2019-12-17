@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('TEMPO', 'TEMPO') }}</title>
     <!-- Scripts -->
     <script src="{{ asset('assets/js/main.js') }}"></script>
     <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
@@ -54,10 +54,15 @@ ul {
         @else
         @csrf
         <a class="logo" href="/home" style="font-family:'Bitter', serif">TEMPO</a>
+
         <nav>
+            <a style="color:white; pointer-events:none">Hello, {{Auth::user()->name}}!!</a>
             <a href="/home" style="color:white">Home</a>
+            @if(Auth::user()->role =="student")
             <a href="/mypage" style="color:white">My Page</a>
+            @endif
             @if(Auth::user()->role == "staff")
+            <a href="/mypage" style="color:white">Management</a>
             <a href="/message" style="color:white">Request Box</a>
             @endif
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="color:white">Logout</a>

@@ -38,12 +38,14 @@
                 <textarea name="Category" rows="1" disabled id="otherField" required></textarea>
             </div>
 
+<!--
             <div class="form-input" style="margin-bottom: 10px">
                 <label>Type</label>
-                <input type="radio" id="Open" name="Type" value="Open" required checked readonly
+                <input type="hidden" id="Open" name="Type" value="Open" required checked readonly
                        {{$facility->Type == 'Open' ? 'checked' : ''}}>
-                <label for="Open">Open</label>
+                <label for="Open" style="color:#444444; font-weight: 400">Open</label>
             </div>
+-->
 
             <div class="form-input" style="margin-bottom: 10px">
                 <label>Status</label>
@@ -56,12 +58,19 @@
             </div>
 
             <div class="form-input" style="margin-bottom: 10px">
-                <label>Capacity</label> <input type="number" name="Capacity" required value={{ $facility->Capacity }}>
+                <label>Capacity</label> <input type="number" name="Capacity" min="1" max="1000" required value={{ $facility->Capacity }}>
+            </div>
+            
+            <div class="form-input" style="margin-bottom: 10px">
+                <label>Description</label>
+                <textarea maxlength="300" name="Description" style="rows:7; cols: 40; height: 150px" value={{ $facility->Description }}></textarea>
             </div>
 
+<!--
             <div class="form-group" style="margin-bottom: 10px">
                 <label>Picture</label> <input type="file" name="Picture" value={{ $facility->Picture }}>
             </div>
+-->
 
             <a class="button" href="{{ route('open.index')}}" style="margin-top:10px">Cancel</a>
 

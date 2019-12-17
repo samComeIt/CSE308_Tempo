@@ -89,10 +89,11 @@ class CancelController extends Controller
         ]);
         \App\Timeslot::where('timeslot_id', $id)->delete();
 
+        $users = \App\User::all();
         $reservations3 = \App\Reservation::all();
         $timeslots3 = \App\Timeslot::all();
         $stu_facility = \App\Facility::all();
-        return view('message', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
+        return view('message', ['allUsers'=>$users,'allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
 
     }
 
@@ -100,10 +101,11 @@ class CancelController extends Controller
     {
         \App\Reservation::where('timeslot_id', $id)->update(['reservation_status'=> 'Accept']);
 
+        $users = \App\User::all();
         $reservations3 = \App\Reservation::all();
         $timeslots3 = \App\Timeslot::all();
         $stu_facility = \App\Facility::all();
-        return view('message', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
+        return view('message', ['allUsers'=>$users,'allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
     }
 
     /**

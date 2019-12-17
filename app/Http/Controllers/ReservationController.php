@@ -16,39 +16,43 @@ class ReservationController extends Controller
     }
     public function message()
     {
+        $users = \App\User::all();
         $reservations3 = \App\Reservation::all();
         $timeslots3 = \App\Timeslot::all();
         $stu_facility = \App\Facility::all();
-        return view('message', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
+        return view('message', ['allUsers'=>$users,'allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
 
     }
 
 
     public function mypageReservation()
     {
+        $users = \App\User::all();
         $reservations3 = \App\Reservation::all();
         $timeslots3 = \App\Timeslot::all();
         $stu_facility = \App\Facility::all();
 
-        return view('mypageCurrent', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
+        return view('mypageCurrent', ['allUsers'=>$users, 'allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
 
     }
 
     public function mypageCurrent()
     {
+        $users = \App\User::all();
         $reservations3 = \App\Reservation::all();
         $timeslots3 = \App\Timeslot::all();
         $stu_facility = \App\Facility::all();
 
-        return view('mypageCurrent', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
+        return view('mypageCurrent', ['allUsers'=>$users,'allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
     }
 
     public function mypagePast()
     {
+        $users = \App\User::all();
         $reservations3 = \App\Reservation::all();
         $timeslots3 = \App\Timeslot::all();
         $stu_facility = \App\Facility::all();
-        return view('mypagePast', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
+        return view('mypagePast', ['allUsers'=>$users,'allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
     }
 
     public function mypageCurrentCancel($id){
@@ -71,11 +75,12 @@ class ReservationController extends Controller
         ]);
         \App\Timeslot::where('timeslot_id', $id)->delete();
 
+        $users = \App\User::all();
         $reservations3 = \App\Reservation::all();
         $timeslots3 = \App\Timeslot::all();
         $stu_facility = \App\Facility::all();
 
-        return view('mypageCurrent', ['allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
+        return view('mypageCurrent', ['allUsers'=>$users,'allReservations' => $reservations3, 'allTimeslots'=> $timeslots3, 'allStuFac'=>$stu_facility]);
 
     }
 
@@ -126,6 +131,7 @@ class ReservationController extends Controller
             'purpose' => $request->get('purpose'),
             'number' => $request->get('number'),
         ]);
+        $facilities= \App\Facility::all();
         $id = $request->get('facility_id');
         return redirect('/approval/'.$id);
     }
@@ -141,6 +147,7 @@ class ReservationController extends Controller
             'purpose' => $request->get('purpose'),
             'number' => $request->get('number'),
         ]);
+        $facilities= \App\Facility::all();
         $id = $request->get('facility_id');
         return redirect('/open/'.$id);
     }

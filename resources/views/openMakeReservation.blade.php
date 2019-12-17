@@ -19,7 +19,7 @@
     </div>
 
     <div class="inner" style="display:flex; justify-content:center; align-items:center">
-        <form action="/open/reservation/" method="POST" style="width: 60%">
+        <form action="/open/reservation" method="POST" style="width: 60%">
             @csrf
             <input type="hidden" name="timeslot_id" value='{{ $timeslot_id }}' readonly>
             <input type="hidden" name="type" value="Open" readonly>
@@ -30,7 +30,7 @@
                 <label style="font-size: 20px; margin-bottom: 10px">Purpose</label> <textarea name="purpose"  maxlength="500" style="rows:7; cols: 40; height: 150px" required></textarea>
             </div>
             <div class="form-input" style="margin-bottom: 30px;">
-                <label style="font-size: 20px; margin-bottom: 10px">Number of Students</label> <input type="number" name="number" required>
+                <label style="font-size: 20px; margin-bottom: 10px">Number of People</label> <input type="number" name="number" min="1" max="{{ $facility_capacity }}" required>
             </div>
                 <button type="submit">Complete</button>
         </form>

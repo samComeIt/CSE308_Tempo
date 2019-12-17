@@ -34,11 +34,11 @@
                         <td class="inner-table">{{ $facility->Status }}</td>
                         @csrf
                     </tr>
-                    @endforeach
-
                 </form>
+                @endforeach
                 </tbody>
             </table>
+            <p><b>Description</b>: {{ $facility->Description }}</p>
             <img style="display: block; margin-left: auto; margin-right: auto" src="{{url('image/'.$facility->filename)}}" alt="{{$facility->filename}}" height=20% width=40%>
         </div>
         <br>
@@ -290,6 +290,8 @@
 
         .fill {
             background-color: #4b93d6;
+            pointer-events: none;
+
         }
     </style>
 

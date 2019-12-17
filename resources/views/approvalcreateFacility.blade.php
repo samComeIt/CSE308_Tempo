@@ -34,32 +34,21 @@
                 @endforeach
                 <input type="radio" id="categoryOther" name="Category" value="">
                 
-                <label for="categoryOther">Other (Type in the new building below)</label>
-                <textarea name="Category" rows="1" disabled id="otherField" placeholder="Check 'Other' to type something here" required></textarea>
+                <label for="categoryOther">Other</label>
+                <textarea style="display:none" name="Category" rows="1" id="otherField" placeholder="Type in the new building" required></textarea>
+            </div>
+
+            <div class="form-input" style="margin-bottom: 10px">
+                <label>Capacity</label> <input type="number" min="1" max="1000" width="100%" name="Capacity" required>
             </div>
             
             <div class="form-input" style="margin-bottom: 10px">
-                <label>Type</label>
-                <input type="radio" id="Approval" name="Type" value="Approval" checked readonly>
-                <label for="Approval">Approval</label>
+                <label>Description</label>
+                <textarea maxlength="300" name="Description" style="rows:7; cols: 40; height: 150px"></textarea>
             </div>
-
-            <div class="form-input" style="margin-bottom: 10px">
-                <label>Status</label>
-                <input type="radio" id="Available" name="Status" value="Available" required>
-                <label for="Available">Available</label>
-                <input type="radio" id="OutofOrder" name="Status" value="OutofOrder">
-                <label for="OutofOrder">Out of Order</label>
-            </div>
-
-
-            <div class="form-input" style="margin-bottom: 10px">
-                <label>Capacity</label> <input type="number" name="Capacity" required>
-            </div>
-
-            <div class="form-group" style="margin-bottom: 10px">
-                <label>Picture</label> <input type="file" name="Picture">
-            </div>
+            
+            <input type="hidden" id="Approval" name="Type" value="Approval">
+            <input type="hidden" id="Available" name="Status" value="Available">
 
             <button type="submit" style="margin-top:10px">Create</button>
         </form>
@@ -77,12 +66,12 @@
 
     function categoryHandler() {
         if(this.id == "categoryOther") {
-        otherField.disabled = false;
+        otherField.style.display = "";
         otherField.value = tempCategory;
       } else {
         tempCategory = otherField.value;
         otherField.value = "";
-        otherField.disabled = true;
+        otherField.style.display = "none";
       }
 }
 </script>

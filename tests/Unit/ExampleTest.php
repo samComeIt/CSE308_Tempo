@@ -14,6 +14,20 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
+
+        $response = $this->post('/open', [
+            'Name' => '',
+            'Category' => '',
+            'Location' => '',
+            'Type' => '',
+            'Capacity' => '',
+            'filename' => '',
+            'mime' => '',
+            'original_filename' => '',
+            'Status' => '',
+        ]);
+        $response->assertOk();
+
         $this->assertTrue(true);
     }
 }
