@@ -15,7 +15,7 @@ Kyu Hee is a designer and a product owner.
 
 Website Link
 -------------
-http://tempo-igc.herokuapp.com/
+http://tempo-roomreservation.herokuapp.com/
 
 Operating System
 ------------------
